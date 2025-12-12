@@ -1163,16 +1163,78 @@
             cursor: pointer;
             padding: 10px;
             z-index: 1001;
+            background: none;
+            border: none;
         }
 
         .menu-toggle span {
-            width: 25px;
+            width: 28px;
             height: 2px;
             background: var(--white);
             transition: all 0.3s ease;
+            transform-origin: center;
         }
 
-        /* Responsive */
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Mobile Navigation Overlay */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--black);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .mobile-nav.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav a {
+            font-family: 'Anton', sans-serif;
+            font-size: 2rem;
+            color: var(--white);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a:active {
+            color: var(--red);
+        }
+
+        .mobile-nav .mobile-cta {
+            margin-top: 1rem;
+            background: var(--red);
+            padding: 1rem 2rem;
+            font-size: 1rem;
+        }
+
+        /* Responsive - Tablet */
         @media (max-width: 1024px) {
             .hero {
                 grid-template-columns: 1fr;
@@ -1195,6 +1257,10 @@
             .about {
                 grid-template-columns: 1fr;
                 padding: 6rem 3rem;
+            }
+
+            .about::before {
+                font-size: 15vw;
             }
 
             .belt-showcase {
@@ -1232,6 +1298,7 @@
             .sponsorship-image {
                 order: -1;
                 max-width: 400px;
+                margin: 0 auto 2rem;
             }
 
             .contact {
@@ -1240,9 +1307,37 @@
             }
         }
 
+        /* Responsive - Mobile */
         @media (max-width: 768px) {
+            body {
+                font-size: 15px;
+            }
+
             nav {
-                padding: 1rem 1.5rem;
+                padding: 1rem 1.25rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .logo .swiss-cross {
+                width: 24px;
+                height: 24px;
+            }
+
+            .logo .swiss-cross::before {
+                width: 7px;
+                height: 15px;
+                top: 4.5px;
+                left: 8.5px;
+            }
+
+            .logo .swiss-cross::after {
+                width: 15px;
+                height: 7px;
+                top: 8.5px;
+                left: 4.5px;
             }
 
             .nav-links, .nav-cta {
@@ -1253,22 +1348,344 @@
                 display: flex;
             }
 
+            .mobile-nav {
+                display: flex;
+            }
+
+            /* Hero Mobile */
+            .hero {
+                min-height: 100vh;
+                min-height: 100dvh;
+            }
+
             .hero-content {
-                padding: 7rem 1.5rem 4rem;
+                padding: 6rem 1.25rem 3rem;
+                justify-content: flex-end;
+                padding-bottom: 6rem;
+            }
+
+            .hero-image::before {
+                background: linear-gradient(
+                    to top,
+                    var(--black) 0%,
+                    rgba(10,10,10,0.85) 40%,
+                    rgba(10,10,10,0.4) 100%
+                );
+            }
+
+            .hero-subtitle {
+                font-size: 0.75rem;
+                letter-spacing: 0.2em;
+                margin-bottom: 1rem;
+            }
+
+            .hero-title {
+                font-size: clamp(3rem, 15vw, 5rem);
+                margin-bottom: 1rem;
+            }
+
+            .hero-tagline {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+                line-height: 1.5;
             }
 
             .hero-stats {
+                flex-direction: row;
                 flex-wrap: wrap;
-                gap: 2rem;
+                gap: 1.5rem;
+            }
+
+            .stat {
+                flex: 1;
+                min-width: 80px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 0.65rem;
+                letter-spacing: 0.1em;
             }
 
             .hero-scroll {
-                left: 1.5rem;
+                display: none;
             }
 
+            /* About Mobile */
             .about {
-                padding: 4rem 1.5rem;
-                gap: 3rem;
+                padding: 4rem 1.25rem;
+                gap: 2.5rem;
+            }
+
+            .about::before {
+                display: none;
+            }
+
+            .about-images {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.75rem;
+            }
+
+            .about-images img {
+                aspect-ratio: 3/4;
+            }
+
+            .about-images img:nth-child(2) {
+                margin-top: 1.5rem;
+            }
+
+            .section-label {
+                font-size: 0.7rem;
+                margin-bottom: 1rem;
+            }
+
+            .section-label::before {
+                width: 25px;
+            }
+
+            .about-title {
+                font-size: clamp(1.8rem, 8vw, 2.5rem);
+                margin-bottom: 1.5rem;
+            }
+
+            .about-text {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .about-details {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+                margin-top: 2rem;
+                padding-top: 2rem;
+            }
+
+            .detail-label {
+                font-size: 0.65rem;
+            }
+
+            .detail-value {
+                font-size: 0.95rem;
+            }
+
+            /* Achievements Mobile */
+            .achievements {
+                padding: 4rem 0;
+            }
+
+            .achievements-header {
+                padding: 0 1.25rem;
+                margin-bottom: 3rem;
+            }
+
+            .achievements-title {
+                font-size: clamp(2rem, 10vw, 4rem);
+            }
+
+            .belt-showcase {
+                padding: 0 1.25rem;
+                gap: 2rem;
+            }
+
+            .belt-image {
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .belt-image::after {
+                inset: 1rem;
+            }
+
+            .achievements-list {
+                gap: 1rem;
+            }
+
+            .achievement-item {
+                padding: 1.25rem;
+            }
+
+            .achievement-year {
+                font-size: 1.5rem;
+            }
+
+            .achievement-title {
+                font-size: 1rem;
+            }
+
+            .achievement-desc {
+                font-size: 0.85rem;
+            }
+
+            /* Gallery Mobile */
+            .gallery {
+                padding: 4rem 1.25rem;
+            }
+
+            .gallery-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .gallery-title {
+                font-size: clamp(1.8rem, 8vw, 2.5rem);
+            }
+
+            .gallery-nav {
+                display: none;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .gallery-item {
+                aspect-ratio: 4/3;
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 1;
+                grid-row: span 1;
+                aspect-ratio: 3/4;
+            }
+
+            /* Sponsorship Mobile */
+            .sponsorship {
+                padding: 4rem 1.25rem;
+            }
+
+            .sponsorship-content {
+                gap: 2rem;
+            }
+
+            .sponsorship-text h2 {
+                font-size: clamp(1.8rem, 8vw, 2.5rem);
+                margin-bottom: 1rem;
+            }
+
+            .sponsorship-text p {
+                font-size: 1rem;
+            }
+
+            .sponsor-benefits {
+                margin: 2rem 0;
+            }
+
+            .sponsor-benefits li {
+                padding: 0.75rem 0;
+                font-size: 0.95rem;
+            }
+
+            .cta-button {
+                display: block;
+                text-align: center;
+                padding: 1rem 2rem;
+                font-size: 0.85rem;
+            }
+
+            .sponsorship-image {
+                max-width: 250px;
+            }
+
+            .sponsorship-image::before {
+                top: -10px;
+                left: -10px;
+                right: 10px;
+                bottom: 10px;
+            }
+
+            /* Contact Mobile */
+            .contact {
+                padding: 4rem 1.25rem;
+                gap: 2.5rem;
+            }
+
+            .contact-info h2 {
+                font-size: clamp(1.8rem, 8vw, 2.5rem);
+                margin-bottom: 1rem;
+            }
+
+            .contact-info p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .contact-links {
+                gap: 1rem;
+            }
+
+            .contact-link {
+                padding: 1.25rem;
+                gap: 1rem;
+            }
+
+            .contact-link-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+
+            .contact-link-value {
+                font-size: 1rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .contact-form h3 {
+                font-size: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .form-group {
+                margin-bottom: 1.25rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 0.875rem;
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+
+            .form-submit {
+                padding: 1rem;
+            }
+
+            /* Footer Mobile */
+            footer {
+                padding: 2rem 1.25rem;
+                flex-direction: column;
+                gap: 1.25rem;
+                text-align: center;
+            }
+
+            .footer-logo {
+                font-size: 1rem;
+            }
+
+            .footer-text {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Small phones */
+        @media (max-width: 380px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                gap: 1rem;
+            }
+
+            .stat-number {
+                font-size: 1.75rem;
             }
 
             .about-images {
@@ -1279,51 +1696,54 @@
                 margin-top: 0;
             }
 
-            .achievements-header {
-                padding: 0 1.5rem;
-            }
-
-            .belt-showcase {
-                padding: 2rem 1.5rem;
-            }
-
-            .gallery {
-                padding: 4rem 1.5rem;
-            }
-
-            .gallery-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1.5rem;
-            }
-
-            .gallery-grid {
+            .about-details {
                 grid-template-columns: 1fr;
             }
 
-            .gallery-item:nth-child(1) {
-                grid-column: span 1;
-                grid-row: span 1;
+            .mobile-nav a {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .gallery-item:hover img {
+                transform: none;
             }
 
-            .sponsorship {
-                padding: 4rem 1.5rem;
+            .gallery-item::after {
+                opacity: 1;
+                background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 40%);
             }
 
-            .contact {
-                padding: 4rem 1.5rem;
-                gap: 3rem;
+            .about-images img:hover {
+                filter: grayscale(30%);
+                transform: none;
             }
 
-            .contact-form {
-                padding: 2rem 1.5rem;
+            .achievement-item:hover {
+                transform: none;
+            }
+
+            .contact-link:hover {
+                transform: none;
+            }
+        }
+
+        /* Safe area for notched phones */
+        @supports (padding: max(0px)) {
+            .hero-content {
+                padding-left: max(1.25rem, env(safe-area-inset-left));
+                padding-right: max(1.25rem, env(safe-area-inset-right));
+            }
+
+            nav {
+                padding-left: max(1.25rem, env(safe-area-inset-left));
+                padding-right: max(1.25rem, env(safe-area-inset-right));
             }
 
             footer {
-                padding: 2rem 1.5rem;
-                flex-direction: column;
-                gap: 1.5rem;
-                text-align: center;
+                padding-bottom: max(2rem, env(safe-area-inset-bottom));
             }
         }
     </style>
@@ -1342,12 +1762,21 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
         <a href="#sponsorship" class="nav-cta">Partner With Me</a>
-        <div class="menu-toggle">
+        <div class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
             <span></span>
             <span></span>
             <span></span>
         </div>
     </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#about">About</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+        <a href="#sponsorship" class="mobile-cta">Partner With Me</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -1566,6 +1995,34 @@
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close mobile menu when clicking a link
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
             }
         });
 
