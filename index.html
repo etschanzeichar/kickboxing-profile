@@ -204,7 +204,7 @@
         .hero {
             min-height: 100vh;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.4fr;
             position: relative;
             overflow: hidden;
         }
@@ -213,7 +213,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 8rem 6rem;
+            padding: 8rem 2rem 8rem 18rem;
             position: relative;
             z-index: 2;
         }
@@ -246,9 +246,25 @@
             font-weight: 300;
             color: var(--gray);
             max-width: 450px;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             opacity: 0;
             animation: slideUp 0.8s ease 0.7s forwards;
+        }
+
+        .hero-sponsor-link {
+            display: inline-block;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: slideUp 0.8s ease 0.9s forwards;
+        }
+
+        .hero-sponsor-link:hover {
+            color: var(--red);
         }
 
         .hero-stats {
@@ -818,6 +834,108 @@
             color: var(--red);
         }
 
+        /* Values Section */
+        .values {
+            padding: 10rem 6rem;
+            background: var(--dark);
+        }
+
+        .values-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            border: 1px solid var(--gray-dark);
+        }
+
+        .value-item {
+            padding: 2rem;
+            border-right: 1px solid var(--gray-dark);
+            border-bottom: 1px solid var(--gray-dark);
+        }
+
+        .value-item:nth-child(2n) {
+            border-right: none;
+        }
+
+        .value-item:nth-child(5),
+        .value-item:nth-child(6) {
+            border-bottom: none;
+        }
+
+        .value-icon {
+            width: 32px;
+            height: 32px;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .value-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .value-item h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .value-item p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        .values-text h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .values-text p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .values-link {
+            display: inline-block;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .values-link:hover {
+            color: var(--red);
+        }
+
+        .values-image {
+            margin-top: 2rem;
+            max-width: 100%;
+        }
+
+        .values-image img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            filter: grayscale(30%);
+            transition: filter 0.3s ease;
+        }
+
+        .values-image img:hover {
+            filter: grayscale(0%);
+        }
+
         /* Kickboxing Section */
         .kickboxing {
             padding: 10rem 6rem;
@@ -1182,7 +1300,7 @@
 
         .sponsorship-content {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 6rem;
             align-items: center;
             position: relative;
@@ -1191,75 +1309,65 @@
 
         .sponsorship-text h2 {
             font-size: clamp(1.8rem, 4vw, 2.5rem);
-            margin-bottom: 2rem;
-        }
-
-        .sponsorship-text p {
-            font-size: 1.2rem;
-            font-weight: 300;
             margin-bottom: 1.5rem;
-            color: var(--gray);
         }
 
-        .sponsor-benefits {
-            list-style: none;
-            margin: 3rem 0;
-        }
-
-        .sponsor-benefits li {
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--gray-dark);
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+        .sponsorship-intro {
             font-size: 1.1rem;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
             color: var(--gray);
+            line-height: 1.7;
         }
 
-        .sponsor-benefits li::before {
-            content: '→';
-            font-weight: bold;
-            color: var(--red);
+        .sponsor-features {
+            display: flex;
+            flex-direction: column;
         }
 
-        .cta-button {
-            display: inline-block;
-            background: var(--red);
+        .sponsor-feature {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+
+        .sponsor-feature:first-child {
+            border-top: 1px solid var(--gray-dark);
+        }
+
+        .sponsor-feature h3 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
             color: var(--white);
-            padding: 1.25rem 3rem;
+        }
+
+        .sponsor-feature p {
+            font-size: 0.95rem;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        .sponsor-cta {
+            display: inline-block;
+            color: var(--white);
+            padding: 1rem 0;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            margin-top: 2rem;
+            margin-left: 2rem;
             transition: all 0.3s ease;
-            border: 3px solid var(--red);
         }
 
-        .cta-button:hover {
-            background: transparent;
+        .sponsor-cta:hover {
             color: var(--red);
-        }
-
-        .sponsorship-image {
-            position: relative;
         }
 
         .sponsorship-image img {
             width: 100%;
             aspect-ratio: 3/4;
             object-fit: cover;
-        }
-
-        .sponsorship-image::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            right: 20px;
-            bottom: 20px;
-            border: 3px solid var(--red);
-            opacity: 0.4;
         }
 
         /* Contact Section */
@@ -1800,6 +1908,23 @@
                 gap: 2rem;
             }
 
+            .values {
+                padding: 6rem 3rem;
+            }
+
+            .values-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .values-grid {
+                order: 1;
+            }
+
+            .values-text {
+                order: 0;
+            }
+
             .achievements-carousel {
                 flex-wrap: wrap;
                 padding: 2rem;
@@ -1950,8 +2075,12 @@
 
             .hero-tagline {
                 font-size: 1rem;
-                margin-bottom: 2rem;
+                margin-bottom: 1.5rem;
                 line-height: 1.5;
+            }
+
+            .hero-sponsor-link {
+                font-size: 1rem;
             }
 
             .hero-stats {
@@ -2042,6 +2171,45 @@
                 margin-top: 1.5rem;
                 margin-left: 0;
                 text-align: center;
+            }
+
+            /* Values Mobile */
+            .values {
+                padding: 4rem 1.25rem;
+            }
+
+            .values-content {
+                gap: 2rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .value-item {
+                padding: 1.5rem;
+                border-right: none;
+                border-bottom: 1px solid var(--gray-dark);
+            }
+
+            .value-item:last-child {
+                border-bottom: none;
+            }
+
+            .value-item h3 {
+                font-size: 1rem;
+            }
+
+            .value-item p {
+                font-size: 0.85rem;
+            }
+
+            .values-text h2 {
+                font-size: clamp(1.5rem, 6vw, 2rem);
+            }
+
+            .values-text p {
+                font-size: 1rem;
             }
 
             /* Achievements Mobile */
@@ -2241,12 +2409,25 @@
                 margin-bottom: 1rem;
             }
 
-            .sponsorship-text p {
+            .sponsorship-intro {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .sponsor-features {
+                gap: 1.25rem;
+            }
+
+            .sponsor-feature-text h3 {
                 font-size: 1rem;
             }
 
-            .sponsor-benefits {
-                margin: 2rem 0;
+            .sponsor-feature-text p {
+                font-size: 0.9rem;
+            }
+
+            .sponsor-cta {
+                margin-left: 0;
             }
 
             .sponsor-benefits li {
@@ -2263,13 +2444,6 @@
 
             .sponsorship-image {
                 max-width: 250px;
-            }
-
-            .sponsorship-image::before {
-                top: -10px;
-                left: -10px;
-                right: 10px;
-                bottom: 10px;
             }
 
             /* Contact Mobile */
@@ -2473,10 +2647,7 @@
                 Eva Lina<span>Tschanz-Eichar</span>
             </h1>
             <p class="hero-tagline">Up and coming young Swiss kickboxer with international success, representing skill and ambition.</p>
-            <div class="hero-buttons" style="display: flex; gap: 1rem; margin-top: 2rem;">
-                <a href="#sponsorship" class="cta-button">Become a Sponsor</a>
-                <a href="#contact" class="cta-button" style="background: transparent; color: var(--white); border-color: var(--white);">Contact Me</a>
-            </div>
+            <a href="#sponsorship" class="hero-sponsor-link">→ Become a Sponsor</a>
         </div>
         <div class="hero-image">
             <img src="images/web/AF70E04B-6888-4BD9-9F82-B245DDBEF91A.jpg" alt="Eva Tschanz in fighting stance with boxing gloves">
@@ -2525,7 +2696,64 @@
                             <span class="detail-value">2024</span>
                         </div>
                     </div>
-                    <a href="#contact" class="about-cta">- Get in Touch</a>
+                    <a href="#contact" class="about-cta">→ Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values" id="values">
+        <div class="values-content">
+            <div class="values-grid reveal">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3>Consistency</h3>
+                    <p>Showing up every day, putting in the work, and trusting the process</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <h3>Discipline</h3>
+                    <p>Making the right choices even when no one is watching</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h3>Growth</h3>
+                    <p>Becoming the best version of myself, one day at a time</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </div>
+                    <h3>Respect</h3>
+                    <p>Treating everyone with kindness, in and out of the ring</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>Striving for greatness in every training session and competition</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Inspiration</h3>
+                    <p>Being a role model for young athletes, especially girls in combat sports</p>
+                </div>
+            </div>
+            <div class="values-text reveal">
+                <h2>What I Stand For</h2>
+                <p>These core values guide everything I do - from early morning training sessions to competing on the international stage. They shape who I am as an athlete and as a person.</p>
+                <div class="values-image">
+                    <img src="images/web/IMG_2291.JPG" alt="Eva Tschanz getting hands wrapped before fight">
                 </div>
             </div>
         </div>
@@ -2787,14 +3015,26 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
         <div class="sponsorship-content">
             <div class="sponsorship-text reveal">
                 <h2>Partner With a Champion</h2>
-                <p>Investing in Eva means aligning your brand with excellence, determination, and the spirit of Swiss athletics. Together, we can achieve greatness on the world stage.</p>
-                <ul class="sponsor-benefits">
-                    <li>Authentic, high-impact content from training, competition, and daily fight life</li>
-                    <li>Strong brand visibility at national and international K1 and kickboxing events</li>
-                    <li>Consistent representation of Boxraw across training, media, and social platforms</li>
-                    <li>A driven and inspiring young athlete who motivates others to find strength and confidence through combat sports</li>
-                </ul>
-                <a href="#contact" class="cta-button">Become a Sponsor</a>
+                <p class="sponsorship-intro">Investing in Eva means aligning your brand with excellence, determination, and the spirit of Swiss athletics.</p>
+                <div class="sponsor-features">
+                    <div class="sponsor-feature">
+                        <h3>Authentic Content</h3>
+                        <p>High-impact content from training, competition, and daily fight life</p>
+                    </div>
+                    <div class="sponsor-feature">
+                        <h3>Brand Visibility</h3>
+                        <p>Strong presence at national and international K1 and kickboxing events</p>
+                    </div>
+                    <div class="sponsor-feature">
+                        <h3>Consistent Representation</h3>
+                        <p>Your brand across training, media, and social platforms</p>
+                    </div>
+                    <div class="sponsor-feature">
+                        <h3>Inspiring Ambassador</h3>
+                        <p>A driven young athlete motivating others through combat sports</p>
+                    </div>
+                </div>
+                <a href="#contact" class="sponsor-cta">→ Become a Sponsor</a>
             </div>
             <div class="sponsorship-image reveal">
                 <img src="images/web/eva961.jpg" alt="Eva Tschanz in Swiss national gear from behind">
