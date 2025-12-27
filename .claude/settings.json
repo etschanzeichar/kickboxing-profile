@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx playwright test:*)",
+      "Bash(cat:*)"
+    ]
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true
+  }
+}
