@@ -3458,10 +3458,16 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
             }
         });
 
-        // Escape key to zoom out
+        // Keyboard navigation for timeline
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && timelineContainer.classList.contains('zoomed')) {
+            if (!timelineContainer.classList.contains('zoomed')) return;
+
+            if (e.key === 'Escape') {
                 zoomOut();
+            } else if (e.key === 'ArrowLeft' && currentSection > 1) {
+                zoomToSection(currentSection - 1);
+            } else if (e.key === 'ArrowRight' && currentSection < totalSections) {
+                zoomToSection(currentSection + 1);
             }
         });
 
