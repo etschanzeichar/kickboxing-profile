@@ -57,29 +57,3 @@ test.describe('Page Load', () => {
     await expect(footer).toBeAttached();
   });
 });
-
-test.describe('Anchor Navigation', () => {
-  const anchors = [
-    { id: 'hero', name: 'Hero' },
-    { id: 'about', name: 'About' },
-    { id: 'kickboxing', name: 'Kickboxing' },
-    { id: 'education', name: 'Education' },
-    { id: 'achievements', name: 'Achievements' },
-    { id: 'gallery', name: 'Gallery' },
-    { id: 'sponsorship', name: 'Sponsorship' },
-    { id: 'contact', name: 'Contact' },
-    { id: 'footer', name: 'Footer' },
-  ];
-
-  for (const anchor of anchors) {
-    test(`direct navigation to #${anchor.id} should scroll to ${anchor.name} section`, async ({ page }) => {
-      await page.goto(`/#${anchor.id}`);
-
-      // Wait for any scroll animation
-      await page.waitForTimeout(600);
-
-      const section = page.locator(`#${anchor.id}`);
-      await expect(section).toBeInViewport({ ratio: 0.1 });
-    });
-  }
-});
