@@ -9,8 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --black: #000000;
-            --dark: #000000;
+            --black: #e7efff;
+            --dark: #e7efff;
             --red: #6d7698;
             --red-dark: #5a6380;
             --blue: #2563eb;
@@ -271,11 +271,11 @@
         }
 
         .hero-bottom {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 2rem;
+            display: flex;
+            justify-content: center;
             align-items: center;
             margin-bottom: -150px;
+            margin-top: 2rem;
         }
 
         .hero-image-left,
@@ -293,13 +293,14 @@
             left: 0;
             right: 0;
             height: 50%;
-            background: linear-gradient(to bottom, transparent 0%, #000000 100%);
+            background: linear-gradient(to bottom, transparent 0%, #e7efff 100%);
             pointer-events: none;
             z-index: 1;
         }
 
         .hero-image-left {
-            margin-top: -2rem;
+            max-width: 500px;
+            width: 100%;
         }
 
         .hero-image-left img,
@@ -326,7 +327,7 @@
             gap: 1rem;
             margin-bottom: 2rem;
             margin-top: 2rem;
-            margin-left: 25rem;
+            justify-content: center;
             opacity: 0;
             animation: slideUp 0.8s ease 0.9s forwards;
         }
@@ -349,7 +350,6 @@
             font-size: 1rem;
             letter-spacing: 0.05em;
             transition: all 0.3s ease;
-            margin-left: 25rem;
             opacity: 0;
             animation: slideUp 0.8s ease 1.1s forwards;
         }
@@ -718,6 +718,7 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            background: #e7efff;
         }
 
         .about-card {
@@ -1918,7 +1919,7 @@
             }
 
             .achievement-item {
-                background: #f5f5f5 !important;
+                background: #e7efff !important;
                 border-left: 3px solid #e63946 !important;
                 padding: 1rem !important;
                 page-break-inside: avoid;
@@ -1995,7 +1996,7 @@
             }
 
             .contact-link {
-                background: #f5f5f5 !important;
+                background: #e7efff !important;
                 flex: 1;
                 min-width: 200px;
             }
@@ -2805,7 +2806,7 @@
         <ul class="nav-links">
             <li><a href="#about">About Me</a></li>
             <li><a href="#achievements">Achievements</a></li>
-            <li><a href="#budget">My Plan</a></li>
+            <li><a href="#budget">My Journey</a></li>
             <li><a href="#contact">Contacts</a></li>
         </ul>
         <a href="#contact" class="nav-cta">Partner With Me</a>
@@ -2821,7 +2822,7 @@
     <div class="sidebar-nav" id="sidebarNav">
         <a href="#about">About Me</a>
         <a href="#achievements">Achievements</a>
-        <a href="#budget">My Plan</a>
+        <a href="#budget">My Journey</a>
         <a href="#contact">Contacts</a>
     </div>
 
@@ -2889,90 +2890,72 @@
         </div>
     </section>
 
-    <!-- Values Section -->
-    <section class="values" id="values">
-        <div class="values-content">
-            <div class="values-grid reveal">
-                <div class="value-item">
-                    <div class="value-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                    </div>
-                    <h3>Consistency</h3>
-                    <p>Showing up every day, putting in the work, and trusting the process</p>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-                    </div>
-                    <h3>Discipline</h3>
-                    <p>Making the right choices even when no one is watching</p>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    </div>
-                    <h3>Growth</h3>
-                    <p>Becoming the best version of myself, one day at a time</p>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                    </div>
-                    <h3>Respect</h3>
-                    <p>Treating everyone with kindness, in and out of the ring</p>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                    </div>
-                    <h3>Excellence</h3>
-                    <p>Striving for greatness in every training session and competition</p>
-                </div>
-                <div class="value-item">
-                    <div class="value-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <h3>Inspiration</h3>
-                    <p>Being a role model for young athletes, especially girls in combat sports</p>
-                </div>
+    <!-- Achievements Section -->
+    <section class="achievements" id="achievements">
+        <div class="achievements-header reveal">
+            <h2 class="achievements-title">Achievements</h2>
+        </div>
+        <div class="achievements-carousel reveal">
+            <!-- European Championships -->
+            <div class="achievement-card" data-category="European Championships" data-title="European Championships" data-location="Jesolo, Italy" data-result="3 Fights, 3 Wins - Gold Medal" data-description="9 competitors in category. Dominated every fight to claim the title." data-quote="I prepared all summer for this competition. I didn't go on holidays, I stayed home and trained multiple times a day. Focused a lot on my nutrition and health, gave my all, and ended up winning.">
+                <div class="card-category">European Championships</div>
+                <div class="card-title">European Championships</div>
+                <div class="card-location">Jesolo, Italy</div>
+                <div class="card-result">3 Fights, 3 Wins - Gold Medal</div>
+                <div class="card-preview">9 competitors in category. Dominated every fight to claim the European title after intense summer preparation.</div>
+                <div class="card-expand">Click to read more →</div>
             </div>
-            <div class="values-text reveal">
-                <h2>What I Stand For</h2>
-                <p>These core values guide everything I do - from early morning training sessions to competing on the international stage. They shape who I am as an athlete and as a person.</p>
-                <div class="values-image">
-                    <img src="images/web/IMG_2291.JPG" alt="Eva Tschanz getting hands wrapped before fight">
+
+            <!-- International Cups Combined -->
+            <div class="achievement-card" data-category="International Cups" data-title="International Cups" data-location="Sarajevo, Hungary, Turkey, Italy" data-result="Multiple Gold Medals & Valuable Experience" data-description="European Cup Grand Prix (Sarajevo): Tough fights throughout the tournament, but secured the first gold medal in international competition. A breakthrough moment in the career.
+
+World Cup Hungary (Budapest): Dominant win against a skilled opponent, showcasing technical superiority and fight IQ.
+
+World Cup Turkey (Antalya): Won first fight by TKO. Lost second fight against the same opponent from Italy - a world champion and European champion who rarely loses. This loss ignited more fire to work harder. Goal: win against her in 2026.
+
+World Cup Jesolo (Italy): Lost first fight, but this setback provided crucial motivation to train harder and improve. Every loss is a lesson that drives progress.">
+                <div class="card-category">International Cups</div>
+                <div class="card-title">International Cups</div>
+                <div class="card-location">Sarajevo • Hungary • Turkey • Italy</div>
+                <div class="card-result">Multiple Gold Medals & Growth</div>
+                <div class="card-preview">
+                    <strong>Sarajevo:</strong> First international gold medal<br>
+                    <strong>Budapest:</strong> Dominant win<br>
+                    <strong>Antalya:</strong> TKO victory, faced world champion<br>
+                    <strong>Jesolo:</strong> Learning experience - fuel for improvement
                 </div>
+                <div class="card-expand">Click to read more →</div>
+            </div>
+
+            <!-- Swiss Championships Combined -->
+            <div class="achievement-card" data-category="Swiss Championships" data-title="Swiss Championships" data-location="Switzerland" data-result="National Champion (WAKO & SCOS)" data-description="WAKO Championships: Dominated the competition at the Swiss WAKO Championships, showcasing superior technique and conditioning.
+
+SCOS Championships: After a full year of qualifications, won most of them to qualify for the finals. Secured a clear victory in the championship finals.">
+                <div class="card-category">Swiss Championships</div>
+                <div class="card-title">Swiss Championships</div>
+                <div class="card-location">Switzerland</div>
+                <div class="card-result">National Champion (WAKO & SCOS)</div>
+                <div class="card-preview">
+                    <strong>WAKO:</strong> Dominant win at national level<br>
+                    <strong>SCOS:</strong> After a year of qualifications, won most of them and secured a clear victory in the finals
+                </div>
+                <div class="card-expand">Click to read more →</div>
             </div>
         </div>
     </section>
 
-    <!-- Kickboxing Section -->
-    <section class="kickboxing" id="kickboxing">
-        <div class="kickboxing-image reveal">
-            <img src="images/web/4bc9a8b9-dc9c-4b07-b02f-e8daea322b95.jpg" alt="Eva Tschanz with coach in the ring corner">
+    <!-- Achievement Modal -->
+    <div class="achievement-modal" id="achievementModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-category" id="modalCategory"></div>
+            <h3 class="modal-title" id="modalTitle"></h3>
+            <div class="modal-location" id="modalLocation"></div>
+            <div class="modal-result" id="modalResult"></div>
+            <div class="modal-description" id="modalDescription"></div>
+            <div class="modal-quote" id="modalQuote"></div>
         </div>
-        <div class="kickboxing-content reveal">
-            <h2 class="kickboxing-title">K1 Kickboxing</h2>
-            <p class="kickboxing-text">K1 kickboxing is one of the most intense striking martial arts in the world, combining techniques from Muay Thai, Karate, and Western Boxing into a fast-paced, explosive combat sport.</p>
-            <p class="kickboxing-text">Fighters use punches, kicks, and knee strikes to score points or achieve knockouts. Unlike Muay Thai, elbows are not allowed and clinching is limited, keeping the action focused on dynamic striking exchanges.</p>
-            <p class="kickboxing-text">Matches consist of three 3-minute rounds. Victory can be achieved by knockout, technical knockout (3 knockdowns in one round), or judges' decision based on effective strikes, damage, and aggression.</p>
-            <p class="kickboxing-text">K1 has grown into a global phenomenon with major international competitions including European Championships, World Cups, and World Championships organized by federations like WAKO (World Association of Kickboxing Organizations).</p>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section class="education section-alt" id="education">
-        <div class="education-content reveal">
-            <h2 class="education-title">Education & Goals</h2>
-            <p class="education-text">Outside the ring, I attend the Neufeld Sports Gymnasium in Bern, aiming for a career as a professional kickboxer with the long-term goal of the Olympic Games.</p>
-            <p class="education-text">Alongside my athletic ambitions, I'm interested in studying Computer Science or Engineering.</p>
-            <p class="education-text">I've completed the Swiss J+S instructor course and coach children's classes at my gym.</p>
-            <p class="education-text">As a role model for young girls in combat sports, I strive to inspire them to follow their own path and gain confidence through discipline and hard work.</p>
-        </div>
-        <div class="education-image reveal">
-            <img src="images/6318a66f-7079-446a-b44a-3199e1eeac28.jpg" alt="Eva Tschanz in the ring at competition">
-        </div>
-    </section>
+    </div>
 
     <!-- Timeline Section -->
     <section class="timeline" id="journey">
@@ -3102,73 +3085,6 @@
         </div>
     </section>
 
-    <!-- Achievements Section -->
-    <section class="achievements" id="achievements">
-        <div class="achievements-header reveal">
-            <h2 class="achievements-title">Achievements</h2>
-        </div>
-        <div class="achievements-carousel reveal">
-            <!-- European Championships -->
-            <div class="achievement-card" data-category="European Championships" data-title="European Championships" data-location="Jesolo, Italy" data-result="3 Fights, 3 Wins - Gold Medal" data-description="9 competitors in category. Dominated every fight to claim the title." data-quote="I prepared all summer for this competition. I didn't go on holidays, I stayed home and trained multiple times a day. Focused a lot on my nutrition and health, gave my all, and ended up winning.">
-                <div class="card-category">European Championships</div>
-                <div class="card-title">European Championships</div>
-                <div class="card-location">Jesolo, Italy</div>
-                <div class="card-result">3 Fights, 3 Wins - Gold Medal</div>
-                <div class="card-preview">9 competitors in category. Dominated every fight to claim the European title after intense summer preparation.</div>
-                <div class="card-expand">Click to read more →</div>
-            </div>
-
-            <!-- International Cups Combined -->
-            <div class="achievement-card" data-category="International Cups" data-title="International Cups" data-location="Sarajevo, Hungary, Turkey, Italy" data-result="Multiple Gold Medals & Valuable Experience" data-description="European Cup Grand Prix (Sarajevo): Tough fights throughout the tournament, but secured the first gold medal in international competition. A breakthrough moment in the career.
-
-World Cup Hungary (Budapest): Dominant win against a skilled opponent, showcasing technical superiority and fight IQ.
-
-World Cup Turkey (Antalya): Won first fight by TKO. Lost second fight against the same opponent from Italy - a world champion and European champion who rarely loses. This loss ignited more fire to work harder. Goal: win against her in 2026.
-
-World Cup Jesolo (Italy): Lost first fight, but this setback provided crucial motivation to train harder and improve. Every loss is a lesson that drives progress.">
-                <div class="card-category">International Cups</div>
-                <div class="card-title">International Cups</div>
-                <div class="card-location">Sarajevo • Hungary • Turkey • Italy</div>
-                <div class="card-result">Multiple Gold Medals & Growth</div>
-                <div class="card-preview">
-                    <strong>Sarajevo:</strong> First international gold medal<br>
-                    <strong>Budapest:</strong> Dominant win<br>
-                    <strong>Antalya:</strong> TKO victory, faced world champion<br>
-                    <strong>Jesolo:</strong> Learning experience - fuel for improvement
-                </div>
-                <div class="card-expand">Click to read more →</div>
-            </div>
-
-            <!-- Swiss Championships Combined -->
-            <div class="achievement-card" data-category="Swiss Championships" data-title="Swiss Championships" data-location="Switzerland" data-result="National Champion (WAKO & SCOS)" data-description="WAKO Championships: Dominated the competition at the Swiss WAKO Championships, showcasing superior technique and conditioning.
-
-SCOS Championships: After a full year of qualifications, won most of them to qualify for the finals. Secured a clear victory in the championship finals.">
-                <div class="card-category">Swiss Championships</div>
-                <div class="card-title">Swiss Championships</div>
-                <div class="card-location">Switzerland</div>
-                <div class="card-result">National Champion (WAKO & SCOS)</div>
-                <div class="card-preview">
-                    <strong>WAKO:</strong> Dominant win at national level<br>
-                    <strong>SCOS:</strong> After a year of qualifications, won most of them and secured a clear victory in the finals
-                </div>
-                <div class="card-expand">Click to read more →</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Achievement Modal -->
-    <div class="achievement-modal" id="achievementModal">
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose">&times;</button>
-            <div class="modal-category" id="modalCategory"></div>
-            <h3 class="modal-title" id="modalTitle"></h3>
-            <div class="modal-location" id="modalLocation"></div>
-            <div class="modal-result" id="modalResult"></div>
-            <div class="modal-description" id="modalDescription"></div>
-            <div class="modal-quote" id="modalQuote"></div>
-        </div>
-    </div>
-
     <!-- Budget Section -->
     <section class="budget" id="budget">
         <div class="budget-header reveal">
@@ -3222,6 +3138,91 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
                 <p>Every franc invested goes directly into training, competition, and development. As an amateur athlete, I balance my athletic career with studies and work, dedicating every available resource to reaching the top of my sport.</p>
                 <p>Your sponsorship helps cover these essential costs, allowing me to focus on what matters most: becoming the best kickboxer I can be and representing Switzerland on the world stage.</p>
                 <a href="#contact" class="budget-cta">→ Discuss Sponsorship</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education section-alt" id="education">
+        <div class="education-content reveal">
+            <h2 class="education-title">Education & Goals</h2>
+            <p class="education-text">Outside the ring, I attend the Neufeld Sports Gymnasium in Bern, aiming for a career as a professional kickboxer with the long-term goal of the Olympic Games.</p>
+            <p class="education-text">Alongside my athletic ambitions, I'm interested in studying Computer Science or Engineering.</p>
+            <p class="education-text">I've completed the Swiss J+S instructor course and coach children's classes at my gym.</p>
+            <p class="education-text">As a role model for young girls in combat sports, I strive to inspire them to follow their own path and gain confidence through discipline and hard work.</p>
+        </div>
+        <div class="education-image reveal">
+            <img src="images/6318a66f-7079-446a-b44a-3199e1eeac28.jpg" alt="Eva Tschanz in the ring at competition">
+        </div>
+    </section>
+
+    <!-- Kickboxing Section -->
+    <section class="kickboxing" id="kickboxing">
+        <div class="kickboxing-image reveal">
+            <img src="images/web/4bc9a8b9-dc9c-4b07-b02f-e8daea322b95.jpg" alt="Eva Tschanz with coach in the ring corner">
+        </div>
+        <div class="kickboxing-content reveal">
+            <h2 class="kickboxing-title">K1 Kickboxing</h2>
+            <p class="kickboxing-text">K1 kickboxing is one of the most intense striking martial arts in the world, combining techniques from Muay Thai, Karate, and Western Boxing into a fast-paced, explosive combat sport.</p>
+            <p class="kickboxing-text">Fighters use punches, kicks, and knee strikes to score points or achieve knockouts. Unlike Muay Thai, elbows are not allowed and clinching is limited, keeping the action focused on dynamic striking exchanges.</p>
+            <p class="kickboxing-text">Matches consist of three 3-minute rounds. Victory can be achieved by knockout, technical knockout (3 knockdowns in one round), or judges' decision based on effective strikes, damage, and aggression.</p>
+            <p class="kickboxing-text">K1 has grown into a global phenomenon with major international competitions including European Championships, World Cups, and World Championships organized by federations like WAKO (World Association of Kickboxing Organizations).</p>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values" id="values">
+        <div class="values-content">
+            <div class="values-grid reveal">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3>Consistency</h3>
+                    <p>Showing up every day, putting in the work, and trusting the process</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <h3>Discipline</h3>
+                    <p>Making the right choices even when no one is watching</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h3>Growth</h3>
+                    <p>Becoming the best version of myself, one day at a time</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </div>
+                    <h3>Respect</h3>
+                    <p>Treating everyone with kindness, in and out of the ring</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>Striving for greatness in every training session and competition</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Inspiration</h3>
+                    <p>Being a role model for young athletes, especially girls in combat sports</p>
+                </div>
+            </div>
+            <div class="values-text reveal">
+                <h2>What I Stand For</h2>
+                <p>These core values guide everything I do - from early morning training sessions to competing on the international stage. They shape who I am as an athlete and as a person.</p>
+                <div class="values-image">
+                    <img src="images/web/IMG_2291.JPG" alt="Eva Tschanz getting hands wrapped before fight">
+                </div>
             </div>
         </div>
     </section>

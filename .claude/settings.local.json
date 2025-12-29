@@ -12,7 +12,9 @@
       "Bash(git fetch:*)",
       "Bash(git merge:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(powershell -Command \"npm test\")",
+      "Bash(where npm:*)"
     ]
   }
 }
