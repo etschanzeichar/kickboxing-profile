@@ -274,8 +274,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: -150px;
-            margin-top: 2rem;
+            margin-bottom: 4rem;
+            margin-top: 4rem;
         }
 
         .hero-image-left,
@@ -287,15 +287,7 @@
 
         .hero-image-left::after,
         .hero-image-right::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50%;
-            background: linear-gradient(to bottom, transparent 0%, #e7efff 100%);
-            pointer-events: none;
-            z-index: 1;
+            display: none;
         }
 
         .hero-image-left {
