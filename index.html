@@ -1509,6 +1509,136 @@
             color: var(--red);
         }
 
+        /* Partners Section */
+        .partners {
+            padding: 8rem 6rem;
+            background: #e7efff;
+        }
+
+        .partners h2 {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 4rem;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .partner-card {
+            background: hsl(220, 100%, 94%);
+            padding: 3rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .partner-image {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .partner-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            padding: 2rem;
+        }
+
+        .partner-modal.active {
+            display: flex;
+        }
+
+        .partner-modal-content {
+            background: hsl(220, 100%, 94%);
+            padding: 4rem;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 100%;
+            cursor: default;
+            position: relative;
+        }
+
+        .partner-modal-content .partner-image {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+            margin-bottom: 2rem;
+        }
+
+        .partner-modal-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .partner-modal-content .partner-description {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .partner-modal-content .partner-role {
+            font-size: 0.9rem;
+            color: var(--red);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .partner-modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: white;
+            font-size: 3rem;
+            font-weight: 300;
+            cursor: pointer;
+            z-index: 10001;
+        }
+
+        .partner-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .partner-description {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .partner-role {
+            font-size: 0.85rem;
+            color: var(--red);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
         /* Contact Section */
         .contact {
             padding: 2rem 6rem 10rem;
@@ -2684,6 +2814,24 @@
                 font-size: 1.3rem;
             }
 
+            /* Partners Mobile */
+            .partners {
+                padding: 4rem 1.25rem;
+            }
+
+            .partners h2 {
+                margin-bottom: 2.5rem;
+            }
+
+            .partners-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .partner-card {
+                padding: 2rem;
+            }
+
             /* Contact Mobile */
             .contact {
                 padding: 4rem 1.25rem;
@@ -3331,6 +3479,31 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
         </div>
     </section>
 
+    <!-- Current Partners Section -->
+    <section class="partners" id="partners">
+        <div class="container">
+            <h2 class="reveal">Current Partners</h2>
+            <div class="partners-grid">
+                <div class="partner-card reveal">
+                    <img src="images/WhatsApp Image 2026-01-04 at 08.24.41.jpeg" alt="Edubily Partnership" class="partner-image">
+                    <div class="partner-content">
+                        <h3>Edubily</h3>
+                        <p class="partner-description">Creating engaging content and collaborating on health and performance-focused initiatives.</p>
+                        <div class="partner-role">Content Creator</div>
+                    </div>
+                </div>
+                <div class="partner-card reveal">
+                    <img src="images/web/WhatsApp Image 2026-01-04 at 08.32.28.jpeg" alt="McDonald's Bern Bahnhof Partnership" class="partner-image">
+                    <div class="partner-content">
+                        <h3>McDonald's Bern Bahnhof</h3>
+                        <p class="partner-description">Proudly partnered through Sporthilfe, supporting my athletic journey and representing the brand at competitions.</p>
+                        <div class="partner-role">Athlete Partnership via Sporthilfe</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="contact-info reveal">
@@ -3393,6 +3566,7 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
             <a href="#values">Values</a>
             <a href="#gallery">Gallery</a>
             <a href="#sponsorship">Sponsorship</a>
+            <a href="#partners">Partners</a>
             <a href="#contact">Contact</a>
         </div>
         <div class="footer-social">
@@ -3415,6 +3589,13 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
             </div>
         </div>
     </footer>
+
+    <!-- Partner Modal -->
+    <div class="partner-modal" id="partnerModal">
+        <div class="partner-modal-close">&times;</div>
+        <div class="partner-modal-content" id="partnerModalContent">
+        </div>
+    </div>
 
     <script>
         // Navbar scroll effect
@@ -3625,6 +3806,48 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && achievementModal.classList.contains('active')) {
                 achievementModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Partner Card Modal
+        const partnerModal = document.getElementById('partnerModal');
+        const partnerModalContent = document.getElementById('partnerModalContent');
+        const partnerCards = document.querySelectorAll('.partner-card');
+        const partnerModalClose = document.querySelector('.partner-modal-close');
+
+        partnerCards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Clone the card content
+                const cardClone = card.cloneNode(true);
+                partnerModalContent.innerHTML = '';
+                partnerModalContent.appendChild(cardClone);
+
+                partnerModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        partnerModal.addEventListener('click', (e) => {
+            if (e.target === partnerModal) {
+                partnerModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        partnerModalContent.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        partnerModalClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            partnerModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && partnerModal.classList.contains('active')) {
+                partnerModal.classList.remove('active');
                 document.body.style.overflow = '';
             }
         });
