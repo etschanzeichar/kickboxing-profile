@@ -14,7 +14,9 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(powershell -Command \"npm test\")",
-      "Bash(where npm:*)"
+      "Bash(where npm:*)",
+      "Bash(npm install)",
+      "Bash(npx playwright install)"
     ]
   }
 }
