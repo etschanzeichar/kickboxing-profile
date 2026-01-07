@@ -2903,6 +2903,56 @@ footer {
     .footer-text {
         font-size: 0.8rem;
     }
+
+    /* Modal Mobile - Enable scrolling for overflow content */
+    .achievement-modal {
+        padding: 1rem;
+        overflow-y: auto;
+        align-items: flex-start;
+    }
+
+    .modal-content {
+        padding: 2rem;
+        margin: auto;
+        max-height: none;
+    }
+
+    .modal-close {
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+
+    .partner-modal {
+        padding: 1rem;
+        overflow-y: auto;
+        align-items: flex-start;
+    }
+
+    .partner-modal-content {
+        padding: 2rem;
+        margin: auto;
+    }
+
+    .partner-modal-content .partner-image {
+        max-height: 250px;
+        margin-bottom: 1.5rem;
+    }
+
+    .partner-modal-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .partner-modal-content .partner-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .partner-modal-close {
+        top: 1rem;
+        right: 1rem;
+        font-size: 2rem;
+    }
 }
 
 /* Small phones */
