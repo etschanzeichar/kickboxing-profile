@@ -685,19 +685,19 @@
         /* SVG zoom states */
         .timeline-svg {
             transition: transform 0.5s ease;
-            transform-origin: center center;
+            transform-origin: left center;
         }
 
         .timeline-container.zoomed.zoom-section-1 .timeline-svg {
-            transform: scale(2.2) translateX(28%) translateY(5%);
+            transform: scale(2.2) translateX(0) translateY(5%);
         }
 
         .timeline-container.zoomed.zoom-section-2 .timeline-svg {
-            transform: scale(2.2) translateX(-5%) translateY(5%);
+            transform: scale(2.2) translateX(-15%) translateY(5%);
         }
 
         .timeline-container.zoomed.zoom-section-3 .timeline-svg {
-            transform: scale(2.2) translateX(-25%) translateY(5%);
+            transform: scale(2.2) translateX(-32%) translateY(5%);
         }
 
         .goal-items {
@@ -3194,7 +3194,7 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
 
                 <!-- Background wave path -->
                 <path class="timeline-path" d="
-                    M 0,150
+                    M 30,150
                     Q 62,50 125,150
                     Q 188,250 250,150
                     Q 375,50 500,150
@@ -3204,7 +3204,7 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
 
                 <!-- Highlighted path (animated) - past achievements -->
                 <path class="timeline-path-highlight" d="
-                    M 0,150
+                    M 30,150
                     Q 62,50 125,150
                     Q 188,250 250,150
                 " />
@@ -3212,9 +3212,9 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
                 <!-- Past Achievements Points -->
                 <!-- Started Training 2021 -->
                 <g class="timeline-point-group">
-                    <circle class="timeline-point-dot" cx="0" cy="150" r="6"/>
-                    <text class="timeline-point-label" x="0" y="120" text-anchor="middle">Started Training</text>
-                    <text class="timeline-point-year" x="0" y="133" text-anchor="middle">2021</text>
+                    <circle class="timeline-point-dot" cx="30" cy="150" r="6"/>
+                    <text class="timeline-point-label" x="30" y="120" text-anchor="middle">Started Training</text>
+                    <text class="timeline-point-year" x="30" y="133" text-anchor="middle">2021</text>
                 </g>
 
                 <!-- First Competition 2023 -->
