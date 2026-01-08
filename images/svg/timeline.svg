@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="timeline-svg" viewBox="0 0 1000 300" preserveAspectRatio="xMidYMid meet">
+    <defs>
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+
+    <!-- Section clickable areas -->
+    <rect class="timeline-section-area" data-section="1" x="0" y="0" width="300" height="300"/>
+    <rect class="timeline-section-area" data-section="2" x="300" y="0" width="350" height="300"/>
+    <rect class="timeline-section-area" data-section="3" x="650" y="0" width="350" height="300"/>
+
+    <!-- Section titles -->
+    <text class="timeline-section-title" x="20" y="35">The Journey So Far</text>
+    <text class="timeline-section-subtitle" x="20" y="52">2021 - 2025</text>
+
+    <text class="timeline-section-title" x="320" y="35">2026 Goals</text>
+    <text class="timeline-section-subtitle" x="320" y="52">Next Chapter</text>
+
+    <text class="timeline-section-title" x="670" y="35">Long-Term Vision</text>
+    <text class="timeline-section-subtitle" x="670" y="52">The Dream</text>
+
+    <!-- Background wave path -->
+    <path class="timeline-path" d="
+        M 30,150
+        Q 62,50 125,150
+        Q 188,250 250,150
+        Q 375,50 500,150
+        Q 625,250 750,150
+        Q 875,80 1000,150
+    " />
+
+    <!-- Highlighted path (animated) - past achievements -->
+    <path class="timeline-path-highlight" d="
+        M 30,150
+        Q 62,50 125,150
+        Q 188,250 250,150
+    " />
+
+    <!-- Past Achievements Points -->
+    <!-- Started Training 2021 -->
+    <g class="timeline-point-group">
+        <circle class="timeline-point-dot" cx="30" cy="150" r="6"/>
+        <text class="timeline-point-label" x="30" y="120" text-anchor="middle">Started Training</text>
+        <text class="timeline-point-year" x="30" y="133" text-anchor="middle">2021</text>
+    </g>
+
+    <!-- First Competition 2023 -->
+    <g class="timeline-point-group">
+        <circle class="timeline-point-dot" cx="62" cy="100" r="6"/>
+        <text class="timeline-point-label" x="62" y="70" text-anchor="middle">First Competition</text>
+        <text class="timeline-point-year" x="62" y="83" text-anchor="middle">2023</text>
+    </g>
+
+    <!-- Swiss Champion 2024 -->
+    <g class="timeline-point-group">
+        <circle class="timeline-point-dot" cx="125" cy="150" r="6"/>
+        <text class="timeline-point-label" x="125" y="180" text-anchor="middle">Swiss Champion</text>
+        <text class="timeline-point-year" x="125" y="193" text-anchor="middle">2024</text>
+    </g>
+
+    <!-- National Team 2024 -->
+    <g class="timeline-point-group">
+        <circle class="timeline-point-dot" cx="188" cy="200" r="6"/>
+        <text class="timeline-point-label" x="188" y="230" text-anchor="middle">National Team</text>
+        <text class="timeline-point-year" x="188" y="243" text-anchor="middle">2024</text>
+    </g>
+
+    <!-- European Champion 2025 -->
+    <g class="timeline-point-group">
+        <circle class="timeline-point-dot" cx="250" cy="150" r="6"/>
+        <text class="timeline-point-label" x="250" y="120" text-anchor="middle">European Champion</text>
+        <text class="timeline-point-year" x="250" y="133" text-anchor="middle">2025</text>
+    </g>
+
+    <!-- 2026 Goals Points -->
+    <!-- First Pro Fight -->
+    <g class="timeline-point-group">
+        <circle class="timeline-point-dot future" cx="375" cy="100" r="6"/>
+        <text class="timeline-point-label" x="375" y="70" text-anchor="middle">First Pro Fight</text>
+        <text class="timeline-point-year" x="375" y="83" text-anchor="middle">2026</text>
+    </g>
+
+    <!-- Junior World Championships -->
+    <g class="timeline-point-group">
+        <circle class="timeline-point-dot future" cx="500" cy="150" r="6"/>
+        <text class="timeline-point-label" x="500" y="180" text-anchor="middle">Junior World Championships</text>
+        <text class="timeline-point-year" x="500" y="193" text-anchor="middle">2026</text>
+    </g>
+
+    <!-- Seniors European Championships -->
+    <g class="timeline-point-group">
+        <circle class="timeline-point-dot future" cx="625" cy="200" r="6"/>
+        <text class="timeline-point-label" x="625" y="230" text-anchor="middle">Seniors European Champs</text>
+        <text class="timeline-point-year" x="625" y="243" text-anchor="middle">2026</text>
+    </g>
+
+    <!-- Long-term Goals -->
+    <!-- ONE Championship -->
+    <g class="timeline-point-group">
+        <circle class="timeline-point-dot goal" cx="875" cy="115" r="6"/>
+        <text class="timeline-point-label goal-label" x="875" y="85" text-anchor="middle">ONE Championship</text>
+    </g>
+
+    <!-- Olympics -->
+    <g class="timeline-point-group">
+        <circle class="timeline-point-dot goal" cx="950" cy="128" r="6"/>
+        <text class="timeline-point-label goal-label" x="950" y="158" text-anchor="middle">Olympics</text>
+    </g>
+</svg>

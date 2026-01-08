@@ -2,46 +2,67 @@
 
 A static portfolio website for Eva Tschanz, a Swiss kickboxing champion.
 
-## Project Setup
+## Project Structure
 
-### Prerequisites
+```
+kickboxing-profile/
+├── index.html              # Main HTML file
+├── css/
+│   └── styles.css          # All CSS styles
+├── js/
+│   └── main.js             # JavaScript functionality
+├── images/
+│   ├── svg/
+│   │   └── timeline.svg    # Timeline graphic (loaded via JS)
+│   ├── web/                # Web-optimized images (used in site)
+│   └── thumbnails/         # Thumbnail previews
+├── tests/                  # Playwright test files
+└── .github/
+    └── workflows/
+        └── deploy.yml      # GitHub Pages deployment
+```
+
+## Prerequisites
 
 - Node.js (v18 or later recommended)
-- Python 3 (for local development server)
 
-### Installation
+## Installation
 
-1. **Install Node dependencies:**
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/jesseeichar/kickboxing-profile.git
+   cd kickboxing-profile
+   ```
+
+2. **Install dependencies:**
    ```bash
    npm install
    ```
 
-2. **Install Playwright browsers:**
+3. **Install Playwright browsers (for testing):**
    ```bash
    npx playwright install chromium
    ```
 
-3. **Install Claude Code plugins** (optional, for Claude Code users):
-   ```bash
-   # Add the official plugins marketplace
-   /plugin marketplace add anthropics/claude-code
-
-   # Install the frontend-design plugin
-   /plugin install frontend-design@claude-code-plugins
-   ```
-
-4. **Verify setup by running tests:**
-   ```bash
-   npm test
-   ```
-
 ## Development
 
-To preview the site locally, serve the files with any static HTTP server:
+### Start Local Server
+
+Run a local development server on port 3000:
+
 ```bash
-python3 -m http.server 8000
-# Then open http://localhost:8000/
+npm start
 ```
+
+Then open http://localhost:3000 in your browser.
+
+### View the Site
+
+After starting the server, navigate to:
+- http://localhost:3000 - Main page
+- http://localhost:3000/#about - About section
+- http://localhost:3000/#achievements - Achievements section
+- etc.
 
 ## Testing
 
@@ -53,7 +74,28 @@ npm run test:headed  # Run with visible browser
 npm run test:ui      # Interactive UI mode for debugging
 ```
 
-Tests are located in `tests/` and use Playwright. The test configuration automatically starts a local server on port 8000.
+Tests are located in `tests/` and use Playwright.
+
+## Deployment
+
+### GitHub Pages (Automatic)
+
+The site automatically deploys to GitHub Pages when you push to the `main` branch.
+
+**Setup (one-time):**
+1. Go to your repository Settings → Pages
+2. Under "Build and deployment", select **Source: GitHub Actions**
+3. Push to `main` branch - the workflow will deploy automatically
+
+**Manual deployment:**
+You can also trigger a deployment manually from the Actions tab → "Deploy static content to Pages" → "Run workflow"
+
+### Manual Deployment
+
+Since this is a static site with no build step, you can deploy to any static hosting:
+
+1. Copy all files (index.html, css/, js/, images/) to your hosting provider
+2. Ensure the server serves `index.html` as the default document
 
 ## Image Processing
 
@@ -68,12 +110,6 @@ cd images && ./make_thumbnails.sh
 cd images && ./optimize_for_web.sh
 ```
 
-## Architecture
-
-- **Single HTML file**: All HTML, CSS, and JavaScript is contained in `index.html`
-- **No build process**: Site can be served directly by any static file server
-- **Images**: Located in `images/` directory with web-optimized versions in `images/web/` and thumbnails in `images/thumbnails/`
-
 ## Page Sections
 
 The website includes the following sections, each with an anchor for direct linking:
@@ -82,12 +118,23 @@ The website includes the following sections, each with an anchor for direct link
 |---------|--------|
 | Hero | `#hero` |
 | About | `#about` |
-| Kickboxing | `#kickboxing` |
-| Education | `#education` |
 | Achievements | `#achievements` |
+| Journey/Timeline | `#journey` |
+| Budget | `#budget` |
+| Education | `#education` |
+| Kickboxing | `#kickboxing` |
+| Values | `#values` |
 | Gallery | `#gallery` |
 | Sponsorship | `#sponsorship` |
+| Partners | `#partners` |
 | Contact | `#contact` |
 | Footer | `#footer` |
 
-test change 
+## Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm start` | Start local development server on port 3000 |
+| `npm test` | Run Playwright tests (headless) |
+| `npm run test:headed` | Run tests with visible browser |
+| `npm run test:ui` | Run tests in interactive UI mode |
