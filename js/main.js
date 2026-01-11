@@ -188,6 +188,13 @@
                 const response = await fetch('images/svg/timeline.svg');
                 const svgText = await response.text();
                 svgContainer.innerHTML = svgText;
+
+                // Add the timeline-svg class to the loaded SVG element
+                const svg = svgContainer.querySelector('svg');
+                if (svg && !svg.classList.contains('timeline-svg')) {
+                    svg.classList.add('timeline-svg');
+                }
+
                 this.setupInteractions();
             } catch (error) {
                 console.error('Failed to load timeline SVG:', error);
