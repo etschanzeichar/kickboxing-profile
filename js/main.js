@@ -371,6 +371,36 @@
     };
 
     // ============================================
+    // Gallery Module
+    // ============================================
+    const Gallery = {
+        init() {
+            const galleryGrid = document.querySelector('.gallery-grid');
+            const prevBtn = document.querySelector('.gallery-nav button:first-child');
+            const nextBtn = document.querySelector('.gallery-nav button:last-child');
+
+            if (!galleryGrid || !prevBtn || !nextBtn) return;
+
+            // Scroll amount (one viewport width)
+            const getScrollAmount = () => galleryGrid.clientWidth;
+
+            prevBtn.addEventListener('click', () => {
+                galleryGrid.scrollBy({
+                    left: -getScrollAmount(),
+                    behavior: 'smooth'
+                });
+            });
+
+            nextBtn.addEventListener('click', () => {
+                galleryGrid.scrollBy({
+                    left: getScrollAmount(),
+                    behavior: 'smooth'
+                });
+            });
+        }
+    };
+
+    // ============================================
     // Keyboard Handler Module
     // ============================================
     const KeyboardHandler = {
@@ -401,6 +431,7 @@
         Timeline.init();
         AchievementModal.init();
         PartnerModal.init();
+        Gallery.init();
         KeyboardHandler.init();
     }
 
