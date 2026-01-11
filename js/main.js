@@ -180,26 +180,9 @@
         currentSection: 1,
         totalSections: 3,
 
-        async init() {
-            const svgContainer = document.getElementById('timelineSvgContainer');
-            if (!svgContainer) return;
-
-            try {
-                // Add cache-busting parameter
-                const response = await fetch(`images/svg/timeline.svg?v=${Date.now()}`);
-                const svgText = await response.text();
-                svgContainer.innerHTML = svgText;
-
-                // Add the timeline-svg class to the loaded SVG element
-                const svg = svgContainer.querySelector('svg');
-                if (svg && !svg.classList.contains('timeline-svg')) {
-                    svg.classList.add('timeline-svg');
-                }
-
-                this.setupInteractions();
-            } catch (error) {
-                console.error('Failed to load timeline SVG:', error);
-            }
+        init() {
+            // SVG is now embedded in HTML, just setup interactions
+            this.setupInteractions();
         },
 
         setupInteractions() {
@@ -213,16 +196,27 @@
             // Initialize zoom state for mobile
             if (this.isMobile()) {
                 this.zoomToSection(1);
+                this.container.classList.add('mobile-mode');
             }
 
             // Handle resize
             window.addEventListener('resize', () => {
-                if (this.isMobile() && !this.container.classList.contains('zoomed')) {
-                    this.zoomToSection(1);
+                if (this.isMobile()) {
+                    // On mobile, always stay zoomed
+                    if (!this.container.classList.contains('zoomed')) {
+                        this.zoomToSection(1);
+                    }
+                    this.container.classList.add('mobile-mode');
+                } else {
+                    // On desktop, zoom out if in mobile mode
+                    if (this.container.classList.contains('mobile-mode')) {
+                        this.zoomOut();
+                        this.container.classList.remove('mobile-mode');
+                    }
                 }
             });
 
-            // Section click handlers
+            // Section click handlers (desktop only)
             sectionAreas.forEach(section => {
                 section.addEventListener('click', (e) => {
                     if (this.isMobile()) return;
@@ -246,7 +240,7 @@
                 }
             });
 
-            // Click on SVG to zoom out
+            // Click on SVG to zoom out (desktop only)
             if (svg) {
                 svg.addEventListener('click', (e) => {
                     if (this.isMobile()) return;
@@ -258,7 +252,9 @@
 
             // Keyboard navigation
             document.addEventListener('keydown', (e) => {
-                if (!this.container.classList.contains('zoomed')) return;
+                // On mobile, always allow arrow navigation
+                // On desktop, only when zoomed
+                if (!this.isMobile() && !this.container.classList.contains('zoomed')) return;
 
                 if (e.key === 'ArrowLeft' && this.currentSection > 1) {
                     this.zoomToSection(this.currentSection - 1);
@@ -282,6 +278,7 @@
         zoomOut() {
             if (this.isMobile()) return;
             this.container.classList.remove('zoomed', 'zoom-section-1', 'zoom-section-2', 'zoom-section-3');
+            this.updateNavButtons();
         },
 
         updateNavButtons() {

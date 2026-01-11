@@ -662,7 +662,8 @@ nav.scrolled {
     pointer-events: none;
 }
 
-.timeline-container.zoomed .timeline-zoom-hint {
+.timeline-container.zoomed .timeline-zoom-hint,
+.timeline-container.mobile-mode .timeline-zoom-hint {
     opacity: 0;
 }
 
@@ -733,7 +734,8 @@ nav.scrolled {
     right: 0;
 }
 
-.timeline-container.zoomed .timeline-nav:not(:disabled) {
+.timeline-container.zoomed .timeline-nav:not(:disabled),
+.timeline-container.mobile-mode .timeline-nav:not(:disabled) {
     opacity: 1;
     visibility: visible;
 }
