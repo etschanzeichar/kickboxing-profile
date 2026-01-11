@@ -375,26 +375,34 @@
     // ============================================
     const Gallery = {
         init() {
-            const galleryGrid = document.querySelector('.gallery-grid');
-            const prevBtn = document.querySelector('.gallery-nav button:first-child');
-            const nextBtn = document.querySelector('.gallery-nav button:last-child');
+            const tabs = document.querySelectorAll('.gallery-tab');
+            const grids = {
+                fight: document.getElementById('gallery-fight'),
+                training: document.getElementById('gallery-training'),
+                professional: document.getElementById('gallery-professional')
+            };
 
-            if (!galleryGrid || !prevBtn || !nextBtn) return;
+            if (!tabs.length) return;
 
-            // Scroll amount (one viewport width)
-            const getScrollAmount = () => galleryGrid.clientWidth;
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetTab = tab.dataset.tab;
 
-            prevBtn.addEventListener('click', () => {
-                galleryGrid.scrollBy({
-                    left: -getScrollAmount(),
-                    behavior: 'smooth'
-                });
-            });
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
 
-            nextBtn.addEventListener('click', () => {
-                galleryGrid.scrollBy({
-                    left: getScrollAmount(),
-                    behavior: 'smooth'
+                    // Show/hide grids
+                    Object.keys(grids).forEach(key => {
+                        if (grids[key]) {
+                            grids[key].style.display = key === targetTab ? 'grid' : 'none';
+                        }
+                    });
+
+                    // Pause all videos when switching tabs
+                    document.querySelectorAll('.gallery-item video').forEach(video => {
+                        video.pause();
+                    });
                 });
             });
         }

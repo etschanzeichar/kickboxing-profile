@@ -1249,68 +1249,60 @@ nav.scrolled {
 }
 
 .gallery-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 4rem;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .gallery-title {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
 }
 
-.gallery-nav {
+/* Gallery Tabs */
+.gallery-tabs {
     display: flex;
+    justify-content: center;
     gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
 }
 
-.gallery-nav button {
-    width: 50px;
-    height: 50px;
+.gallery-tab {
+    padding: 0.75rem 1.5rem;
     background: transparent;
     border: 1px solid var(--text-dark);
     color: var(--text-primary);
     cursor: pointer;
-    font-size: 1.2rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
     transition: all 0.3s ease;
+    border-radius: 4px;
 }
 
-.gallery-nav button:hover {
+.gallery-tab:hover {
     background: var(--accent);
     border-color: var(--accent);
 }
 
-.gallery-grid {
-    display: grid;
-    /* 8 columns per "page", with first item spanning 2 cols. Creates scrollable pages */
-    grid-template-columns: repeat(36, calc((100% - 4.5rem) / 4));
-    grid-template-rows: repeat(2, 300px);
-    grid-auto-flow: column;
-    gap: 1.5rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-    /* Limit visible height to exactly two rows (includes one gap) */
-    max-height: calc(300px * 2 + 1.5rem);
-    scroll-behavior: smooth;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
-    scroll-snap-type: x mandatory;
+.gallery-tab.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
 }
 
-.gallery-grid::-webkit-scrollbar {
-    display: none; /* Chrome/Safari/Opera */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
 }
 
 .gallery-item {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    scroll-snap-align: start;
-}
-
-.gallery-item:nth-child(1) {
-    grid-column: span 2;
-    grid-row: span 2;
+    border-radius: 8px;
+    aspect-ratio: 4/3;
 }
 
 .gallery-item img {
@@ -1320,6 +1312,18 @@ nav.scrolled {
     /* Hover effect via .img-zoom-hover class in HTML */
 }
 
+/* Video items in gallery */
+.gallery-item.gallery-video {
+    aspect-ratio: 16/9;
+}
+
+.gallery-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
 .gallery-item::after {
     content: '';
     position: absolute;
@@ -1327,10 +1331,16 @@ nav.scrolled {
     background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
 .gallery-item:hover::after {
     opacity: 1;
+}
+
+/* Don't show overlay on video items */
+.gallery-item.gallery-video::after {
+    display: none;
 }
 
 /* Sponsorship Section */
@@ -2265,12 +2275,7 @@ footer {
     }
 
     .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-    }
-
-    .gallery-item:nth-child(1) {
-        grid-column: span 2;
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .sponsorship {
@@ -2682,21 +2687,26 @@ footer {
         font-size: 1rem;
     }
 
+    .gallery-tabs {
+        gap: 0.5rem;
+    }
+
+    .gallery-tab {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
     .gallery-grid {
-        grid-template-columns: repeat(36, 85%);
-        grid-template-rows: repeat(2, 200px);
+        grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
-        max-height: calc(200px * 2 + 1rem);
     }
 
     .gallery-item {
         aspect-ratio: 4/3;
     }
 
-    .gallery-item:nth-child(1) {
-        grid-column: span 1;
-        grid-row: span 2;
-        aspect-ratio: 3/4;
+    .gallery-item.gallery-video {
+        aspect-ratio: 16/9;
     }
 
     /* Kickboxing Mobile */
