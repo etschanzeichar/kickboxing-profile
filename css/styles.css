@@ -1282,14 +1282,19 @@ nav.scrolled {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    /* 8 columns per "page", with first item spanning 2 cols. Creates scrollable pages */
+    grid-template-columns: repeat(36, calc((100% - 4.5rem) / 4));
     grid-template-rows: repeat(2, 300px);
+    grid-auto-flow: column;
     gap: 1.5rem;
     overflow-x: auto;
     overflow-y: hidden;
+    /* Limit visible height to exactly two rows (includes one gap) */
+    max-height: calc(300px * 2 + 1.5rem);
     scroll-behavior: smooth;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE/Edge */
+    scroll-snap-type: x mandatory;
 }
 
 .gallery-grid::-webkit-scrollbar {
@@ -1300,13 +1305,12 @@ nav.scrolled {
     position: relative;
     overflow: hidden;
     cursor: pointer;
-    min-width: calc((100% - 4.5rem) / 4); /* Maintain 4 columns width */
+    scroll-snap-align: start;
 }
 
 .gallery-item:nth-child(1) {
     grid-column: span 2;
     grid-row: span 2;
-    min-width: calc((100% - 4.5rem) / 2); /* Span 2 columns */
 }
 
 .gallery-item img {
@@ -2672,13 +2676,17 @@ footer {
         font-size: clamp(1.8rem, 8vw, 2.5rem);
     }
 
-    .gallery-nav {
-        display: none;
+    .gallery-nav button {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
     }
 
     .gallery-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(36, 85%);
+        grid-template-rows: repeat(2, 200px);
         gap: 1rem;
+        max-height: calc(200px * 2 + 1rem);
     }
 
     .gallery-item {
@@ -2687,7 +2695,7 @@ footer {
 
     .gallery-item:nth-child(1) {
         grid-column: span 1;
-        grid-row: span 1;
+        grid-row: span 2;
         aspect-ratio: 3/4;
     }
 
