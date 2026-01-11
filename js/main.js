@@ -185,7 +185,8 @@
             if (!svgContainer) return;
 
             try {
-                const response = await fetch('images/svg/timeline.svg');
+                // Add cache-busting parameter
+                const response = await fetch(`images/svg/timeline.svg?v=${Date.now()}`);
                 const svgText = await response.text();
                 svgContainer.innerHTML = svgText;
 

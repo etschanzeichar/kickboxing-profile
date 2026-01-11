@@ -546,6 +546,11 @@ nav.scrolled {
     margin-top: 4rem;
 }
 
+#timelineSvgContainer {
+    width: 100%;
+    min-height: 300px;
+}
+
 .timeline-svg {
     width: 100%;
     height: auto;
