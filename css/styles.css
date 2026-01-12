@@ -1372,9 +1372,9 @@ nav.scrolled {
     border-radius: 8px;
 }
 
-/* Tall images span 2 rows */
+/* Tall images span 3 rows */
 .gallery-item.gallery-tall {
-    grid-row: span 2;
+    grid-row: span 3;
 }
 
 /* Extra tall images span all 3 rows */
