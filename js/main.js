@@ -374,41 +374,39 @@
     // Gallery Module
     // ============================================
     const Gallery = {
-        sectionsContainer: null,
-        sections: [],
+        scrollAmount: 500,
 
         init() {
-            this.sectionsContainer = document.getElementById('gallerySections');
-            if (!this.sectionsContainer) return;
+            const sections = document.querySelectorAll('.gallery-section');
+            if (!sections.length) return;
 
-            this.sections = Array.from(document.querySelectorAll('.gallery-section'));
-            const arrows = document.querySelectorAll('.gallery-section-arrow');
+            sections.forEach(section => {
+                const grid = section.querySelector('.gallery-grid');
+                const arrows = section.querySelectorAll('.gallery-section-arrow');
 
-            // Arrow click handlers
-            arrows.forEach(arrow => {
-                arrow.addEventListener('click', () => {
-                    const direction = arrow.dataset.direction;
-                    this.scrollToSection(direction);
+                arrows.forEach(arrow => {
+                    arrow.addEventListener('click', () => {
+                        const direction = arrow.dataset.direction;
+                        this.scrollGrid(grid, direction);
+                    });
                 });
-            });
 
-            // Pause videos when scrolling away from them
-            this.sectionsContainer.addEventListener('scroll', () => {
-                document.querySelectorAll('.gallery-item video').forEach(video => {
-                    video.pause();
+                // Pause videos when scrolling
+                grid.addEventListener('scroll', () => {
+                    grid.querySelectorAll('video').forEach(video => {
+                        video.pause();
+                    });
                 });
             });
         },
 
-        scrollToSection(direction) {
-            const sectionWidth = this.sections[0].offsetWidth;
-            const currentScroll = this.sectionsContainer.scrollLeft;
-            const newScroll = direction === 'right'
-                ? currentScroll + sectionWidth
-                : currentScroll - sectionWidth;
+        scrollGrid(grid, direction) {
+            const scrollAmount = direction === 'right'
+                ? this.scrollAmount
+                : -this.scrollAmount;
 
-            this.sectionsContainer.scrollTo({
-                left: newScroll,
+            grid.scrollBy({
+                left: scrollAmount,
                 behavior: 'smooth'
             });
         }
