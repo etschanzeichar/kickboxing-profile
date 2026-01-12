@@ -1322,18 +1322,23 @@ nav.scrolled {
     transform: scale(1.1);
 }
 
-/* Gallery Scroll Arrow - Top Right Corner */
-.gallery-scroll-arrow {
+/* Gallery Scroll Arrows - Top Right Corner */
+.gallery-scroll-arrows {
     position: absolute;
     top: 1rem;
     right: 2rem;
-    width: 60px;
-    height: 60px;
+    display: flex;
+    gap: 0.75rem;
+    z-index: 10;
+}
+
+.gallery-scroll-arrow {
+    width: 50px;
+    height: 50px;
     background: var(--accent);
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1342,8 +1347,8 @@ nav.scrolled {
 }
 
 .gallery-scroll-arrow svg {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     stroke: white;
 }
 
@@ -1418,6 +1423,85 @@ nav.scrolled {
 /* Don't show overlay on video items */
 .gallery-item.gallery-video::after {
     display: none;
+}
+
+/* Gallery Lightbox */
+.gallery-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-lightbox.active {
+    display: flex;
+}
+
+.lightbox-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    z-index: 10001;
+}
+
+.lightbox-close:hover {
+    opacity: 1;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.lightbox-nav:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.lightbox-prev {
+    left: 2rem;
+}
+
+.lightbox-next {
+    right: 2rem;
 }
 
 /* Sponsorship Section */

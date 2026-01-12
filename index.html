@@ -351,7 +351,7 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
                 </div>
                 <div class="budget-total">
                     <h3>Annual Investment</h3>
-                    <div class="budget-total-amount"> ≈ CHF 32,000</div>
+                    <div class="budget-total-amount"> ≈ CHF 7'500</div>
                 </div>
             </div>
             <div class="budget-summary reveal">
@@ -455,13 +455,21 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
         </div>
 
         <div class="gallery-carousel reveal">
-            <!-- Scroll Arrow -->
-            <button class="gallery-scroll-arrow" id="galleryScrollArrow" aria-label="Scroll right">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-            </button>
+            <!-- Scroll Arrows -->
+            <div class="gallery-scroll-arrows">
+                <button class="gallery-scroll-arrow" id="galleryScrollLeft" aria-label="Scroll left">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                </button>
+                <button class="gallery-scroll-arrow" id="galleryScrollRight" aria-label="Scroll right">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </div>
             <div class="gallery-sections" id="gallerySections">
                 <!-- Fight Section -->
                 <div class="gallery-section" id="gallery-fight">
@@ -573,7 +581,7 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
         <div class="sponsorship-content">
             <div class="sponsorship-text reveal">
                 <h2>Partner With a Champion</h2>
-                <p class="sponsorship-intro">Investing in Eva means aligning your brand with excellence, determination, and the spirit of Swiss athletics.</p>
+                <p class="sponsorship-intro">Investing in Eva connects your brand with consistency, growth, respect, and inspiration — the foundation of true excellence.</p>
                 <div class="sponsor-features">
                     <div class="sponsor-feature">
                         <h3>Authentic Content</h3>
@@ -715,6 +723,16 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
     <div class="partner-modal" id="partnerModal">
         <div class="partner-modal-close">&times;</div>
         <div class="partner-modal-content" id="partnerModalContent">
+        </div>
+    </div>
+
+    <!-- Gallery Lightbox -->
+    <div class="gallery-lightbox" id="galleryLightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#10094;</button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">&#10095;</button>
+        <div class="lightbox-content">
+            <img src="" alt="Gallery image" id="lightboxImage">
         </div>
     </div>
 
