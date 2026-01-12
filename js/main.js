@@ -374,38 +374,57 @@
     // Gallery Module
     // ============================================
     const Gallery = {
-        scrollAmount: 500,
+        sectionsContainer: null,
+        sections: [],
+        scrollArrow: null,
 
         init() {
-            const sections = document.querySelectorAll('.gallery-section');
-            if (!sections.length) return;
+            this.sectionsContainer = document.getElementById('gallerySections');
+            if (!this.sectionsContainer) return;
 
-            sections.forEach(section => {
-                const grid = section.querySelector('.gallery-grid');
-                const arrows = section.querySelectorAll('.gallery-section-arrow');
+            this.sections = Array.from(document.querySelectorAll('.gallery-section'));
+            const arrows = document.querySelectorAll('.gallery-section-arrow');
+            this.scrollArrow = document.getElementById('galleryScrollArrow');
 
-                arrows.forEach(arrow => {
-                    arrow.addEventListener('click', () => {
-                        const direction = arrow.dataset.direction;
-                        this.scrollGrid(grid, direction);
-                    });
+            // Arrow click handlers
+            arrows.forEach(arrow => {
+                arrow.addEventListener('click', () => {
+                    const direction = arrow.dataset.direction;
+                    this.scrollToSection(direction);
                 });
+            });
 
-                // Pause videos when scrolling
-                grid.addEventListener('scroll', () => {
-                    grid.querySelectorAll('video').forEach(video => {
-                        video.pause();
-                    });
+            // Corner scroll arrow handler
+            if (this.scrollArrow) {
+                this.scrollArrow.addEventListener('click', () => {
+                    this.scrollRight();
+                });
+            }
+
+            // Pause videos when scrolling
+            this.sectionsContainer.addEventListener('scroll', () => {
+                document.querySelectorAll('.gallery-item video').forEach(video => {
+                    video.pause();
                 });
             });
         },
 
-        scrollGrid(grid, direction) {
-            const scrollAmount = direction === 'right'
-                ? this.scrollAmount
-                : -this.scrollAmount;
+        scrollToSection(direction) {
+            const sectionWidth = this.sections[0].offsetWidth;
+            const currentScroll = this.sectionsContainer.scrollLeft;
+            const newScroll = direction === 'right'
+                ? currentScroll + sectionWidth
+                : currentScroll - sectionWidth;
 
-            grid.scrollBy({
+            this.sectionsContainer.scrollTo({
+                left: newScroll,
+                behavior: 'smooth'
+            });
+        },
+
+        scrollRight() {
+            const scrollAmount = 400;
+            this.sectionsContainer.scrollBy({
                 left: scrollAmount,
                 behavior: 'smooth'
             });

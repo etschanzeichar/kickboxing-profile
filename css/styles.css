@@ -1260,14 +1260,27 @@ nav.scrolled {
 /* Gallery Carousel */
 .gallery-carousel {
     position: relative;
+    overflow: hidden;
+}
+
+.gallery-sections {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.gallery-sections::-webkit-scrollbar {
+    display: none;
 }
 
 .gallery-section {
-    margin-bottom: 3rem;
-}
-
-.gallery-section:last-child {
-    margin-bottom: 0;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    padding: 0 1rem;
 }
 
 .gallery-section-header {
@@ -1309,22 +1322,47 @@ nav.scrolled {
     transform: scale(1.1);
 }
 
+/* Gallery Scroll Arrow - Top Right Corner */
+.gallery-scroll-arrow {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    width: 60px;
+    height: 60px;
+    background: var(--accent);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-scroll-arrow svg {
+    width: 28px;
+    height: 28px;
+    stroke: white;
+}
+
+.gallery-scroll-arrow:hover {
+    background: var(--accent-dark);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-scroll-arrow:active {
+    transform: scale(0.95);
+}
+
 .gallery-grid {
     display: grid;
     grid-template-rows: repeat(2, auto);
     grid-auto-flow: column;
     grid-auto-columns: 250px;
     gap: 1rem;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    padding-bottom: 0.5rem;
-}
-
-.gallery-grid::-webkit-scrollbar {
-    display: none;
 }
 
 .gallery-item {
@@ -2709,7 +2747,7 @@ footer {
     }
 
     .gallery-section {
-        margin-bottom: 2rem;
+        padding: 0 0.5rem;
     }
 
     .gallery-section-title {
@@ -2723,7 +2761,7 @@ footer {
     }
 
     .gallery-grid {
-        grid-auto-columns: 180px;
+        grid-auto-columns: 160px;
     }
 
     /* Kickboxing Mobile */
