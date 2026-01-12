@@ -374,36 +374,42 @@
     // Gallery Module
     // ============================================
     const Gallery = {
+        sectionsContainer: null,
+        sections: [],
+
         init() {
-            const tabs = document.querySelectorAll('.gallery-tab');
-            const grids = {
-                fight: document.getElementById('gallery-fight'),
-                training: document.getElementById('gallery-training'),
-                professional: document.getElementById('gallery-professional')
-            };
+            this.sectionsContainer = document.getElementById('gallerySections');
+            if (!this.sectionsContainer) return;
 
-            if (!tabs.length) return;
+            this.sections = Array.from(document.querySelectorAll('.gallery-section'));
+            const arrows = document.querySelectorAll('.gallery-section-arrow');
 
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    const targetTab = tab.dataset.tab;
-
-                    // Update active tab
-                    tabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-
-                    // Show/hide grids
-                    Object.keys(grids).forEach(key => {
-                        if (grids[key]) {
-                            grids[key].style.display = key === targetTab ? 'grid' : 'none';
-                        }
-                    });
-
-                    // Pause all videos when switching tabs
-                    document.querySelectorAll('.gallery-item video').forEach(video => {
-                        video.pause();
-                    });
+            // Arrow click handlers
+            arrows.forEach(arrow => {
+                arrow.addEventListener('click', () => {
+                    const direction = arrow.dataset.direction;
+                    this.scrollToSection(direction);
                 });
+            });
+
+            // Pause videos when scrolling away from them
+            this.sectionsContainer.addEventListener('scroll', () => {
+                document.querySelectorAll('.gallery-item video').forEach(video => {
+                    video.pause();
+                });
+            });
+        },
+
+        scrollToSection(direction) {
+            const sectionWidth = this.sections[0].offsetWidth;
+            const currentScroll = this.sectionsContainer.scrollLeft;
+            const newScroll = direction === 'right'
+                ? currentScroll + sectionWidth
+                : currentScroll - sectionWidth;
+
+            this.sectionsContainer.scrollTo({
+                left: newScroll,
+                behavior: 'smooth'
             });
         }
     };

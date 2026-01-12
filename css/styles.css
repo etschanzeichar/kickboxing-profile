@@ -1257,38 +1257,65 @@ nav.scrolled {
     font-size: clamp(1.8rem, 4vw, 2.5rem);
 }
 
-/* Gallery Tabs */
-.gallery-tabs {
+/* Gallery Carousel */
+.gallery-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-sections {
     display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.gallery-sections::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-section {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    padding: 0 1rem;
+}
+
+.gallery-section-header {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
 }
 
-.gallery-tab {
-    padding: 0.75rem 1.5rem;
-    background: transparent;
-    border: 1px solid var(--text-dark);
-    color: var(--text-primary);
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 0.9rem;
-    font-weight: 500;
+.gallery-section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
     letter-spacing: 0.05em;
-    transition: all 0.3s ease;
-    border-radius: 4px;
+    text-transform: uppercase;
 }
 
-.gallery-tab:hover {
+.gallery-section-arrow {
     background: var(--accent);
-    border-color: var(--accent);
-}
-
-.gallery-tab.active {
-    background: var(--accent);
-    border-color: var(--accent);
+    border: none;
     color: white;
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.gallery-section-arrow:hover {
+    background: var(--accent-dark);
+    transform: scale(1.1);
 }
 
 .gallery-grid {
@@ -2248,6 +2275,15 @@ footer {
         order: 0;
     }
 
+    /* Gallery Tablet */
+    .gallery {
+        padding: 6rem 3rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
     .achievements-carousel {
         flex-wrap: wrap;
         padding: 2rem;
@@ -2681,19 +2717,22 @@ footer {
         font-size: clamp(1.8rem, 8vw, 2.5rem);
     }
 
-    .gallery-nav button {
-        width: 40px;
-        height: 40px;
+    .gallery-section {
+        padding: 0 0.5rem;
+    }
+
+    .gallery-section-header {
+        gap: 1rem;
+    }
+
+    .gallery-section-title {
+        font-size: 1.2rem;
+    }
+
+    .gallery-section-arrow {
+        width: 36px;
+        height: 36px;
         font-size: 1rem;
-    }
-
-    .gallery-tabs {
-        gap: 0.5rem;
-    }
-
-    .gallery-tab {
-        padding: 0.5rem 1rem;
-        font-size: 0.8rem;
     }
 
     .gallery-grid {
