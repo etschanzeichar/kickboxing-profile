@@ -1359,7 +1359,7 @@ nav.scrolled {
 
 .gallery-grid {
     display: grid;
-    grid-template-rows: repeat(2, auto);
+    grid-template-rows: repeat(3, 140px);
     grid-auto-flow: column;
     grid-auto-columns: 250px;
     gap: 1rem;
@@ -1372,16 +1372,26 @@ nav.scrolled {
     border-radius: 8px;
 }
 
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    /* Hover effect via .img-zoom-hover class in HTML */
+/* Tall images span 2 rows */
+.gallery-item.gallery-tall {
+    grid-row: span 2;
 }
 
-/* Video items in gallery */
+/* Extra tall images span all 3 rows */
+.gallery-item.gallery-full {
+    grid-row: span 3;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Video items in gallery - single row */
 .gallery-item.gallery-video {
-    aspect-ratio: 16/9;
+    grid-row: span 1;
 }
 
 .gallery-item video {
