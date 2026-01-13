@@ -348,6 +348,7 @@ nav.scrolled {
     max-width: 500px;
     width: 100%;
     overflow: hidden;
+    border-radius: 3px;
 }
 
 .hero-image-left img,
@@ -895,7 +896,7 @@ nav.scrolled {
 
 /* Values Section */
 .values {
-    padding: 10rem 6rem;
+    padding: 4rem 6rem;
     background: var(--bg-secondary);
 }
 
