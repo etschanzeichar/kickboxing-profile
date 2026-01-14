@@ -371,147 +371,6 @@
     };
 
     // ============================================
-    // Gallery Module
-    // ============================================
-    const Gallery = {
-        sectionsContainer: null,
-        sections: [],
-
-        init() {
-            this.sectionsContainer = document.getElementById('gallerySections');
-            if (!this.sectionsContainer) return;
-
-            this.sections = Array.from(document.querySelectorAll('.gallery-section'));
-            const scrollLeftBtn = document.getElementById('galleryScrollLeft');
-            const scrollRightBtn = document.getElementById('galleryScrollRight');
-
-            // Scroll arrow handlers
-            if (scrollLeftBtn) {
-                scrollLeftBtn.addEventListener('click', () => {
-                    this.scroll('left');
-                });
-            }
-            if (scrollRightBtn) {
-                scrollRightBtn.addEventListener('click', () => {
-                    this.scroll('right');
-                });
-            }
-
-            // Pause videos when scrolling
-            this.sectionsContainer.addEventListener('scroll', () => {
-                document.querySelectorAll('.gallery-item video').forEach(video => {
-                    video.pause();
-                });
-            });
-        },
-
-        scroll(direction) {
-            const scrollAmount = 400;
-            this.sectionsContainer.scrollBy({
-                left: direction === 'right' ? scrollAmount : -scrollAmount,
-                behavior: 'smooth'
-            });
-        },
-
-        scrollRight() {
-            const scrollAmount = 400;
-            this.sectionsContainer.scrollBy({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
-        }
-    };
-
-    // ============================================
-    // Gallery Lightbox Module
-    // ============================================
-    const GalleryLightbox = {
-        lightbox: null,
-        lightboxImage: null,
-        images: [],
-        currentIndex: 0,
-
-        init() {
-            this.lightbox = document.getElementById('galleryLightbox');
-            this.lightboxImage = document.getElementById('lightboxImage');
-            if (!this.lightbox) return;
-
-            // Get all gallery images
-            this.images = Array.from(document.querySelectorAll('.gallery-item:not(.gallery-video) img'));
-
-            // Add click handlers to gallery images
-            this.images.forEach((img, index) => {
-                img.addEventListener('click', () => {
-                    this.open(index);
-                });
-            });
-
-            // Close button
-            const closeBtn = document.getElementById('lightboxClose');
-            if (closeBtn) {
-                closeBtn.addEventListener('click', () => this.close());
-            }
-
-            // Navigation buttons
-            const prevBtn = document.getElementById('lightboxPrev');
-            const nextBtn = document.getElementById('lightboxNext');
-            if (prevBtn) {
-                prevBtn.addEventListener('click', () => this.prev());
-            }
-            if (nextBtn) {
-                nextBtn.addEventListener('click', () => this.next());
-            }
-
-            // Close on background click
-            this.lightbox.addEventListener('click', (e) => {
-                if (e.target === this.lightbox) {
-                    this.close();
-                }
-            });
-
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (!this.isActive()) return;
-                if (e.key === 'ArrowLeft') this.prev();
-                if (e.key === 'ArrowRight') this.next();
-                if (e.key === 'Escape') this.close();
-            });
-        },
-
-        open(index) {
-            this.currentIndex = index;
-            this.updateImage();
-            this.lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        },
-
-        close() {
-            this.lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        },
-
-        prev() {
-            this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
-            this.updateImage();
-        },
-
-        next() {
-            this.currentIndex = (this.currentIndex + 1) % this.images.length;
-            this.updateImage();
-        },
-
-        updateImage() {
-            const img = this.images[this.currentIndex];
-            this.lightboxImage.src = img.src;
-            this.lightboxImage.alt = img.alt;
-        },
-
-        isActive() {
-            return this.lightbox && this.lightbox.classList.contains('active');
-        }
-    };
-
-    // ============================================
     // Keyboard Handler Module
     // ============================================
     const KeyboardHandler = {
@@ -520,9 +379,7 @@
                 if (e.key !== 'Escape') return;
 
                 // Check modals in order of priority
-                if (GalleryLightbox.isActive()) {
-                    GalleryLightbox.close();
-                } else if (AchievementModal.isActive()) {
+                if (AchievementModal.isActive()) {
                     Modal.close(AchievementModal.modal);
                 } else if (PartnerModal.isActive()) {
                     Modal.close(PartnerModal.modal);
@@ -544,8 +401,6 @@
         Timeline.init();
         AchievementModal.init();
         PartnerModal.init();
-        Gallery.init();
-        GalleryLightbox.init();
         KeyboardHandler.init();
     }
 

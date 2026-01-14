@@ -1243,268 +1243,6 @@ nav.scrolled {
     color: var(--text-primary);
 }
 
-/* Gallery Section */
-.gallery {
-    padding: 4rem 6rem;
-    position: relative;
-}
-
-.gallery-header {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.gallery-title {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
-}
-
-/* Gallery Carousel */
-.gallery-carousel {
-    position: relative;
-    overflow: hidden;
-}
-
-.gallery-sections {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-.gallery-sections::-webkit-scrollbar {
-    display: none;
-}
-
-.gallery-section {
-    flex: 0 0 100%;
-    scroll-snap-align: start;
-    padding: 0 1rem;
-}
-
-.gallery-section-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
-}
-
-.gallery-section-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-}
-
-.gallery-section-nav {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.gallery-section-arrow {
-    background: var(--accent);
-    border: none;
-    color: white;
-    width: 40px;
-    height: 40px;
-    font-size: 1.25rem;
-    cursor: pointer;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.gallery-section-arrow:hover {
-    background: var(--accent-dark);
-    transform: scale(1.1);
-}
-
-/* Gallery Scroll Arrows - Top Right Corner */
-.gallery-scroll-arrows {
-    position: absolute;
-    top: 1rem;
-    right: 2rem;
-    display: flex;
-    gap: 0.75rem;
-    z-index: 10;
-}
-
-.gallery-scroll-arrow {
-    width: 50px;
-    height: 50px;
-    background: var(--accent);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.gallery-scroll-arrow svg {
-    width: 24px;
-    height: 24px;
-    stroke: white;
-}
-
-.gallery-scroll-arrow:hover {
-    background: var(--accent-dark);
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-.gallery-scroll-arrow:active {
-    transform: scale(0.95);
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-rows: repeat(3, 140px);
-    grid-auto-flow: column;
-    grid-auto-columns: 250px;
-    gap: 1rem;
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    border-radius: 8px;
-}
-
-/* Tall images span 3 rows */
-.gallery-item.gallery-tall {
-    grid-row: span 3;
-}
-
-/* Extra tall images span all 3 rows */
-.gallery-item.gallery-full {
-    grid-row: span 3;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* Video items in gallery - single row */
-.gallery-item.gallery-video {
-    grid-row: span 1;
-}
-
-.gallery-item video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.gallery-item::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-}
-
-.gallery-item:hover::after {
-    opacity: 1;
-}
-
-/* Don't show overlay on video items */
-.gallery-item.gallery-video::after {
-    display: none;
-}
-
-/* Gallery Lightbox */
-.gallery-lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    z-index: 10000;
-    align-items: center;
-    justify-content: center;
-}
-
-.gallery-lightbox.active {
-    display: flex;
-}
-
-.lightbox-content {
-    max-width: 90vw;
-    max-height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.lightbox-content img {
-    max-width: 100%;
-    max-height: 90vh;
-    object-fit: contain;
-    border-radius: 8px;
-}
-
-.lightbox-close {
-    position: absolute;
-    top: 1.5rem;
-    right: 2rem;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 3rem;
-    cursor: pointer;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-    z-index: 10001;
-}
-
-.lightbox-close:hover {
-    opacity: 1;
-}
-
-.lightbox-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    color: white;
-    font-size: 2rem;
-    padding: 1rem 1.5rem;
-    cursor: pointer;
-    opacity: 0.8;
-    transition: all 0.3s ease;
-    border-radius: 4px;
-}
-
-.lightbox-nav:hover {
-    opacity: 1;
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.lightbox-prev {
-    left: 2rem;
-}
-
-.lightbox-next {
-    right: 2rem;
-}
-
 /* Sponsorship Section */
 .sponsorship {
     padding: 10rem 6rem 2rem;
@@ -2096,7 +1834,7 @@ footer {
         line-height: 1.4;
     }
 
-    nav, .hero-scroll, .gallery, .gallery-nav, .contact-form, footer, .nav-cta {
+    nav, .hero-scroll, .contact-form, footer, .nav-cta {
         display: none !important;
     }
 
@@ -2408,15 +2146,6 @@ footer {
 
     .values-text {
         order: 0;
-    }
-
-    /* Gallery Tablet */
-    .gallery {
-        padding: 6rem 3rem;
-    }
-
-    .gallery-grid {
-        grid-auto-columns: 220px;
     }
 
     .achievements-carousel {
@@ -2828,37 +2557,6 @@ footer {
         font-size: 7px;
     }
 
-    /* Gallery Mobile */
-    .gallery {
-        padding: 4rem 1.25rem;
-    }
-
-    .gallery-header {
-        margin-bottom: 2rem;
-    }
-
-    .gallery-title {
-        font-size: clamp(1.8rem, 8vw, 2.5rem);
-    }
-
-    .gallery-section {
-        padding: 0 0.5rem;
-    }
-
-    .gallery-section-title {
-        font-size: 1.2rem;
-    }
-
-    .gallery-section-arrow {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
-    }
-
-    .gallery-grid {
-        grid-auto-columns: 160px;
-    }
-
     /* Kickboxing Mobile */
     .kickboxing {
         padding: 4rem 1.25rem;
@@ -3171,15 +2869,6 @@ footer {
 
 /* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
-    .gallery-item:hover img {
-        transform: none;
-    }
-
-    .gallery-item::after {
-        opacity: 1;
-        background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 40%);
-    }
-
     .about-images img:hover {
         filter: grayscale(30%);
         transform: none;
