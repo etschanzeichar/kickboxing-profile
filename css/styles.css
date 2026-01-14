@@ -1508,7 +1508,7 @@ nav.scrolled {
 /* Sponsorship Section */
 .sponsorship {
     padding: 10rem 6rem 2rem;
-    background: var(--bg-secondary);
+    background: #d2e1f5;
     position: relative;
     overflow: hidden;
 }
