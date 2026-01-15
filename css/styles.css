@@ -1421,7 +1421,7 @@ nav.scrolled {
 
 .video-track {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     padding: 0 4rem;
     overflow-x: auto;
     scroll-behavior: smooth;
@@ -1436,23 +1436,29 @@ nav.scrolled {
 }
 
 .video-item {
-    flex: 0 0 253px;
-    height: 450px;
+    flex: 0 0 169px;
+    height: 300px;
     background: #000;
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
     scroll-snap-align: start;
 }
 
 .video-item.landscape {
-    flex: 0 0 800px;
-    height: 450px;
+    flex: 0 0 533px;
+    height: 300px;
 }
 
 .video-item iframe {
     width: 100%;
     height: 100%;
-    border-radius: 12px;
+    border-radius: 8px;
+}
+
+.video-track .gallery-section-label {
+    height: 300px;
+    font-size: 1.2rem;
+    padding: 0 0.75rem;
 }
 
 /* Gallery Lightbox */
@@ -2901,17 +2907,22 @@ footer {
 
     .video-track {
         padding: 0 1.5rem;
-        gap: 1rem;
+        gap: 0.75rem;
     }
 
     .video-item {
-        flex: 0 0 203px;
-        height: 360px;
+        flex: 0 0 135px;
+        height: 240px;
     }
 
     .video-item.landscape {
-        flex: 0 0 640px;
-        height: 360px;
+        flex: 0 0 427px;
+        height: 240px;
+    }
+
+    .video-track .gallery-section-label {
+        height: 240px;
+        font-size: 1rem;
     }
 
     .lightbox-nav {
