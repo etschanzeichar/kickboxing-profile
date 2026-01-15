@@ -402,6 +402,37 @@
     };
 
     // ============================================
+    // Video Carousel Module
+    // ============================================
+    const VideoCarousel = {
+        track: null,
+        scrollAmount: 400,
+
+        init() {
+            this.track = document.querySelector('.video-track');
+            if (!this.track) return;
+
+            const prevBtn = document.getElementById('videoPrev');
+            const nextBtn = document.getElementById('videoNext');
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => this.scroll('left'));
+            }
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => this.scroll('right'));
+            }
+        },
+
+        scroll(direction) {
+            const amount = direction === 'left' ? -this.scrollAmount : this.scrollAmount;
+            this.track.scrollBy({
+                left: amount,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    // ============================================
     // Gallery Lightbox Module
     // ============================================
     const GalleryLightbox = {
@@ -524,6 +555,7 @@
         AchievementModal.init();
         PartnerModal.init();
         GalleryCarousel.init();
+        VideoCarousel.init();
         GalleryLightbox.init();
         KeyboardHandler.init();
     }
