@@ -421,6 +421,23 @@
             if (nextBtn) {
                 nextBtn.addEventListener('click', () => this.scroll('right'));
             }
+
+            // Handle video thumbnail clicks
+            this.track.addEventListener('click', (e) => {
+                const videoItem = e.target.closest('.video-item[data-video-id]');
+                if (!videoItem || videoItem.classList.contains('playing')) return;
+
+                const videoId = videoItem.dataset.videoId;
+                const iframe = document.createElement('iframe');
+                iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3`;
+                iframe.title = 'Video';
+                iframe.frameBorder = '0';
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                iframe.allowFullscreen = true;
+
+                videoItem.appendChild(iframe);
+                videoItem.classList.add('playing');
+            });
         },
 
         scroll(direction) {

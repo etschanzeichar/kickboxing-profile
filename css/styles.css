@@ -1455,6 +1455,43 @@ nav.scrolled {
     border-radius: 8px;
 }
 
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: filter 0.3s ease;
+}
+
+.video-item:hover .video-thumbnail {
+    filter: brightness(0.8);
+}
+
+.video-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0.9;
+}
+
+.video-item:hover .video-play-btn {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+}
+
+.video-play-btn svg path:first-child {
+    fill: rgba(33, 33, 33, 0.9);
+}
+
+.video-item.playing .video-thumbnail,
+.video-item.playing .video-play-btn {
+    display: none;
+}
+
 .video-track .gallery-section-label {
     height: 300px;
     font-size: 1.2rem;
