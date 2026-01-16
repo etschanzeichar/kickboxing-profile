@@ -1436,6 +1436,7 @@ nav.scrolled {
 }
 
 .video-item {
+    position: relative;
     flex: 0 0 169px;
     height: 300px;
     background: #000;
@@ -1465,17 +1466,35 @@ nav.scrolled {
 }
 
 .video-item:hover .video-thumbnail {
-    filter: brightness(0.8);
+    filter: brightness(0.7);
 }
 
-.video-play-btn {
+.video-item::after {
+    content: 'Click to play';
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-    opacity: 0.9;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.video-item:hover::after {
+    opacity: 1;
+}
+
+.video-item.playing::after {
+    display: none;
+}
+
+.video-play-btn {
+    display: none;
 }
 
 .video-item:hover .video-play-btn {
