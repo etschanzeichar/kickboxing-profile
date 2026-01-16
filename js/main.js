@@ -393,6 +393,196 @@
     };
 
     // ============================================
+    // Language Switcher Module
+    // ============================================
+    const LanguageSwitcher = {
+        currentLang: 'en',
+        toggle: null,
+        translations: {
+            de: {
+                // Navigation
+                'nav.about': 'Über mich',
+                'nav.achievements': 'Erfolge',
+                'nav.journey': 'Mein Weg',
+                'nav.contacts': 'Kontakt',
+                'nav.partner': 'Partner werden',
+
+                // Hero
+                'hero.tagline': 'Aufstrebende junge Schweizer Kickboxerin mit internationalem Erfolg, die Können und Ehrgeiz auf der Weltbühne repräsentiert.',
+                'hero.badge.european': 'Europameisterin',
+                'hero.badge.swiss': '2x Schweizer Meisterin',
+                'hero.badge.national': 'Nationalmannschaft',
+                'hero.cta': 'Sponsor werden',
+
+                // About
+                'about.title': 'Über Eva Tschanz-Eichar',
+                'about.text': 'Ich glaube an Beständigkeit, daran, die beste Version meiner selbst zu werden, das Leben zu geniessen und jeden mit Respekt und Freundlichkeit zu behandeln.',
+                'about.age': 'Alter',
+                'about.age.value': 'Siebzehn',
+                'about.nationality': 'Nationalität',
+                'about.nationality.value': 'Schweiz & Kanada',
+                'about.location': 'Standort',
+                'about.location.value': 'Bern, Schweiz',
+                'about.discipline': 'Disziplin',
+                'about.gym': 'Gym',
+                'about.competing': 'Wettkampf seit',
+                'about.cta': '→ Kontakt aufnehmen',
+
+                // Achievements
+                'achievements.title': 'Erfolge',
+                'achievements.euro.category': 'Europameisterschaften',
+                'achievements.euro.result': '3 Kämpfe, 3 Siege - Goldmedaille',
+                'achievements.euro.preview': '9 Teilnehmerinnen in der Kategorie. Jeden Kampf dominiert und den Europatitel nach intensiver Sommervorbereitung geholt.',
+                'achievements.cups.category': 'Internationale Cups',
+                'achievements.cups.result': 'Mehrere Goldmedaillen & Wachstum',
+                'achievements.swiss.category': 'Schweizer Meisterschaften',
+                'achievements.swiss.result': 'Nationale Meisterin (WAKO & SCOS)',
+                'achievements.expand': 'Klicken für mehr →',
+
+                // Timeline
+                'timeline.title': 'Der Weg nach vorne',
+                'timeline.section1': 'Die bisherige Reise',
+                'timeline.section1.sub': '2021 - 2025',
+                'timeline.section2': '2026 Ziele',
+                'timeline.section2.sub': 'Nächstes Kapitel',
+                'timeline.section3': 'Langfristige Vision',
+                'timeline.section3.sub': 'Der Traum',
+                'timeline.hint': 'Klicke auf einen Abschnitt zum Vergrössern',
+
+                // Budget
+                'budget.title': 'Investitionsübersicht',
+                'budget.subtitle': 'Ein transparenter Einblick in das, was es braucht, um auf höchstem Niveau im Kickboxen zu konkurrieren',
+                'budget.training': 'Training & Coaching',
+                'budget.training.desc': 'Mitgliedschaften, professionelles Athletiktraining',
+                'budget.competition': 'Wettkampf & Reisen',
+                'budget.competition.desc': 'Startgebühren, Flüge, Unterkunft für internationale Events',
+                'budget.equipment': 'Ausrüstung',
+                'budget.equipment.desc': 'Handschuhe, Schutzausrüstung, Trainingskleidung, Wettkampfkleidung',
+                'budget.nutrition': 'Ernährung',
+                'budget.nutrition.desc': 'Spezialisierter Ernährungsplan, Nahrungsergänzungsmittel',
+                'budget.camps': 'Trainingscamps',
+                'budget.camps.desc': 'Intensive Vorbereitungscamps mit Spitzentrainern im Ausland',
+                'budget.total': 'Jährliche Investition',
+                'budget.summary.title': 'Wohin deine Unterstützung geht',
+                'budget.summary.text1': 'Jeder Franken wird direkt in Training, Wettkampf und Entwicklung investiert. Als Amateursportlerin balance ich meine sportliche Karriere mit Studium und Arbeit und widme jede verfügbare Ressource dem Ziel, die Spitze meines Sports zu erreichen.',
+                'budget.summary.text2': 'Dein Sponsoring hilft, diese wesentlichen Kosten zu decken, damit ich mich auf das Wichtigste konzentrieren kann: die beste Kickboxerin zu werden, die ich sein kann, und die Schweiz auf der Weltbühne zu vertreten.',
+                'budget.cta': '→ Sponsoring besprechen',
+
+                // Education
+                'education.title': 'Ausbildung & Ziele',
+                'education.text1': 'Ausserhalb des Rings besuche ich das Sportgymnasium Neufeld in Bern mit dem Ziel, professionelle Kickboxerin zu werden, mit dem langfristigen Ziel, an den Olympischen Spielen teilzunehmen und Kämpferin in der Weltklasse-Kampforganisation ONE Championship zu werden.',
+                'education.text2': 'Neben meinen sportlichen Ambitionen interessiere ich mich für ein Studium in Informatik oder Ingenieurwesen.',
+                'education.text3': 'Ich habe den Schweizer J+S Leiterkurs abgeschlossen und trainiere Kinderkurse in meinem Gym.',
+                'education.text4': 'Als Vorbild für junge Mädchen im Kampfsport möchte ich sie inspirieren, ihren eigenen Weg zu gehen und durch Disziplin und harte Arbeit Selbstvertrauen zu gewinnen.',
+
+                // Kickboxing
+                'kickboxing.title': 'K1 Kickboxen',
+                'kickboxing.text1': 'K1 Kickboxen ist eine der intensivsten Schlagkampfsportarten der Welt, die Techniken aus Muay Thai, Karate und westlichem Boxen zu einem schnellen, explosiven Kampfsport kombiniert.',
+                'kickboxing.text2': 'Kämpfer nutzen Schläge, Tritte und Kniestösse, um Punkte zu sammeln oder Knockouts zu erzielen. Anders als bei Muay Thai sind Ellbogen nicht erlaubt und Clinchen ist begrenzt, was den Fokus auf dynamische Schlagaustausche legt.',
+                'kickboxing.text3': 'Kämpfe bestehen aus drei 3-Minuten-Runden für Profis oder drei 2-Minuten-Runden für Amateure. Der Sieg kann durch Knockout, technischen Knockout (3 Niederschläge in einer Runde) oder Punktrichterentscheidung basierend auf effektiven Treffern, Schaden und Aggressivität erreicht werden.',
+                'kickboxing.text4': 'K1 ist zu einem globalen Phänomen gewachsen mit grossen internationalen Wettkämpfen wie Europameisterschaften, Weltcups und Weltmeisterschaften, organisiert von Verbänden wie WAKO (World Association of Kickboxing Organizations).',
+
+                // Values
+                'values.title': 'Wofür ich stehe',
+                'values.text': 'Diese Grundwerte leiten alles, was ich tue - von frühmorgendlichen Trainingseinheiten bis hin zu Wettkämpfen auf internationaler Bühne. Sie prägen, wer ich als Sportlerin und als Mensch bin.',
+                'values.consistency': 'Beständigkeit',
+                'values.consistency.desc': 'Jeden Tag erscheinen, die Arbeit investieren und dem Prozess vertrauen',
+                'values.growth': 'Wachstum',
+                'values.growth.desc': 'Die beste Version meiner selbst werden, Tag für Tag',
+                'values.respect': 'Respekt',
+                'values.respect.desc': 'Jeden mit Freundlichkeit behandeln, im Ring und ausserhalb',
+                'values.inspiration': 'Inspiration',
+                'values.inspiration.desc': 'Ein Vorbild für junge Sportler sein, besonders für Mädchen im Kampfsport',
+
+                // Sponsorship
+                'sponsorship.title': 'Partner einer Meisterin werden',
+                'sponsorship.intro': 'Eine Investition in Eva verbindet deine Marke mit Beständigkeit, Wachstum, Respekt und Inspiration — die Grundlage wahrer Exzellenz.',
+                'sponsorship.content': 'Authentischer Content',
+                'sponsorship.content.desc': 'Wirkungsvoller Content aus Training, Wettkampf und dem täglichen Kampfleben',
+                'sponsorship.visibility': 'Markensichtbarkeit',
+                'sponsorship.visibility.desc': 'Starke Präsenz bei nationalen und internationalen K1- und Kickbox-Events',
+                'sponsorship.representation': 'Konstante Repräsentation',
+                'sponsorship.representation.desc': 'Vertretung deiner Marke in Training, Medien und auf sozialen Plattformen',
+                'sponsorship.ambassador': 'Inspirierende Botschafterin',
+                'sponsorship.ambassador.desc': 'Eine motivierte junge Athletin, die andere durch Kampfsport inspiriert',
+                'sponsorship.cta': '→ Sponsor werden',
+
+                // Partners
+                'partners.title': 'Aktuelle Partner',
+                'partners.edubily.desc': 'Erstellung von ansprechendem Content zur Unterstützung ihrer Marke durch authentische, hochwertige Inhalte aus meiner sportlichen Reise.',
+                'partners.edubily.role': 'Content Creator',
+                'partners.mcdonalds.desc': 'Stolze Partnerschaft durch Sporthilfe, sie unterstützen meine sportliche Reise und ich halte während der Saison engen Kontakt.',
+                'partners.mcdonalds.role': 'Athletenpartnerschaft via Sporthilfe',
+
+                // Contact
+                'contact.title': 'Lass uns verbinden',
+                'contact.text': 'Interesse an Sponsoring-Möglichkeiten, Medienanfragen oder Zusammenarbeit? Melde dich und lass uns besprechen, wie wir zusammenarbeiten können.',
+                'contact.email': 'E-Mail',
+
+                // Footer
+                'footer.subtitle': 'Schweizer Kickbox-Meisterin',
+                'footer.timeline': 'Zeitachse',
+                'footer.education': 'Ausbildung',
+                'footer.values': 'Werte',
+                'footer.sponsorship': 'Sponsoring',
+                'footer.partners': 'Partner',
+                'footer.contact': 'Kontakt'
+            }
+        },
+        originalTexts: {},
+
+        init() {
+            this.toggle = document.getElementById('langToggle');
+            if (!this.toggle) return;
+
+            // Store original English texts
+            this.storeOriginalTexts();
+
+            // Check for saved preference
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang === 'de') {
+                this.toggle.checked = true;
+                this.switchLanguage('de');
+            }
+
+            // Listen for toggle changes
+            this.toggle.addEventListener('change', () => {
+                const newLang = this.toggle.checked ? 'de' : 'en';
+                this.switchLanguage(newLang);
+                localStorage.setItem('preferredLanguage', newLang);
+            });
+        },
+
+        storeOriginalTexts() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                this.originalTexts[key] = el.textContent;
+            });
+        },
+
+        switchLanguage(lang) {
+            this.currentLang = lang;
+
+            // Update label styling
+            document.querySelector('.lang-en').classList.toggle('active', lang === 'en');
+            document.querySelector('.lang-de').classList.toggle('active', lang === 'de');
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                if (lang === 'de' && this.translations.de[key]) {
+                    el.textContent = this.translations.de[key];
+                } else if (lang === 'en' && this.originalTexts[key]) {
+                    el.textContent = this.originalTexts[key];
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+    };
+
+    // ============================================
     // Initialize All Modules
     // ============================================
     function init() {
@@ -402,6 +592,7 @@
         AchievementModal.init();
         PartnerModal.init();
         KeyboardHandler.init();
+        LanguageSwitcher.init();
     }
 
     // Run initialization
