@@ -408,7 +408,7 @@
                 'nav.partner': 'Partner werden',
 
                 // Hero
-                'hero.tagline': 'Aufstrebende junge Schweizer Kickboxerin mit internationalem Erfolg, die Können und Ehrgeiz auf der Weltbühne repräsentiert.',
+                'hero.tagline': 'Junge, aufstrebende Kickboxerin aus der Schweiz mit internationalen Erfolgen – ein Symbol für Talent, Disziplin und Ambition auf internationaler Ebene.',
                 'hero.badge.european': 'Europameisterin',
                 'hero.badge.swiss': '2x Schweizer Meisterin',
                 'hero.badge.national': 'Nationalmannschaft',
@@ -416,16 +416,16 @@
 
                 // About
                 'about.title': 'Über Eva Tschanz-Eichar',
-                'about.text': 'Ich glaube an Beständigkeit, daran, die beste Version meiner selbst zu werden, das Leben zu geniessen und jeden mit Respekt und Freundlichkeit zu behandeln.',
+                'about.text': 'Beständigkeit, persönliches Wachstum, Lebensfreude sowie Respekt und Freundlichkeit gegenüber anderen stehen für mich an erster Stelle.',
                 'about.age': 'Alter',
-                'about.age.value': 'Siebzehn',
+                'about.age.value': '17 Jahre',
                 'about.nationality': 'Nationalität',
                 'about.nationality.value': 'Schweiz & Kanada',
                 'about.location': 'Standort',
                 'about.location.value': 'Bern, Schweiz',
                 'about.discipline': 'Disziplin',
                 'about.gym': 'Gym',
-                'about.competing': 'Wettkampf seit',
+                'about.competing': 'Teilnahme an Wettkämpfen seit',
                 'about.cta': '→ Kontakt aufnehmen',
 
                 // Achievements
