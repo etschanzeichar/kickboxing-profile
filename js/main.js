@@ -435,8 +435,11 @@
                 'achievements.euro.preview': '9 Teilnehmerinnen in der Kategorie. Jeden Kampf dominiert und den Europatitel nach intensiver Sommervorbereitung geholt.',
                 'achievements.cups.category': 'Internationale Cups',
                 'achievements.cups.result': 'Mehrere Goldmedaillen & Wachstum',
+                'achievements.cups.preview': 'Sarajevo: Erste internationale Goldmedaille | Budapest: Dominanter Sieg | Antalya: TKO-Sieg, Weltmeisterin getroffen | Jesolo: Lernerfahrung - Motivation zur Verbesserung',
                 'achievements.swiss.category': 'Schweizer Meisterschaften',
                 'achievements.swiss.result': 'Nationale Meisterin (WAKO & SCOS)',
+                'achievements.swiss.location': 'Schweiz',
+                'achievements.swiss.preview': 'WAKO: Dominanter Sieg auf nationaler Ebene | SCOS: Nach einem Jahr Qualifikationen die meisten gewonnen und einen klaren Sieg im Finale errungen',
                 'achievements.expand': 'Klicken für mehr →',
 
                 // Timeline
