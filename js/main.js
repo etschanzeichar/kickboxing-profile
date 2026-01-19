@@ -430,10 +430,10 @@
 
                 // Achievements
                 'achievements.title': 'Erfolge',
-                'achievements.euro.category': 'Europameisterschaften',
-                'achievements.euro.result': '3 Kämpfe, 3 Siege - Goldmedaille',
-                'achievements.euro.preview': '9 Teilnehmerinnen in der Kategorie. Jeden Kampf dominiert und den Europatitel nach intensiver Sommervorbereitung geholt.',
-                'achievements.cups.category': 'Internationale Cups',
+                'achievements.euro.category': 'Europameisterschaft',
+                'achievements.euro.result': '3 Kämpfe, 3 Siege --> Goldmedaille',
+                'achievements.euro.preview': '9 Teilnehmerinnen in der Kategorie. Jeden Kampf dominiert und den Europatitel nach intensiver Vorbereitung geholt.',
+                'achievements.cups.category': 'Internationale Wettkämpfe',
                 'achievements.cups.result': 'Mehrere Goldmedaillen & Wachstum',
                 'achievements.cups.preview': 'Sarajevo: Erste internationale Goldmedaille | Budapest: Dominanter Sieg | Antalya: TKO-Sieg, Weltmeisterin getroffen | Jesolo: Lernerfahrung - Motivation zur Verbesserung',
                 'achievements.swiss.category': 'Schweizer Meisterschaften',
