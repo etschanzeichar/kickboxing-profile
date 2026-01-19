@@ -492,6 +492,16 @@
                 'timeline.section3': 'Langfristige Vision',
                 'timeline.section3.sub': 'Der Traum',
                 'timeline.hint': 'Klicke auf einen Abschnitt zum Vergrössern',
+                'timeline.started': 'Trainingsbeginn',
+                'timeline.first': 'Erster Wettkampf',
+                'timeline.swiss': 'Schweizer Meisterin',
+                'timeline.national': 'Nationalmannschaft',
+                'timeline.euro': 'Europameisterin',
+                'timeline.pro': 'Erster Profikampf',
+                'timeline.juniorwc': 'Junioren Weltmeisterschaft',
+                'timeline.seniorec': 'Senioren Europameisterschaft',
+                'timeline.one': 'ONE Championships',
+                'timeline.olympics': 'Olympische Spiele',
 
                 // Budget
                 'budget.title': 'Investitionsübersicht',
