@@ -299,6 +299,32 @@
     const AchievementModal = {
         modal: document.getElementById('achievementModal'),
 
+        getTranslatedContent(card) {
+            const achievementId = card.dataset.achievement;
+            const lang = LanguageSwitcher.currentLang;
+            const translations = LanguageSwitcher.translations.de;
+
+            if (lang === 'de' && achievementId) {
+                return {
+                    category: translations[`achievements.${achievementId}.category`] || card.dataset.category,
+                    title: translations[`achievements.${achievementId}.title`] || card.dataset.title,
+                    location: translations[`achievements.${achievementId}.location`] || card.dataset.location,
+                    result: translations[`achievements.${achievementId}.result`] || card.dataset.result,
+                    description: translations[`achievements.${achievementId}.description`] || card.dataset.description,
+                    quote: translations[`achievements.${achievementId}.quote`] || card.dataset.quote
+                };
+            }
+
+            return {
+                category: card.dataset.category,
+                title: card.dataset.title,
+                location: card.dataset.location,
+                result: card.dataset.result,
+                description: card.dataset.description,
+                quote: card.dataset.quote
+            };
+        },
+
         init() {
             const closeBtn = document.getElementById('modalClose');
             const carousel = document.querySelector('.achievements-carousel');
@@ -311,15 +337,17 @@
                     const card = e.target.closest('.achievement-card');
                     if (!card) return;
 
-                    document.getElementById('modalCategory').textContent = card.dataset.category;
-                    document.getElementById('modalTitle').textContent = card.dataset.title;
-                    document.getElementById('modalLocation').textContent = card.dataset.location;
-                    document.getElementById('modalResult').textContent = card.dataset.result;
-                    document.getElementById('modalDescription').textContent = card.dataset.description;
+                    const content = this.getTranslatedContent(card);
+
+                    document.getElementById('modalCategory').textContent = content.category;
+                    document.getElementById('modalTitle').textContent = content.title;
+                    document.getElementById('modalLocation').textContent = content.location;
+                    document.getElementById('modalResult').textContent = content.result;
+                    document.getElementById('modalDescription').textContent = content.description;
 
                     const quoteEl = document.getElementById('modalQuote');
-                    if (card.dataset.quote) {
-                        quoteEl.textContent = '"' + card.dataset.quote + '"';
+                    if (content.quote) {
+                        quoteEl.textContent = '"' + content.quote + '"';
                         quoteEl.style.display = 'block';
                     } else {
                         quoteEl.style.display = 'none';
@@ -435,12 +463,25 @@
                 'achievements.euro.preview': '9 Teilnehmerinnen in der Kategorie. Jeden Kampf dominiert und den Europatitel nach intensiver Vorbereitung geholt.',
                 'achievements.cups.category': 'Internationale Wettkämpfe',
                 'achievements.cups.result': 'Mehrere Goldmedaillen & Wachstum',
-                'achievements.cups.preview': 'Sarajevo: Erste internationale Goldmedaille | Budapest: Dominanter Sieg | Antalya: TKO-Sieg, Weltmeisterin getroffen | Jesolo: Lernerfahrung - Motivation zur Verbesserung',
+                'achievements.cups.preview': 'Sarajevo: Erste internationale Goldmedaille | Budapest: Dominanter Sieg | Antalya: TKO-Sieg, Kampf gegen Weltmeisterin | Jesolo: Lernerfahrung - Motivation zur Verbesserung',
                 'achievements.swiss.category': 'Schweizer Meisterschaften',
                 'achievements.swiss.result': 'Nationale Meisterin (WAKO & SCOS)',
                 'achievements.swiss.location': 'Schweiz',
-                'achievements.swiss.preview': 'WAKO: Dominanter Sieg auf nationaler Ebene | SCOS: Nach einem Jahr Qualifikationen die meisten gewonnen und einen klaren Sieg im Finale errungen',
+                'achievements.swiss.preview': 'WAKO: Dominanter Sieg auf nationaler Ebene | SCOS: Nach einem Jahr Qualifikationen fast alle gewonnen und einen klaren Sieg im Finale errungen',
                 'achievements.expand': 'Klicken für mehr →',
+
+                // Achievement modal content
+                'achievements.euro.title': 'Europameisterschaft 2025',
+                'achievements.euro.location': 'Jesolo, Italien',
+                'achievements.euro.description': '9 Teilnehmerinnen in der Kategorie. Jeden Kampf dominiert und den Titel geholt.',
+                'achievements.euro.quote': 'Ich habe den ganzen Sommer für diesen Wettkampf trainiert. Ich bin nicht in die Ferien gefahren, sondern zu Hause geblieben und habe mehrmals am Tag trainiert. Ich habe mich stark auf meine Ernährung und Gesundheit konzentriert, alles gegeben und am Ende gewonnen.',
+
+                'achievements.cups.title': 'Internationale Wettkämpfe 2025',
+                'achievements.cups.location': 'Sarajevo, Ungarn, Türkei, Italien',
+                'achievements.cups.description': 'European Cup Grand Prix (Sarajevo): Zwei harte Kämpfe im Turniers, gewann meine erste Goldmedaille in einem internationalen Wettkampf.\n\nWeltcup Ungarn (Budapest): Dominanter Sieg gegen eine erfahrene Gegnerin, technische Überlegenheit und Kampfintelligenz gezeigt.\n\nWeltcup Türkei (Antalya): Ersten Kampf durch TKO gewonnen. Zweiten Kampf gegen dieselbe Gegnerin aus Italien verloren - eine Weltmeisterin und Europameisterin, die selten verliert. Diese Niederlage hat noch mehr Feuer entfacht, härter zu arbeiten. Ziel: 2026 gegen sie gewinnen.\n\nInternational Open (Jesolo): Meinen ersten internationalen Kampf nach Punkten verloren. Eine harte Lernerfahrung, die zur Motivation für Verbesserungen wurde.',
+
+                'achievements.swiss.title': 'Schweizer Meisterschaften 2024',
+                'achievements.swiss.description': 'WAKO Meisterschaften: Die Konkurrenz bei den Schweizer WAKO Meisterschaften dominiert, gute Technik und Kondition gezeigt.\n\nSCOS Meisterschaften: Nach einem ganzen Jahr Qualifikationen, die meisten davon gewonnen, qualifizierte ich mich fürs Finale. Erziehlte einen klaren Sieg in den Meisterschaftsfinals.',
 
                 // Timeline
                 'timeline.title': 'Der Weg nach vorne',
