@@ -514,19 +514,17 @@
                 'budget.equipment.desc': 'Handschuhe, Schutzausrüstung, Trainingskleidung, Wettkampfkleidung',
                 'budget.nutrition': 'Ernährung',
                 'budget.nutrition.desc': 'Spezialisierter Ernährungsplan, Nahrungsergänzungsmittel',
-                'budget.camps': 'Trainingscamps',
-                'budget.camps.desc': 'Intensive Vorbereitungscamps mit Spitzentrainern im Ausland',
                 'budget.total': 'Jährliche Investition',
                 'budget.summary.title': 'Wohin deine Unterstützung geht',
-                'budget.summary.text1': 'Jeder Franken wird direkt in Training, Wettkampf und Entwicklung investiert. Als Amateursportlerin balance ich meine sportliche Karriere mit Studium und Arbeit und widme jede verfügbare Ressource dem Ziel, die Spitze meines Sports zu erreichen.',
+                'budget.summary.text1': 'Jeder Franken wird direkt in Training, Wettkampf und Entwicklung investiert. Als Amateursportlerin balanciere ich meine sportliche Karriere mit meinem Studium und widme jede verfügbare Ressource dem Ziel, die Spitze meines Sports zu erreichen.',
                 'budget.summary.text2': 'Dein Sponsoring hilft, diese wesentlichen Kosten zu decken, damit ich mich auf das Wichtigste konzentrieren kann: die beste Kickboxerin zu werden, die ich sein kann, und die Schweiz auf der Weltbühne zu vertreten.',
                 'budget.cta': '→ Sponsoring besprechen',
 
                 // Education
                 'education.title': 'Ausbildung & Ziele',
-                'education.text1': 'Ausserhalb des Rings besuche ich das Sportgymnasium Neufeld in Bern mit dem Ziel, professionelle Kickboxerin zu werden, mit dem langfristigen Ziel, an den Olympischen Spielen teilzunehmen und Kämpferin in der Weltklasse-Kampforganisation ONE Championship zu werden.',
+                'education.text1': 'Ausserhalb des Rings besuche ich das Sportgymnasium Neufeld in Bern und verfolge das Ziel, professionelle Kickboxerin zu werden. Langfristig strebe ich eine Teilnahme an den Olympischen Spielen sowie eine Karriere in der Weltklasse-Kampforganisation ONE Championship an.',
                 'education.text2': 'Neben meinen sportlichen Ambitionen interessiere ich mich für ein Studium in Informatik oder Ingenieurwesen.',
-                'education.text3': 'Ich habe den Schweizer J+S Leiterkurs abgeschlossen und trainiere Kinderkurse in meinem Gym.',
+                'education.text3': 'Ich habe den Schweizer J+S Leiterkurs abgeschlossen und helfe mit den Kindertrainings in meinem Gym.',
                 'education.text4': 'Als Vorbild für junge Mädchen im Kampfsport möchte ich sie inspirieren, ihren eigenen Weg zu gehen und durch Disziplin und harte Arbeit Selbstvertrauen zu gewinnen.',
 
                 // Kickboxing
