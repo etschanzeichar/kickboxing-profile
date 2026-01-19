@@ -529,7 +529,7 @@
 
                 // Kickboxing
                 'kickboxing.title': 'K1 Kickboxen',
-                'kickboxing.text1': 'K1 Kickboxen ist eine der intensivsten Schlagkampfsportarten der Welt, die Techniken aus Muay Thai, Karate und westlichem Boxen zu einem schnellen, explosiven Kampfsport kombiniert.',
+                'kickboxing.text1': 'K1 Kickboxen ist eine der intensivsten Kampfsportarten der Welt. Es hat Techniken aus Muay Thai, Karate und westlichem Boxen zu einem schnellen, explosiven Kampfsport kombiniert.',
                 'kickboxing.text2': 'Kämpfer nutzen Schläge, Tritte und Kniestösse, um Punkte zu sammeln oder Knockouts zu erzielen. Anders als bei Muay Thai sind Ellbogen nicht erlaubt und Clinchen ist begrenzt, was den Fokus auf dynamische Schlagaustausche legt.',
                 'kickboxing.text3': 'Kämpfe bestehen aus drei 3-Minuten-Runden für Profis oder drei 2-Minuten-Runden für Amateure. Der Sieg kann durch Knockout, technischen Knockout (3 Niederschläge in einer Runde) oder Punktrichterentscheidung basierend auf effektiven Treffern, Schaden und Aggressivität erreicht werden.',
                 'kickboxing.text4': 'K1 ist zu einem globalen Phänomen gewachsen mit grossen internationalen Wettkämpfen wie Europameisterschaften, Weltcups und Weltmeisterschaften, organisiert von Verbänden wie WAKO (World Association of Kickboxing Organizations).',
@@ -552,7 +552,7 @@
                 'sponsorship.content': 'Authentischer Content',
                 'sponsorship.content.desc': 'Wirkungsvoller Content aus Training, Wettkampf und dem täglichen Kampfleben',
                 'sponsorship.visibility': 'Markensichtbarkeit',
-                'sponsorship.visibility.desc': 'Starke Präsenz bei nationalen und internationalen K1- und Kickbox-Events',
+                'sponsorship.visibility.desc': 'Starke Markenpräsenz bei nationalen und internationalen K1- und Kickbox-Events',
                 'sponsorship.representation': 'Konstante Repräsentation',
                 'sponsorship.representation.desc': 'Vertretung deiner Marke in Training, Medien und auf sozialen Plattformen',
                 'sponsorship.ambassador': 'Inspirierende Botschafterin',
@@ -563,7 +563,7 @@
                 'partners.title': 'Aktuelle Partner',
                 'partners.edubily.desc': 'Erstellung von ansprechendem Content zur Unterstützung ihrer Marke durch authentische, hochwertige Inhalte aus meiner sportlichen Reise.',
                 'partners.edubily.role': 'Content Creator',
-                'partners.mcdonalds.desc': 'Stolze Partnerschaft durch Sporthilfe, sie unterstützen meine sportliche Reise und ich halte während der Saison engen Kontakt.',
+                'partners.mcdonalds.desc': 'Stolze, durch Sprothilfe erzeugte, Partnerschaft. Sie unterstützen meine sportliche Reise und ich halte während der Saison engen Kontakt mit meiner Patin.',
                 'partners.mcdonalds.role': 'Athletenpartnerschaft via Sporthilfe',
 
                 // Contact
