@@ -1251,7 +1251,6 @@ nav.scrolled {
 /* Gallery Section */
 .gallery {
     padding: 6rem 0;
-    background: var(--bg-secondary);
     overflow: hidden;
 }
 
@@ -1604,7 +1603,6 @@ nav.scrolled {
 /* Sponsorship Section */
 .sponsorship {
     padding: 10rem 6rem 2rem;
-    background: #d2e1f5;
     position: relative;
     overflow: hidden;
 }
@@ -1785,7 +1783,6 @@ nav.scrolled {
 /* Partners Section */
 .partners {
     padding: 8rem 6rem;
-    background: #e7efff;
 }
 
 .partners h2 {
