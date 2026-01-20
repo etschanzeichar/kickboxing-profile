@@ -1248,6 +1248,359 @@ nav.scrolled {
     color: var(--text-primary);
 }
 
+/* Gallery Section */
+.gallery {
+    padding: 6rem 0;
+    background: var(--bg-secondary);
+    overflow: hidden;
+}
+
+.gallery-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4rem;
+    margin-bottom: 2rem;
+}
+
+.gallery-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--text-primary);
+    letter-spacing: 0.05em;
+}
+
+.gallery-nav {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.gallery-nav-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--text-primary);
+    background: transparent;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.gallery-nav-btn:hover {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+}
+
+.gallery-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.gallery-nav-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+.gallery-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.gallery-track {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0 4rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.gallery-track::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-item {
+    flex: 0 0 350px;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    cursor: pointer;
+    scroll-snap-align: start;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.3s ease;
+    filter: grayscale(20%);
+}
+
+.gallery-item.position-top img {
+    object-position: center top;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+.gallery-section-label {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    font-family: 'Anton', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    padding: 0 1rem;
+    height: 450px;
+    scroll-snap-align: start;
+}
+
+/* Gallery Video Items */
+.gallery-item.gallery-video {
+    flex: 0 0 253px;
+    height: 450px;
+    background: #000;
+}
+
+.gallery-item.gallery-video iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+
+.gallery-item.gallery-video::after {
+    display: none;
+}
+
+/* Video Carousel */
+.video-carousel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem 1rem;
+}
+
+.video-carousel-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--text-primary);
+    letter-spacing: 0.05em;
+}
+
+.video-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 2rem;
+}
+
+.video-track {
+    display: flex;
+    gap: 1rem;
+    padding: 0 4rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.video-track::-webkit-scrollbar {
+    display: none;
+}
+
+.video-item {
+    position: relative;
+    flex: 0 0 169px;
+    height: 300px;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    scroll-snap-align: start;
+}
+
+.video-item.landscape {
+    flex: 0 0 533px;
+    height: 300px;
+}
+
+.video-item iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.video-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: filter 0.3s ease;
+}
+
+.video-item:hover .video-thumbnail {
+    filter: brightness(0.7);
+}
+
+.video-item::after {
+    content: 'Click to play';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.video-item:hover::after {
+    opacity: 1;
+}
+
+.video-item.playing::after {
+    display: none;
+}
+
+.video-play-btn {
+    display: none;
+}
+
+.video-item:hover .video-play-btn {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+}
+
+.video-play-btn svg path:first-child {
+    fill: rgba(33, 33, 33, 0.9);
+}
+
+.video-item.playing .video-thumbnail,
+.video-item.playing .video-play-btn {
+    display: none;
+}
+
+.video-track .gallery-section-label {
+    height: 300px;
+    font-size: 1.2rem;
+    padding: 0 0.75rem;
+}
+
+/* Gallery Lightbox */
+.gallery-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-lightbox.active {
+    display: flex;
+}
+
+.lightbox-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    z-index: 10001;
+}
+
+.lightbox-close:hover {
+    opacity: 1;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.lightbox-nav:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.lightbox-prev {
+    left: 2rem;
+}
+
+.lightbox-next {
+    right: 2rem;
+}
+
 /* Sponsorship Section */
 .sponsorship {
     padding: 10rem 6rem 2rem;
@@ -2560,6 +2913,96 @@ footer {
 
     .timeline-point-year {
         font-size: 7px;
+    }
+
+    /* Gallery Mobile */
+    .gallery {
+        padding: 4rem 0;
+    }
+
+    .gallery-header {
+        padding: 0 1.25rem;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .gallery-title {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+    }
+
+    .gallery-nav-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .gallery-nav-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .gallery-track {
+        padding: 0 1.25rem;
+        gap: 1rem;
+    }
+
+    .gallery-item {
+        flex: 0 0 280px;
+        height: 360px;
+    }
+
+    .gallery-section-label {
+        font-size: 1.2rem;
+        height: 360px;
+        padding: 0 0.75rem;
+    }
+
+    .gallery-item.gallery-video {
+        flex: 0 0 203px;
+        height: 360px;
+    }
+
+    .video-carousel-header {
+        padding: 1.5rem 1.5rem 0.75rem;
+    }
+
+    .video-track {
+        padding: 0 1.5rem;
+        gap: 0.75rem;
+    }
+
+    .video-item {
+        flex: 0 0 135px;
+        height: 240px;
+    }
+
+    .video-item.landscape {
+        flex: 0 0 427px;
+        height: 240px;
+    }
+
+    .video-track .gallery-section-label {
+        height: 240px;
+        font-size: 1rem;
+    }
+
+    .lightbox-nav {
+        padding: 0.75rem 1rem;
+        font-size: 1.5rem;
+    }
+
+    .lightbox-prev {
+        left: 0.5rem;
+    }
+
+    .lightbox-next {
+        right: 0.5rem;
+    }
+
+    .lightbox-close {
+        top: 1rem;
+        right: 1rem;
+        font-size: 2.5rem;
     }
 
     /* Kickboxing Mobile */
