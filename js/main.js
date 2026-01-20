@@ -575,6 +575,7 @@
                 // Footer
                 'footer.subtitle': 'Europäische Kickbox-Meisterin',
                 'footer.timeline': 'Zeitachse',
+                'footer.budget': 'Budget',
                 'footer.education': 'Ausbildung',
                 'footer.values': 'Werte',
                 'footer.sponsorship': 'Sponsoring',
