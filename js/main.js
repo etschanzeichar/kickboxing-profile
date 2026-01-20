@@ -549,6 +549,7 @@
                 // Sponsorship
                 'sponsorship.title': 'Partner einer Meisterin werden',
                 'sponsorship.intro': 'Eine Investition in Eva verbindet deine Marke mit Beständigkeit, Wachstum, Respekt und Inspiration — die Grundlage wahrer Exzellenz.',
+                'sponsorship.offer': 'Was ich bieten kann',
                 'sponsorship.content': 'Authentischer Content',
                 'sponsorship.content.desc': 'Wirkungsvoller Content aus Training, Wettkampf und dem täglichen Kampfleben',
                 'sponsorship.visibility': 'Markensichtbarkeit',
