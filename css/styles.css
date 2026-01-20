@@ -2101,7 +2101,8 @@ footer {
 
 .footer-nav {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, auto);
+    grid-auto-flow: column;
     gap: 0.5rem 3rem;
 }
 
