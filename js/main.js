@@ -573,7 +573,7 @@
                 'contact.email': 'E-Mail',
 
                 // Footer
-                'footer.subtitle': 'Schweizer Kickbox-Meisterin',
+                'footer.subtitle': 'Europäische Kickbox-Meisterin',
                 'footer.timeline': 'Zeitachse',
                 'footer.education': 'Ausbildung',
                 'footer.values': 'Werte',
