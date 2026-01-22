@@ -608,7 +608,7 @@
                 // Hero
                 'hero.tagline': 'Junge, aufstrebende Kickboxerin aus der Schweiz mit internationalen Erfolgen – ein Symbol für Talent, Disziplin und Ambition auf internationaler Ebene.',
                 'hero.badge.european': 'Europameisterin',
-                'hero.badge.swiss': '2x Schweizer Meisterin',
+                'hero.badge.swiss': '2x CH Meisterin',
                 'hero.badge.national': 'Nationalmannschaft',
                 'hero.cta': 'Sponsor werden',
 
