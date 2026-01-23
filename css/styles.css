@@ -379,6 +379,7 @@ nav.scrolled {
     margin-bottom: 2rem;
     margin-top: 2rem;
     justify-content: center;
+    align-items: flex-end;
     opacity: 0;
     animation: slideUp 0.8s ease 0.9s forwards;
 }

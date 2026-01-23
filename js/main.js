@@ -608,7 +608,7 @@
                 // Hero
                 'hero.tagline': 'Junge, aufstrebende Kickboxerin aus der Schweiz mit internationalen Erfolgen – ein Symbol für Talent, Disziplin und Ambition auf internationaler Ebene.',
                 'hero.badge.european': 'Europameisterin',
-                'hero.badge.swiss': '2x CH Meisterin',
+                'hero.badge.swiss': '2x<br>Schweizer Meisterin',
                 'hero.badge.national': 'Nationalmannschaft',
                 'hero.cta': 'Sponsor werden',
 
@@ -791,13 +791,25 @@
             document.querySelector('.lang-en').classList.toggle('active', lang === 'en');
             document.querySelector('.lang-de').classList.toggle('active', lang === 'de');
 
+            // Keys that contain HTML (like <br> tags)
+            const htmlKeys = ['hero.badge.swiss'];
+
             // Update all translatable elements
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.dataset.i18n;
+                const useHTML = htmlKeys.includes(key);
                 if (lang === 'de' && this.translations.de[key]) {
-                    el.textContent = this.translations.de[key];
+                    if (useHTML) {
+                        el.innerHTML = this.translations.de[key];
+                    } else {
+                        el.textContent = this.translations.de[key];
+                    }
                 } else if (lang === 'en' && this.originalTexts[key]) {
-                    el.textContent = this.originalTexts[key];
+                    if (useHTML) {
+                        el.innerHTML = this.originalTexts[key];
+                    } else {
+                        el.textContent = this.originalTexts[key];
+                    }
                 }
             });
 
