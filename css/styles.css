@@ -898,7 +898,6 @@ nav.scrolled {
 /* Values Section */
 .values {
     padding: 4rem 6rem;
-    background: var(--bg-secondary);
 }
 
 .values-content {
