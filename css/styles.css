@@ -588,6 +588,7 @@ nav.scrolled {
     fill: transparent;
     cursor: pointer;
     transition: fill 0.3s ease;
+    pointer-events: none;
 }
 
 .timeline-section-area:hover {
@@ -764,6 +765,146 @@ nav.scrolled {
     font-size: 0.85rem;
     color: var(--text-secondary);
     line-height: 1.8;
+}
+
+/* Timeline Point Clickable */
+.timeline-point-clickable {
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.timeline-point-clickable:hover .timeline-point-dot {
+    transform: scale(1.5);
+    filter: drop-shadow(0 0 12px var(--accent));
+}
+
+.timeline-point-clickable:hover .timeline-point-label {
+    fill: var(--accent);
+}
+
+.timeline-point-clickable .timeline-point-dot,
+.timeline-point-clickable .timeline-point-label,
+.timeline-point-clickable .timeline-point-year {
+    pointer-events: none;
+}
+
+/* Invisible hit area for timeline points */
+.timeline-point-hitarea {
+    fill: transparent;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+/* Timeline Point Modal */
+.timeline-point-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 2rem;
+}
+
+.timeline-point-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.timeline-point-modal-content {
+    background: var(--bg-secondary);
+    max-width: 500px;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.timeline-point-modal.active .timeline-point-modal-content {
+    transform: scale(1);
+}
+
+.timeline-point-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.timeline-point-modal-close:hover {
+    background: var(--accent);
+}
+
+.timeline-point-modal-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: var(--bg-primary);
+}
+
+.timeline-point-modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.timeline-point-modal-image.no-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+}
+
+.timeline-point-modal-image.no-image::after {
+    content: '';
+    width: 60px;
+    height: 60px;
+    border: 3px solid var(--text-primary);
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.timeline-point-modal-info {
+    padding: 1.5rem;
+}
+
+.timeline-point-modal-year {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-point-modal-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.timeline-point-modal-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
 }
 
 /* About Section */
