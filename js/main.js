@@ -189,7 +189,6 @@
         setupInteractions() {
             this.container = document.getElementById('timelineContainer');
             const zoomOutBtn = document.getElementById('timelineZoomOut');
-            const svg = document.querySelector('.timeline-svg');
             const navPrev = document.getElementById('timelineNavPrev');
             const navNext = document.getElementById('timelineNavNext');
 
@@ -231,38 +230,6 @@
                 }
             });
 
-            // Click on SVG for section zoom (desktop only)
-            if (svg) {
-                svg.addEventListener('click', (e) => {
-                    if (this.isMobile()) return;
-
-                    // Don't handle if clicking on timeline point hitareas (let point modal handle it)
-                    if (e.target.classList.contains('timeline-point-hitarea')) {
-                        return;
-                    }
-
-                    // If zoomed, zoom out
-                    if (this.container.classList.contains('zoomed')) {
-                        this.zoomOut();
-                        return;
-                    }
-
-                    // If not zoomed, determine which section was clicked based on x position
-                    const svgRect = svg.getBoundingClientRect();
-                    const clickX = e.clientX - svgRect.left;
-                    const svgWidth = svgRect.width;
-                    const relativeX = clickX / svgWidth;
-
-                    // Section boundaries (roughly matching the rect x positions)
-                    if (relativeX < 0.3) {
-                        this.zoomToSection(1);
-                    } else if (relativeX < 0.65) {
-                        this.zoomToSection(2);
-                    } else {
-                        this.zoomToSection(3);
-                    }
-                });
-            }
 
             // Keyboard navigation
             document.addEventListener('keydown', (e) => {
