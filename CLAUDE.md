@@ -70,27 +70,34 @@ Located in `js/main.js`:
 
 ## Images and Media
 
-**Important:** Only web-optimized images and videos may be used in the website. Never reference originals from `images/`, `images/new.photos/`, `images/Cover vids/`, or any other non-web directory directly in HTML/CSS/JS.
+**Important:** Only optimized images may be used in the website. Never reference originals from `images/`, `images/new.photos/`, `images/Cover vids/`, or any other non-optimized directory directly in HTML/CSS/JS.
 
-Images are stored as follows:
-- `images/` - contains original versions; these must NOT be referenced in the website
-- `images/web/` - web-optimized images; these are the ONLY versions that should be used in the website
-- `images/thumbnails/` - miniature versions prefixed with `thumb_`; use these to browse/analyze images, then reference the corresponding file from `images/web/`
+There are two sizes of optimized images, and the correct one depends on display context:
 
-### Creating web-optimized versions
+- `images/web/` - full web-optimized images (max 1600px). Use for **large display contexts**: hero images, about section, education, kickboxing, sponsorship sections, and any image displayed at or near full width.
+- `images/thumbnails/` - gallery-optimized images (max 800px, suitable for 2x retina at 350px). Use for **smaller display contexts**: gallery items, video thumbnails, and partner card images.
+- `images/` - contains original versions; these must NOT be referenced in the website.
 
-Scripts for generating web-optimized images and thumbnails are in the `images/` directory:
-- `images/optimize_for_web.sh` - creates web-optimized versions in `images/web/`
-- `images/make_thumbnails.sh` - creates thumbnails in `images/thumbnails/`
+Both `web/` and `thumbnails/` mirror the source directory structure (e.g., `images/new.photos/foo.jpg` → `images/web/new.photos/foo.jpg` and `images/thumbnails/new.photos/foo.jpg`).
 
-**If an image or video does not have a web-optimized version in `images/web/`, create one using the optimization scripts before adding it to the website.**
+### Creating optimized versions
+
+Scripts for generating optimized images are in the `images/` directory:
+- `images/optimize_for_web.sh` - creates full web-optimized versions in `images/web/` (1600px max)
+- `images/make_thumbnails.sh` - creates gallery-sized versions in `images/thumbnails/` (800px max)
+
+Both scripts recurse into subdirectories and preserve the directory structure in the output.
+
+**If an image does not have optimized versions, run both scripts before adding it to the website.**
 
 ### Workflow for adding images
 
-1. Place the original image in `images/`
-2. Run the optimization script to generate the web version
-3. Reference only the `images/web/` version in HTML/CSS/JS
-4. When browsing available images, look in `images/thumbnails/` for small previews, then use the corresponding `images/web/` file
+1. Place the original image in `images/` (in the appropriate subdirectory)
+2. Run both optimization scripts to generate web and thumbnail versions
+3. Choose the correct optimized version based on display size:
+   - Large/full-width display → `images/web/`
+   - Gallery, video thumbnail, partner card → `images/thumbnails/`
+4. When browsing available images, look in `images/thumbnails/` for previews
 
 ## Deployment
 

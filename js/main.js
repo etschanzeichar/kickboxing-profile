@@ -557,7 +557,8 @@
 
         updateImage() {
             const img = this.images[this.currentIndex];
-            this.lightboxImage.src = img.src;
+            // Use full web-optimized version in lightbox instead of thumbnail
+            this.lightboxImage.src = img.src.replace('images/thumbnails/', 'images/web/');
             this.lightboxImage.alt = img.alt;
         },
 

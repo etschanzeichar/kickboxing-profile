@@ -1,11 +1,13 @@
 #!/bin/bash
 
-# Script to generate thumbnails for all images in the current directory
+# Script to generate gallery-sized thumbnails for all images
+# These are used in the website for gallery items, video thumbnails,
+# and partner cards where full-resolution web images are unnecessary.
 # Uses macOS sips command
 
 # Configuration
 THUMB_DIR="thumbnails"
-MAX_SIZE=300  # Maximum dimension (width or height) in pixels
+MAX_SIZE=800  # Max dimension - covers 2x retina for gallery items (350px CSS)
 
 # Get the directory where the script is located
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -23,22 +25,22 @@ find . -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname 
     -not -path "./$THUMB_DIR/*" \
     -not -path "./web/*" \
     -not -path "./svg/*" | while read -r img; do
-    # Preserve directory structure: ./new.photos/foo.jpg -> thumbnails/new.photos/thumb_foo.jpg
+    # Preserve directory structure: ./new.photos/foo.jpg -> thumbnails/new.photos/foo.jpg
     rel="${img#./}"
     filename=$(basename "$rel")
     reldir=$(dirname "$rel")
 
-    # Convert HEIC extension to jpg for thumbnail output
+    # Convert HEIC extension to jpg for output
     if echo "$filename" | grep -iq '\.heic$'; then
-        thumb_name="thumb_${filename%.*}.jpg"
+        out_name="${filename%.*}.jpg"
     else
-        thumb_name="thumb_$filename"
+        out_name="$filename"
     fi
 
     if [ "$reldir" = "." ]; then
-        thumb_path="$THUMB_DIR/$thumb_name"
+        thumb_path="$THUMB_DIR/$out_name"
     else
-        thumb_path="$THUMB_DIR/$reldir/$thumb_name"
+        thumb_path="$THUMB_DIR/$reldir/$out_name"
     fi
 
     # Create subdirectory if needed

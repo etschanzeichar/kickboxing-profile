@@ -21,7 +21,9 @@
       "Bash(bash:*)",
       "Bash(mkdir:*)",
       "Bash(ls /Users/jesseeichar/repos/kickboxing-profile/images/*.sh /Users/jesseeichar/repos/kickboxing-profile/images/*.py /Users/jesseeichar/repos/kickboxing-profile/images/Makefile)",
-      "Bash(find 'images/Cover vids' -type f -not -path */thumbnails/*)"
+      "Bash(find 'images/Cover vids' -type f -not -path */thumbnails/*)",
+      "Bash(find images/thumbnails -name 'thumb_*' -type f -delete -print)",
+      "mcp__Claude_Preview__preview_start"
     ]
   }
 }
