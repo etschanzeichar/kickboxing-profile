@@ -1,11 +1,13 @@
 #!/bin/bash
 
-# Script to generate thumbnails for all images in the current directory
+# Script to generate gallery-sized thumbnails for all images
+# These are used in the website for gallery items, video thumbnails,
+# and partner cards where full-resolution web images are unnecessary.
 # Uses macOS sips command
 
 # Configuration
 THUMB_DIR="thumbnails"
-MAX_SIZE=300  # Maximum dimension (width or height) in pixels
+MAX_SIZE=800  # Max dimension - covers 2x retina for gallery items (350px CSS)
 
 # Get the directory where the script is located
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -17,20 +19,32 @@ mkdir -p "$THUMB_DIR"
 # Counter for processed images
 count=0
 
-# Process all image files (jpg, jpeg, png, gif)
-shopt -s nullglob
-for img in *.jpg *.JPG *.jpeg *.JPEG *.png *.PNG *.gif *.GIF; do
-    # Skip if no matches found (glob returns literal pattern)
-    [ -e "$img" ] || continue
+# Find all image files in the current directory and all subdirectories,
+# excluding the thumbnails/, web/, and svg/ output directories
+find . -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.gif' -o -iname '*.heic' \) \
+    -not -path "./$THUMB_DIR/*" \
+    -not -path "./web/*" \
+    -not -path "./svg/*" | while read -r img; do
+    # Preserve directory structure: ./new.photos/foo.jpg -> thumbnails/new.photos/foo.jpg
+    rel="${img#./}"
+    filename=$(basename "$rel")
+    reldir=$(dirname "$rel")
 
-    # Skip the thumbnails directory itself
-    [ "$img" = "$THUMB_DIR" ] && continue
+    # Convert HEIC extension to jpg for output
+    if echo "$filename" | grep -iq '\.heic$'; then
+        out_name="${filename%.*}.jpg"
+    else
+        out_name="$filename"
+    fi
 
-    # Get filename without path
-    filename=$(basename "$img")
+    if [ "$reldir" = "." ]; then
+        thumb_path="$THUMB_DIR/$out_name"
+    else
+        thumb_path="$THUMB_DIR/$reldir/$out_name"
+    fi
 
-    # Output path
-    thumb_path="$THUMB_DIR/thumb_$filename"
+    # Create subdirectory if needed
+    mkdir -p "$(dirname "$thumb_path")"
 
     # Skip if thumbnail already exists and is newer than source
     if [ -f "$thumb_path" ] && [ "$thumb_path" -nt "$img" ]; then

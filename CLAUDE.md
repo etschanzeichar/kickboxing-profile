@@ -68,14 +68,36 @@ Located in `js/main.js`:
 - Achievement modal popups
 - Partner card modal
 
-## Images
+## Images and Media
 
-Images are stored as follows:
-- images/ - contains the original version, shouldn't be used in website, only for generating web and thumbnail versions
-- images/web/ - the web-optimized images that should be used when adding images to the website
-- images/thumbnails/ - a miniature version of the original folders. The files are prefixed with thumb_. To find the image to use, strip thumb_ from the file name and look in the images/web/ directory for the corresponding image
+**Important:** Only optimized images may be used in the website. Never reference originals from `images/`, `images/new.photos/`, `images/Cover vids/`, or any other non-optimized directory directly in HTML/CSS/JS.
 
-When looking for images to use for the website, look in the thumbnails folder for the small versions to analyze then add the web version to the website
+There are two sizes of optimized images, and the correct one depends on display context:
+
+- `images/web/` - full web-optimized images (max 1600px). Use for **large display contexts**: hero images, about section, education, kickboxing, sponsorship sections, and any image displayed at or near full width.
+- `images/thumbnails/` - gallery-optimized images (max 800px, suitable for 2x retina at 350px). Use for **smaller display contexts**: gallery items, video thumbnails, and partner card images.
+- `images/` - contains original versions; these must NOT be referenced in the website.
+
+Both `web/` and `thumbnails/` mirror the source directory structure (e.g., `images/new.photos/foo.jpg` → `images/web/new.photos/foo.jpg` and `images/thumbnails/new.photos/foo.jpg`).
+
+### Creating optimized versions
+
+Scripts for generating optimized images are in the `images/` directory:
+- `images/optimize_for_web.sh` - creates full web-optimized versions in `images/web/` (1600px max)
+- `images/make_thumbnails.sh` - creates gallery-sized versions in `images/thumbnails/` (800px max)
+
+Both scripts recurse into subdirectories and preserve the directory structure in the output.
+
+**If an image does not have optimized versions, run both scripts before adding it to the website.**
+
+### Workflow for adding images
+
+1. Place the original image in `images/` (in the appropriate subdirectory)
+2. Run both optimization scripts to generate web and thumbnail versions
+3. Choose the correct optimized version based on display size:
+   - Large/full-width display → `images/web/`
+   - Gallery, video thumbnail, partner card → `images/thumbnails/`
+4. When browsing available images, look in `images/thumbnails/` for previews
 
 ## Deployment
 
