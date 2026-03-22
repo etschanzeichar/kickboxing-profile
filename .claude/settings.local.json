@@ -19,7 +19,9 @@
       "Bash(npx playwright install)",
       "Bash(bash make_thumbnails.sh:*)",
       "Bash(bash:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(ls /Users/jesseeichar/repos/kickboxing-profile/images/*.sh /Users/jesseeichar/repos/kickboxing-profile/images/*.py /Users/jesseeichar/repos/kickboxing-profile/images/Makefile)",
+      "Bash(find 'images/Cover vids' -type f -not -path */thumbnails/*)"
     ]
   }
 }

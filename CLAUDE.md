@@ -68,14 +68,29 @@ Located in `js/main.js`:
 - Achievement modal popups
 - Partner card modal
 
-## Images
+## Images and Media
+
+**Important:** Only web-optimized images and videos may be used in the website. Never reference originals from `images/`, `images/new.photos/`, `images/Cover vids/`, or any other non-web directory directly in HTML/CSS/JS.
 
 Images are stored as follows:
-- images/ - contains the original version, shouldn't be used in website, only for generating web and thumbnail versions
-- images/web/ - the web-optimized images that should be used when adding images to the website
-- images/thumbnails/ - a miniature version of the original folders. The files are prefixed with thumb_. To find the image to use, strip thumb_ from the file name and look in the images/web/ directory for the corresponding image
+- `images/` - contains original versions; these must NOT be referenced in the website
+- `images/web/` - web-optimized images; these are the ONLY versions that should be used in the website
+- `images/thumbnails/` - miniature versions prefixed with `thumb_`; use these to browse/analyze images, then reference the corresponding file from `images/web/`
 
-When looking for images to use for the website, look in the thumbnails folder for the small versions to analyze then add the web version to the website
+### Creating web-optimized versions
+
+Scripts for generating web-optimized images and thumbnails are in the `images/` directory:
+- `images/optimize_for_web.sh` - creates web-optimized versions in `images/web/`
+- `images/make_thumbnails.sh` - creates thumbnails in `images/thumbnails/`
+
+**If an image or video does not have a web-optimized version in `images/web/`, create one using the optimization scripts before adding it to the website.**
+
+### Workflow for adding images
+
+1. Place the original image in `images/`
+2. Run the optimization script to generate the web version
+3. Reference only the `images/web/` version in HTML/CSS/JS
+4. When browsing available images, look in `images/thumbnails/` for small previews, then use the corresponding `images/web/` file
 
 ## Deployment
 

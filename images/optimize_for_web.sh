@@ -9,44 +9,42 @@ cd "$SCRIPT_DIR"
 WEB_DIR="web"
 MAX_SIZE=1600  # Max dimension for web images
 
-# Images used in the website
-IMAGES=(
-    "eva809.jpg"
-    "eva922.jpg"
-    "eva935.jpg"
-    "eva850.jpg"
-    "eva951.jpg"
-    "IMG_2298.JPG"
-    "eva812.jpg"
-    "eva861.jpg"
-    "Eva691.jpg"
-    "eva961.jpg"
-)
-
 mkdir -p "$WEB_DIR"
 
 echo "Creating web-optimized images..."
 echo ""
 
-for img in *.jpg *.JPG *.jpeg *.JPEG *.png *.PNG *.gif *.GIF; do
-    if [ -f "$img" ]; then
-        # Get base name (convert to lowercase for consistency)
-        base=$(basename "$img")
-        output="$WEB_DIR/$base"
+# Find all image files in the current directory and all subdirectories,
+# excluding the web/ and thumbnails/ output directories
+find . -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.gif' -o -iname '*.heic' \) \
+    -not -path "./$WEB_DIR/*" \
+    -not -path "./thumbnails/*" \
+    -not -path "./svg/*" | while read -r img; do
+    # Preserve directory structure: ./new.photos/foo.jpg -> web/new.photos/foo.jpg
+    rel="${img#./}"
+    output="$WEB_DIR/$rel"
 
-        echo "Processing: $img"
+    # Convert HEIC to JPG
+    if echo "$rel" | grep -iq '\.heic$'; then
+        output="$WEB_DIR/${rel%.*}.jpg"
+    fi
 
-        # Resize to max dimension while maintaining aspect ratio
-        # Use sips with lower quality for better compression
-        sips -Z "$MAX_SIZE" "$img" --out "$output" >/dev/null 2>&1
+    # Create subdirectory if needed
+    mkdir -p "$(dirname "$output")"
 
-        # Get original and new file sizes
-        orig_size=$(ls -lh "$img" | awk '{print $5}')
-        new_size=$(ls -lh "$output" | awk '{print $5}')
+    echo "Processing: $img"
 
+    # Resize to max dimension while maintaining aspect ratio
+    sips -Z "$MAX_SIZE" "$img" --out "$output" >/dev/null 2>&1
+
+    # Get original and new file sizes
+    orig_size=$(ls -lh "$img" | awk '{print $5}')
+    new_size=$(ls -lh "$output" 2>/dev/null | awk '{print $5}')
+
+    if [ -f "$output" ]; then
         echo "  $orig_size -> $new_size"
     else
-        echo "Warning: $img not found"
+        echo "  WARNING: failed to create $output"
     fi
 done
 

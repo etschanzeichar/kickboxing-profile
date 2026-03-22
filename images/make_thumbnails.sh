@@ -17,20 +17,32 @@ mkdir -p "$THUMB_DIR"
 # Counter for processed images
 count=0
 
-# Process all image files (jpg, jpeg, png, gif)
-shopt -s nullglob
-for img in *.jpg *.JPG *.jpeg *.JPEG *.png *.PNG *.gif *.GIF; do
-    # Skip if no matches found (glob returns literal pattern)
-    [ -e "$img" ] || continue
+# Find all image files in the current directory and all subdirectories,
+# excluding the thumbnails/, web/, and svg/ output directories
+find . -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.gif' -o -iname '*.heic' \) \
+    -not -path "./$THUMB_DIR/*" \
+    -not -path "./web/*" \
+    -not -path "./svg/*" | while read -r img; do
+    # Preserve directory structure: ./new.photos/foo.jpg -> thumbnails/new.photos/thumb_foo.jpg
+    rel="${img#./}"
+    filename=$(basename "$rel")
+    reldir=$(dirname "$rel")
 
-    # Skip the thumbnails directory itself
-    [ "$img" = "$THUMB_DIR" ] && continue
+    # Convert HEIC extension to jpg for thumbnail output
+    if echo "$filename" | grep -iq '\.heic$'; then
+        thumb_name="thumb_${filename%.*}.jpg"
+    else
+        thumb_name="thumb_$filename"
+    fi
 
-    # Get filename without path
-    filename=$(basename "$img")
+    if [ "$reldir" = "." ]; then
+        thumb_path="$THUMB_DIR/$thumb_name"
+    else
+        thumb_path="$THUMB_DIR/$reldir/$thumb_name"
+    fi
 
-    # Output path
-    thumb_path="$THUMB_DIR/thumb_$filename"
+    # Create subdirectory if needed
+    mkdir -p "$(dirname "$thumb_path")"
 
     # Skip if thumbnail already exists and is newer than source
     if [ -f "$thumb_path" ] && [ "$thumb_path" -nt "$img" ]; then
