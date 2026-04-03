@@ -171,13 +171,13 @@ nav.scrolled {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 3.5rem;
+    gap: 2.5rem;
 }
 
 .nav-links a {
     color: var(--text-primary);
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: 500;
     letter-spacing: 0.05em;
     /* Hover effect via .link-hover-accent class in HTML */
@@ -2759,6 +2759,20 @@ input:checked + .slider:before {
 
 /* Responsive - Tablet */
 @media (max-width: 1024px) {
+    .nav-links, .nav-cta {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
     .hero {
         grid-template-columns: 1fr;
     }
