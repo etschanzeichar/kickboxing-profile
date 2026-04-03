@@ -690,8 +690,10 @@
             de: {
                 // Navigation
                 'nav.about': 'Über mich',
+                'nav.gallery': 'Galerie',
                 'nav.achievements': 'Erfolge',
                 'nav.journey': 'Mein Weg',
+                'nav.sponsorship': 'Partner werden',
                 'nav.contacts': 'Kontakt',
                 'nav.partner': 'Partner werden',
 
