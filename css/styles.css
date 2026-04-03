@@ -858,6 +858,24 @@ nav.scrolled {
     background: var(--accent);
 }
 
+.timeline-point-modal-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: var(--bg-primary);
+}
+
+.timeline-point-modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+}
+
+.timeline-point-modal-image.no-image {
+    display: none;
+}
+
 .timeline-point-modal-info {
     padding: 1.5rem;
 }
