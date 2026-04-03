@@ -362,6 +362,7 @@
             if (image) {
                 img.src = image;
                 img.alt = content.title;
+                img.style.objectPosition = point.dataset.imagePosition || '';
                 imageContainer.classList.remove('no-image');
                 img.style.display = 'block';
             } else {
