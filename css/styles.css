@@ -134,6 +134,8 @@ nav.scrolled {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    text-decoration: none;
+    color: inherit;
 }
 
 .logo .swiss-cross {
