@@ -321,11 +321,16 @@
             hitareas.forEach(hitarea => {
                 hitarea.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    // Get the parent g element which has the data attributes
                     const point = hitarea.parentElement;
                     this.openPoint(point);
                 });
             });
+
+            // Add click handlers for vertical timeline items (mobile)
+            document.querySelectorAll('.timeline-vertical-item.achieved').forEach(item => {
+                item.addEventListener('click', () => this.openPoint(item));
+            });
+
         },
 
         getTranslatedContent(point) {
