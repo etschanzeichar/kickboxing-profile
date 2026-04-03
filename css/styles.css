@@ -652,6 +652,11 @@ nav.scrolled {
     fill: var(--text-secondary);
 }
 
+.timeline-point-group:not(.timeline-point-clickable) {
+    pointer-events: none;
+    cursor: default;
+}
+
 /* Zoom controls */
 .timeline-zoom-hint {
     position: absolute;
@@ -851,36 +856,6 @@ nav.scrolled {
 
 .timeline-point-modal-close:hover {
     background: var(--accent);
-}
-
-.timeline-point-modal-image {
-    width: 100%;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-    background: var(--bg-primary);
-}
-
-.timeline-point-modal-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 35%;
-}
-
-.timeline-point-modal-image.no-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-}
-
-.timeline-point-modal-image.no-image::after {
-    content: '';
-    width: 60px;
-    height: 60px;
-    border: 3px solid var(--text-primary);
-    border-radius: 50%;
-    opacity: 0.3;
 }
 
 .timeline-point-modal-info {

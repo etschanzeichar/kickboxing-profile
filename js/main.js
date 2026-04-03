@@ -347,28 +347,12 @@
 
         openPoint(point) {
             const content = this.getTranslatedContent(point);
-            const image = point.dataset.image;
             const year = point.dataset.year;
 
             // Set modal content
             document.getElementById('timelinePointModalTitle').textContent = content.title;
             document.getElementById('timelinePointModalDescription').textContent = content.description;
             document.getElementById('timelinePointModalYear').textContent = year || '';
-
-            // Handle image
-            const imageContainer = document.getElementById('timelinePointModalImage');
-            const img = document.getElementById('timelinePointModalImg');
-
-            if (image) {
-                img.src = image;
-                img.alt = content.title;
-                img.style.objectPosition = point.dataset.imagePosition || '';
-                imageContainer.classList.remove('no-image');
-                img.style.display = 'block';
-            } else {
-                img.style.display = 'none';
-                imageContainer.classList.add('no-image');
-            }
 
             Modal.open(this.modal);
         },
