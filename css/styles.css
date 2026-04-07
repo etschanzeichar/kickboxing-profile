@@ -530,7 +530,6 @@ nav.scrolled {
 .timeline {
     padding: 6rem 4rem;
     overflow: visible;
-    overflow-x: clip;
     position: relative;
 }
 
@@ -554,7 +553,6 @@ nav.scrolled {
 #timelineSvgContainer {
     width: 100%;
     min-height: 300px;
-    overflow: hidden;
 }
 
 .timeline-svg {
