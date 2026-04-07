@@ -645,7 +645,7 @@
 
         updateImage() {
             const img = this.images[this.currentIndex];
-            this.lightboxImage.src = img.src;
+            this.lightboxImage.src = img.dataset.full || img.src;
             this.lightboxImage.alt = img.alt;
         },
 
