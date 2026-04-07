@@ -25,9 +25,6 @@
       "Bash(find images/thumbnails -name 'thumb_*' -type f -delete -print)",
       "mcp__Claude_Preview__preview_start",
       "Bash(git status:*)",
-      "Bash(git push:*)",
-      "Bash(git stash:*)",
-      "Bash(git checkout:*)",
       "Bash(npm start:*)"
     ]
   }
