@@ -183,13 +183,12 @@
         init() {
             // SVG is now embedded in HTML, just setup interactions
             this.setupInteractions();
+            TimelinePointModal.init();
         },
 
         setupInteractions() {
             this.container = document.getElementById('timelineContainer');
             const zoomOutBtn = document.getElementById('timelineZoomOut');
-            const sectionAreas = document.querySelectorAll('.timeline-section-area');
-            const svg = document.querySelector('.timeline-svg');
             const navPrev = document.getElementById('timelineNavPrev');
             const navNext = document.getElementById('timelineNavNext');
 
@@ -216,15 +215,6 @@
                 }
             });
 
-            // Section click handlers (desktop only)
-            sectionAreas.forEach(section => {
-                section.addEventListener('click', (e) => {
-                    if (this.isMobile()) return;
-                    e.stopPropagation();
-                    this.zoomToSection(section.dataset.section);
-                });
-            });
-
             // Zoom controls
             zoomOutBtn.addEventListener('click', () => this.zoomOut());
 
@@ -240,15 +230,6 @@
                 }
             });
 
-            // Click on SVG to zoom out (desktop only)
-            if (svg) {
-                svg.addEventListener('click', (e) => {
-                    if (this.isMobile()) return;
-                    if (this.container.classList.contains('zoomed') && !e.target.closest('.timeline-section-area')) {
-                        this.zoomOut();
-                    }
-                });
-            }
 
             // Keyboard navigation
             document.addEventListener('keydown', (e) => {
@@ -290,6 +271,113 @@
 
         isZoomed() {
             return this.container && this.container.classList.contains('zoomed');
+        }
+    };
+
+    // ============================================
+    // Timeline Point Modal Module
+    // ============================================
+    const TimelinePointModal = {
+        modal: null,
+        translations: {
+            de: {
+                'timeline.point.started.title': 'Trainingsbeginn',
+                'timeline.point.started.description': 'Begann meine Kickbox-Reise und entdeckte eine Leidenschaft, die meine Zukunft prägen sollte.',
+                'timeline.point.first.title': 'Erster Wettkampf',
+                'timeline.point.first.description': 'Mein erster offizieller Wettkampf - eine wertvolle Erfahrung.',
+                'timeline.point.swiss.title': 'Schweizer Meisterin',
+                'timeline.point.swiss.description': 'Gewann die Schweizer Meisterschaften in WAKO und SCOS und wurde doppelte Nationalmeisterin.',
+                'timeline.point.national.title': 'Nationalmannschaft',
+                'timeline.point.national.description': 'Ausgewählt, um die Schweiz in der nationalen Kickbox-Mannschaft zu vertreten.',
+                'timeline.point.euro.title': 'Europameisterin',
+                'timeline.point.euro.description': 'Gewann die Europameisterschaften in Jesolo, Italien. 3 Kämpfe, 3 Siege - jeden Kampf dominiert und die Goldmedaille geholt.',
+                'timeline.point.pro.title': 'Erster Profikampf',
+                'timeline.point.pro.description': 'Ziel: Übergang zum Profi-Kampfsport und erster Profikampf.',
+                'timeline.point.juniorwc.title': 'Junioren Weltmeisterschaft',
+                'timeline.point.juniorwc.description': 'Ziel: Bei der Junioren Weltmeisterschaft antreten und eine Medaille anstreben.',
+                'timeline.point.seniorec.title': 'Senioren Europameisterschaft',
+                'timeline.point.seniorec.description': 'Ziel: Den Schritt auf die Seniorenebene bei der Europameisterschaft wagen.',
+                'timeline.point.one.title': 'ONE Championship',
+                'timeline.point.one.description': 'Langfristiger Traum: Bei ONE Championship kämpfen, einer der weltweit führenden Kampfsportorganisationen.',
+                'timeline.point.olympics.title': 'Olympische Spiele',
+                'timeline.point.olympics.description': 'Ultimativer Traum: Die Schweiz bei den Olympischen Spielen vertreten, wenn Kickboxen olympisch wird.'
+            }
+        },
+
+        init() {
+            this.modal = document.getElementById('timelinePointModal');
+            if (!this.modal) return;
+
+            const closeBtn = document.getElementById('timelinePointModalClose');
+            const hitareas = document.querySelectorAll('.timeline-point-hitarea');
+
+            // Setup modal close behavior
+            Modal.setup(this.modal, {
+                closeButton: closeBtn,
+                contentElement: document.querySelector('.timeline-point-modal-content')
+            });
+
+            // Add click handlers to hitarea rectangles (not the g elements)
+            hitareas.forEach(hitarea => {
+                hitarea.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const point = hitarea.parentElement;
+                    this.openPoint(point);
+                });
+            });
+
+            // Add click handlers for vertical timeline items (mobile)
+            document.querySelectorAll('.timeline-vertical-item.achieved').forEach(item => {
+                item.addEventListener('click', () => this.openPoint(item));
+            });
+
+        },
+
+        getTranslatedContent(point) {
+            const pointId = point.dataset.point;
+            const lang = LanguageSwitcher.currentLang;
+
+            if (lang === 'de' && pointId) {
+                return {
+                    title: this.translations.de[`timeline.point.${pointId}.title`] || point.dataset.title,
+                    description: this.translations.de[`timeline.point.${pointId}.description`] || point.dataset.description
+                };
+            }
+
+            return {
+                title: point.dataset.title,
+                description: point.dataset.description
+            };
+        },
+
+        openPoint(point) {
+            const content = this.getTranslatedContent(point);
+            const image = point.dataset.image;
+            const year = point.dataset.year;
+
+            document.getElementById('timelinePointModalTitle').textContent = content.title;
+            document.getElementById('timelinePointModalDescription').textContent = content.description;
+            document.getElementById('timelinePointModalYear').textContent = year || '';
+
+            const imageContainer = document.getElementById('timelinePointModalImage');
+            const img = document.getElementById('timelinePointModalImg');
+
+            if (image) {
+                img.src = image;
+                img.alt = content.title;
+                img.style.objectPosition = point.dataset.imagePosition || '';
+                imageContainer.classList.remove('no-image');
+                img.style.display = 'block';
+            } else {
+                img.style.display = 'none';
+                imageContainer.classList.add('no-image');
+            }
+
+            Modal.open(this.modal);
+        },
+
+        isActive() {
+            return this.modal && this.modal.classList.contains('active');
         }
     };
 
@@ -578,6 +666,8 @@
                 // Check modals in order of priority
                 if (GalleryLightbox.isActive()) {
                     GalleryLightbox.close();
+                } else if (TimelinePointModal.isActive()) {
+                    Modal.close(TimelinePointModal.modal);
                 } else if (AchievementModal.isActive()) {
                     Modal.close(AchievementModal.modal);
                 } else if (PartnerModal.isActive()) {
@@ -601,8 +691,10 @@
             de: {
                 // Navigation
                 'nav.about': 'Über mich',
+                'nav.gallery': 'Galerie',
                 'nav.achievements': 'Erfolge',
                 'nav.journey': 'Mein Weg',
+                'nav.sponsorship': 'Partner werden',
                 'nav.contacts': 'Kontakt',
                 'nav.partner': 'Partner werden',
 

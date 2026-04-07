@@ -134,6 +134,8 @@ nav.scrolled {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    text-decoration: none;
+    color: inherit;
 }
 
 .logo .swiss-cross {
@@ -169,13 +171,13 @@ nav.scrolled {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 3.5rem;
+    gap: 2.5rem;
 }
 
 .nav-links a {
     color: var(--text-primary);
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: 500;
     letter-spacing: 0.05em;
     /* Hover effect via .link-hover-accent class in HTML */
@@ -590,6 +592,7 @@ nav.scrolled {
     fill: transparent;
     cursor: pointer;
     transition: fill 0.3s ease;
+    pointer-events: none;
 }
 
 .timeline-section-area:hover {
@@ -651,6 +654,11 @@ nav.scrolled {
 
 .timeline-point-label.goal-label {
     fill: var(--text-secondary);
+}
+
+.timeline-point-group:not(.timeline-point-clickable) {
+    pointer-events: none;
+    cursor: default;
 }
 
 /* Zoom controls */
@@ -768,6 +776,224 @@ nav.scrolled {
     line-height: 1.8;
 }
 
+/* Timeline Point Clickable */
+.timeline-point-clickable {
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.timeline-point-clickable:hover .timeline-point-dot {
+    transform: scale(1.5);
+    filter: drop-shadow(0 0 12px var(--accent));
+}
+
+.timeline-point-clickable:hover .timeline-point-label {
+    fill: var(--accent);
+}
+
+.timeline-point-clickable .timeline-point-dot,
+.timeline-point-clickable .timeline-point-label,
+.timeline-point-clickable .timeline-point-year {
+    pointer-events: none;
+}
+
+/* Invisible hit area for timeline points */
+.timeline-point-hitarea {
+    fill: transparent;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+/* Timeline Point Modal */
+.timeline-point-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 2rem;
+}
+
+.timeline-point-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.timeline-point-modal-content {
+    background: var(--bg-secondary);
+    max-width: 500px;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.timeline-point-modal.active .timeline-point-modal-content {
+    transform: scale(1);
+}
+
+.timeline-point-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.timeline-point-modal-close:hover {
+    background: var(--accent);
+}
+
+.timeline-point-modal-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: var(--bg-primary);
+}
+
+.timeline-point-modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+}
+
+.timeline-point-modal-image.no-image {
+    display: none;
+}
+
+.timeline-point-modal-info {
+    padding: 1.5rem;
+}
+
+.timeline-point-modal-year {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-point-modal-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.timeline-point-modal-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+/* Vertical Timeline (mobile) */
+.timeline-vertical {
+    display: none;
+    position: relative;
+    padding-left: 30px;
+    margin-top: 2rem;
+}
+
+.timeline-vertical::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--text-dark);
+}
+
+.timeline-vertical-section {
+    margin: 1.5rem 0 1rem;
+}
+
+.timeline-vertical-section-title {
+    font-family: 'Anton', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-primary);
+}
+
+.timeline-vertical-section-subtitle {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+}
+
+.timeline-vertical-item {
+    position: relative;
+    padding: 0.75rem 0;
+}
+
+.timeline-vertical-item.achieved {
+    cursor: pointer;
+}
+
+.timeline-vertical-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    position: absolute;
+    left: -27px;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 8px var(--accent);
+}
+
+.timeline-vertical-item.future .timeline-vertical-dot {
+    background: transparent;
+    border: 2px solid var(--accent);
+    box-shadow: none;
+}
+
+.timeline-vertical-item.goal .timeline-vertical-dot {
+    background: transparent;
+    border: 2px solid var(--text-secondary);
+    box-shadow: none;
+}
+
+.timeline-vertical-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.timeline-vertical-year {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.timeline-vertical-item.achieved:hover .timeline-vertical-label {
+    color: var(--accent);
+}
+
+.timeline-vertical-item.achieved:hover .timeline-vertical-dot {
+    transform: translateY(-50%) scale(1.3);
+    filter: drop-shadow(0 0 12px var(--accent));
+}
+
 /* About Section */
 .about {
     padding: 4rem 6rem 10rem;
@@ -775,7 +1001,6 @@ nav.scrolled {
     justify-content: center;
     align-items: center;
     position: relative;
-    background: #d2e1f5;
 }
 
 .about-card {
@@ -1062,7 +1287,6 @@ nav.scrolled {
 /* Achievements Section */
 .achievements {
     padding: 6rem 0;
-    background: var(--bg-secondary);
     position: relative;
     overflow: hidden;
 }
@@ -1684,7 +1908,6 @@ nav.scrolled {
 /* Budget Section */
 .budget {
     padding: 4rem 6rem;
-    background: var(--bg-primary);
 }
 
 .budget-header {
@@ -2084,7 +2307,7 @@ footer {
     justify-content: flex-start;
     align-items: flex-start;
     gap: 6rem;
-    background: #d2e1f5;
+    background: var(--bg-primary);
 }
 
 .footer-left {
@@ -2538,6 +2761,20 @@ input:checked + .slider:before {
 
 /* Responsive - Tablet */
 @media (max-width: 1024px) {
+    .nav-links, .nav-cta {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
     .hero {
         grid-template-columns: 1fr;
     }
@@ -2960,7 +3197,14 @@ input:checked + .slider:before {
         width: 100%;
     }
 
-    /* Hide zoom hint and zoom out button on mobile */
+    #timelineSvgContainer {
+        display: none;
+    }
+
+    .timeline-vertical {
+        display: block;
+    }
+
     .timeline-zoom-hint {
         display: none;
     }
@@ -2969,26 +3213,8 @@ input:checked + .slider:before {
         display: none;
     }
 
-    /* Show navigation arrows by default on mobile (except when disabled) */
-    .timeline-nav:not(:disabled) {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .timeline-section-title {
-        font-size: 10px;
-    }
-
-    .timeline-section-subtitle {
-        font-size: 8px;
-    }
-
-    .timeline-point-label {
-        font-size: 8px;
-    }
-
-    .timeline-point-year {
-        font-size: 7px;
+    .timeline-nav {
+        display: none;
     }
 
     /* Gallery Mobile */

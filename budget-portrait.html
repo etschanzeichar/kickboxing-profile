@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eva Tschanz-Eichar – Budget & Porträt</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            color: #2c2c2c;
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        /* Portrait Section */
+        .portrait {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            align-items: flex-start;
+            flex-direction: row;
+        }
+
+        .portrait-image {
+            width: 280px;
+            min-width: 280px;
+            height: 370px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .portrait-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+
+        .portrait-info {
+            flex: 1;
+        }
+
+        .portrait-info h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .portrait-info .tagline {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .bio-list {
+            list-style: none;
+            margin-top: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .bio-list li {
+            padding: 0.35rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .bio-list li:last-child {
+            border-bottom: none;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0.6rem 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .detail-item {
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+
+        .detail-label {
+            display: block;
+            color: #888;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.2rem;
+        }
+
+        .detail-value {
+            display: block;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        /* Budget Section */
+        .budget {
+            margin-top: 2rem;
+        }
+
+        .budget h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .budget-subtitle {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .budget-items {
+            margin-bottom: 2rem;
+        }
+
+        .budget-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .budget-item h3 {
+            font-size: 1rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .budget-item p {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .budget-item-amount {
+            font-size: 1.1rem;
+            font-weight: bold;
+            white-space: nowrap;
+            color: #000000;
+        }
+
+        .budget-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-top: 2px solid #2c2c2c;
+            margin-top: 0.5rem;
+        }
+
+        .budget-total h3 {
+            font-size: 1.1rem;
+        }
+
+        .budget-total-amount {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .budget-summary {
+            background: #f5f0e8;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            page-break-before: always;
+        }
+
+        .budget-summary h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .budget-summary p {
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            color: #444;
+        }
+
+        .budget-summary p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Portrait -->
+    <div class="portrait">
+        <div class="portrait-image">
+            <img src="images/new.photos/Eva679.jpg" alt="Eva Tschanz-Eichar">
+        </div>
+        <div class="portrait-info">
+            <h1>Eva Tschanz-Eichar</h1>
+            <ul class="bio-list">
+                <li>17 Jahre alt</li>
+                <li>Schweizer Meisterin</li>
+                <li>Europameisterin</li>
+                <li>Mitglied des Schweizer Nationalteams</li>
+                <li>Disziplin: K1</li>
+                <li>Gym: Fusion Sports Academy</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Budget -->
+    <div class="budget">
+        <h2>Kostenaufstellung</h2>
+        
+
+        <div class="budget-items">
+            <div class="budget-item">
+                <div class="budget-item-info">
+                    <h3>Training & Coaching</h3>
+                    <p>Gym-Mitgliedschaften, professionelles Athletik-Coaching</p>
+                </div>
+                <div class="budget-item-amount">CHF 2'800</div>
+            </div>
+            <div class="budget-item">
+                <div class="budget-item-info">
+                    <h3>Wettkampf & Reisen</h3>
+                    <p>Startgebühren, Flüge, Unterkunft für internationale Wettkämpfe</p>
+                </div>
+                <div class="budget-item-amount">CHF 3'700</div>
+            </div>
+            <div class="budget-item">
+                <div class="budget-item-info">
+                    <h3>Ausrüstung</h3>
+                    <p>Handschuhe, Schutzausrüstung, Trainingskleidung, Wettkampfbekleidung</p>
+                </div>
+                <div class="budget-item-amount">CHF 600</div>
+            </div>
+            <div class="budget-item">
+                <div class="budget-item-info">
+                    <h3>Ernährung</h3>
+                    <p>Spezialisierter Ernährungsplan, Nahrungsergänzungsmittel</p>
+                </div>
+                <div class="budget-item-amount">CHF 1'600</div>
+            </div>
+            <div class="budget-total">
+                <h3>Jährliche Investition</h3>
+                <div class="budget-total-amount">CHF 8'700</div>
+            </div>
+        </div>
+
+        <div class="budget-summary">
+            <h3>Wohin Ihre Unterstützung fliesst</h3>
+            <p>Jeder investierte Franken fliesst direkt in Training, Wettkampf und Entwicklung. Als Amateursportlerin verbinde ich meine sportliche Karriere mit Ausbildung und Arbeit und widme jede verfügbare Ressource dem Ziel, die Spitze meines Sports zu erreichen.</p>
+            <p>Ihr Sponsoring hilft, diese wesentlichen Kosten zu decken, damit ich mich auf das Wichtigste konzentrieren kann: die beste Kickboxerin zu werden, die ich sein kann, und die Schweiz auf der Weltbühne zu vertreten.</p>
+        </div>
+    </div>
+
+</body>
+</html>
