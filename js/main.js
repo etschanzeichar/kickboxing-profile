@@ -725,11 +725,11 @@
                 'achievements.euro.preview': '9 Teilnehmerinnen in der Kategorie. Jeden Kampf dominiert und den Europatitel nach intensiver Vorbereitung geholt.',
                 'achievements.cups.category': 'Internationale Wettkämpfe',
                 'achievements.cups.result': 'Mehrere Goldmedaillen & Wachstum',
-                'achievements.cups.preview': 'Sarajevo: Erste internationale Goldmedaille | Budapest: Dominanter Sieg | Antalya: TKO-Sieg, Kampf gegen Weltmeisterin | Jesolo: Lernerfahrung - Motivation zur Verbesserung',
+                'achievements.cups.preview': '<strong>Jesolo:</strong> Lernerfahrung – Motivation zur Verbesserung<br><strong>Sarajevo:</strong> Erste internationale Goldmedaille<br><strong>Antalya:</strong> TKO-Sieg, Kampf gegen Weltmeisterin<br><strong>Budapest:</strong> Dominanter Sieg<br><strong>Zagreb:</strong> 2 Siege – wertvolle Erfahrung und Wachstum',
                 'achievements.swiss.category': 'Schweizer Meisterschaften',
                 'achievements.swiss.result': 'Nationale Meisterin (WAKO & SCOS)',
                 'achievements.swiss.location': 'Schweiz',
-                'achievements.swiss.preview': 'WAKO: Dominanter Sieg auf nationaler Ebene | SCOS: Nach einem Jahr Qualifikationen fast alle gewonnen und einen klaren Sieg im Finale errungen',
+                'achievements.swiss.preview': '<strong>WAKO:</strong> Dominanter Sieg auf nationaler Ebene<br><strong>SCOS:</strong> Nach einem Jahr Qualifikationen fast alle gewonnen und einen klaren Sieg im Finale errungen',
                 'achievements.expand': 'Klicken für mehr →',
 
                 // Achievement modal content
@@ -738,9 +738,9 @@
                 'achievements.euro.description': '9 Teilnehmerinnen in der Kategorie. Jeden Kampf dominiert und den Titel geholt.',
                 'achievements.euro.quote': 'Ich habe den ganzen Sommer für diesen Wettkampf trainiert. Ich bin nicht in die Ferien gefahren, sondern zu Hause geblieben und habe mehrmals am Tag trainiert. Ich habe mich stark auf meine Ernährung und Gesundheit konzentriert, alles gegeben und am Ende gewonnen.',
 
-                'achievements.cups.title': 'Internationale Wettkämpfe 2025',
-                'achievements.cups.location': 'Sarajevo, Ungarn, Türkei, Italien',
-                'achievements.cups.description': 'European Cup Grand Prix (Sarajevo): Zwei harte Kämpfe im Turniers, gewann meine erste Goldmedaille in einem internationalen Wettkampf.\n\nWeltcup Ungarn (Budapest): Dominanter Sieg gegen eine erfahrene Gegnerin, technische Überlegenheit und Kampfintelligenz gezeigt.\n\nWeltcup Türkei (Antalya): Ersten Kampf durch TKO gewonnen. Zweiten Kampf gegen dieselbe Gegnerin aus Italien verloren - eine Weltmeisterin und Europameisterin, die selten verliert. Diese Niederlage hat noch mehr Feuer entfacht, härter zu arbeiten. Ziel: 2026 gegen sie gewinnen.\n\nInternational Open (Jesolo): Meinen ersten internationalen Kampf nach Punkten verloren. Eine harte Lernerfahrung, die zur Motivation für Verbesserungen wurde.',
+                'achievements.cups.title': 'Internationale Wettkämpfe 2025–2026',
+                'achievements.cups.location': 'Italien, Sarajevo, Türkei, Ungarn, Kroatien',
+                'achievements.cups.description': 'International Open (Jesolo): Meinen ersten internationalen Kampf nach Punkten verloren. Eine harte Lernerfahrung, die zur Motivation für Verbesserungen wurde.\n\nEuropean Cup Grand Prix (Sarajevo): Zwei harte Kämpfe im Turnier, gewann meine erste Goldmedaille in einem internationalen Wettkampf.\n\nWeltcup Türkei (Antalya): Ersten Kampf durch TKO gewonnen. Zweiten Kampf gegen dieselbe Gegnerin aus Italien verloren - eine Weltmeisterin und Europameisterin, die selten verliert. Diese Niederlage hat noch mehr Feuer entfacht, härter zu arbeiten. Ziel: 2026 gegen sie gewinnen.\n\nWeltcup Ungarn (Budapest): Dominanter Sieg gegen eine erfahrene Gegnerin, technische Überlegenheit und Kampfintelligenz gezeigt.\n\nEuropean Cup Zagreb (Kroatien): Zwei Siege beim European Cup 2026 – ein starkes Feld, das wertvolle Lektionen gebracht hat. Jeder Kampf auf diesem Niveau schärft den Fokus für das, was noch kommt.',
 
                 'achievements.swiss.title': 'Schweizer Meisterschaften 2024',
                 'achievements.swiss.description': 'WAKO Meisterschaften: Die Konkurrenz bei den Schweizer WAKO Meisterschaften dominiert, gute Technik und Kondition gezeigt.\n\nSCOS Meisterschaften: Nach einem ganzen Jahr Qualifikationen, die meisten davon gewonnen, qualifizierte ich mich fürs Finale. Erziehlte einen klaren Sieg in den Meisterschaftsfinals.',
@@ -884,7 +884,7 @@
             document.querySelector('.lang-de').classList.toggle('active', lang === 'de');
 
             // Keys that contain HTML (like <br> tags)
-            const htmlKeys = ['hero.badge.swiss'];
+            const htmlKeys = ['hero.badge.swiss', 'achievements.cups.preview', 'achievements.swiss.preview'];
 
             // Update all translatable elements
             document.querySelectorAll('[data-i18n]').forEach(el => {
