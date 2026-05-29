@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eva Tschanz-Eichar | Tough Cookie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Oswald:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #111;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .no-print {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 28px 20px;
+            gap: 16px;
+        }
+
+        .btn-download {
+            background: #cc1111;
+            color: white;
+            border: none;
+            padding: 14px 36px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .btn-download:hover { background: #aa0d0d; }
+
+        .slides-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+            padding-bottom: 80px;
+        }
+
+        .slide {
+            width: 1080px;
+            height: 1350px;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        /* =====================
+           SLIDE 1 — FACTS
+        ===================== */
+        .slide-facts { background: #0a0a0a; }
+
+        .slide-facts .bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .slide-facts .vignette {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 25%, rgba(0,0,0,0.6) 100%),
+                linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 65%, rgba(0,0,0,0.7) 100%);
+        }
+
+        .facts-header {
+            position: absolute;
+            top: 55px;
+            left: 65px;
+            z-index: 10;
+            font-family: 'Caveat', cursive;
+            font-size: 96px;
+            font-weight: 700;
+            color: white;
+            line-height: 1;
+        }
+
+        .slide-facts svg.arrows {
+            position: absolute;
+            inset: 0;
+            width: 1080px;
+            height: 1350px;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .fact-tag {
+            position: absolute;
+            z-index: 10;
+            color: white;
+        }
+
+        .fact-tag .ft-main {
+            font-size: 30px;
+            font-weight: 700;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.9);
+            line-height: 1.2;
+        }
+
+        .fact-tag .ft-sub {
+            font-size: 19px;
+            font-weight: 300;
+            opacity: 0.8;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.9);
+        }
+
+        .slide-facts .name-block {
+            position: absolute;
+            bottom: 70px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .slide-facts .name-block .main-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 58px;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 2px 14px rgba(0,0,0,0.85);
+        }
+
+        .slide-facts .name-block .tagline {
+            font-family: 'Caveat', cursive;
+            font-size: 42px;
+            color: rgba(255,255,255,0.85);
+            margin-top: 4px;
+        }
+
+        /* =====================
+           SLIDE 2 — ACHIEVEMENTS
+        ===================== */
+        .slide-achievements { background: #080808; }
+
+        .slide-achievements .bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+            filter: brightness(0.28) grayscale(0.2);
+        }
+
+        .slide-achievements .red-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: #cc1111;
+            z-index: 5;
+        }
+
+        .slide-achievements .content {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 80px 90px 80px 100px;
+        }
+
+        .slide-achievements .eyebrow {
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: #cc1111;
+            margin-bottom: 14px;
+        }
+
+        .slide-achievements .athlete-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 80px;
+            font-weight: 700;
+            color: white;
+            line-height: 0.95;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+        }
+
+        .achiev-row {
+            display: flex;
+            gap: 28px;
+            margin-bottom: 28px;
+            border-left: 3px solid #cc1111;
+            padding-left: 22px;
+        }
+
+        .achiev-year {
+            font-family: 'Oswald', sans-serif;
+            font-size: 18px;
+            color: #cc1111;
+            font-weight: 600;
+            min-width: 60px;
+            padding-top: 5px;
+            flex-shrink: 0;
+        }
+
+        .achiev-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 34px;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .achiev-sub {
+            font-size: 17px;
+            color: rgba(255,255,255,0.55);
+            margin-top: 5px;
+        }
+
+        .slide-achievements .site-bar {
+            margin-top: 52px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .slide-achievements .site-bar img { height: 52px; }
+
+        .slide-achievements .site-bar .site-url {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            letter-spacing: 2px;
+            color: white;
+        }
+
+        .slide-achievements .site-bar .site-handle {
+            font-size: 16px;
+            color: rgba(255,255,255,0.45);
+            margin-top: 3px;
+        }
+
+        /* =====================
+           SLIDE 3 — SPONSORSHIP
+        ===================== */
+        .slide-sponsorship { background: #080808; }
+
+        .slide-sponsorship .photo-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 56%;
+            object-fit: cover;
+            object-position: center 25%;
+        }
+
+        .slide-sponsorship .photo-fade {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 58%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(8,8,8,1) 100%);
+        }
+
+        .slide-sponsorship .content {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0 80px 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .spon-banner {
+            position: absolute;
+            top: 46%;
+            left: 0;
+            right: 0;
+            background: #cc1111;
+            padding: 18px 80px;
+            z-index: 10;
+        }
+
+        .spon-banner-text {
+            font-family: 'Oswald', sans-serif;
+            font-size: 46px;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .spon-body {
+            position: absolute;
+            top: calc(46% + 86px);
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 40px 80px 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .spon-pitch {
+            font-size: 24px;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.65;
+            margin-bottom: 30px;
+        }
+
+        .spon-bullets {
+            list-style: none;
+            margin-bottom: 0;
+        }
+
+        .spon-bullets li {
+            font-size: 22px;
+            color: white;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .spon-bullets li::before {
+            content: '';
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background: #cc1111;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .spon-cta {
+            margin-top: 36px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .spon-cta-left .cta-url {
+            font-family: 'Oswald', sans-serif;
+            font-size: 32px;
+            color: white;
+            letter-spacing: 2px;
+        }
+
+        .spon-cta-left .cta-contact {
+            font-size: 17px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 4px;
+        }
+
+        .spon-cta img { height: 72px; }
+
+        /* =====================
+           PRINT
+        ===================== */
+        @media print {
+            @page { margin: 0; size: A4 portrait; }
+            body { background: black; }
+            .no-print { display: none !important; }
+            .slides-container { gap: 0; padding: 0; align-items: flex-start; }
+            .slide {
+                width: 210mm;
+                height: 297mm;
+                page-break-after: always;
+                break-after: page;
+            }
+            .slide-facts svg.arrows { width: 100%; height: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="no-print">
+    <button class="btn-download" onclick="window.print()">Download as PDF</button>
+</div>
+
+<div class="slides-container">
+
+    <!-- ============================
+         SLIDE 1 — FACTS
+    ============================= -->
+    <div class="slide slide-facts">
+        <img class="bg" src="images/web/eva922.jpg" alt="Eva Tschanz">
+        <div class="vignette"></div>
+
+        <div class="facts-header">Facts</div>
+
+        <!-- SVG arrow lines -->
+        <svg class="arrows" viewBox="0 0 1080 1350" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arr" markerWidth="8" markerHeight="6" refX="7.5" refY="3" orient="auto">
+                    <polygon points="0 0, 8 3, 0 6" fill="rgba(255,255,255,0.75)"/>
+                </marker>
+            </defs>
+            <!-- Right labels → toward center -->
+            <path d="M 820 178 C 760 195, 690 260, 628 318"
+                  stroke="rgba(255,255,255,0.7)" stroke-width="2.2" fill="none" marker-end="url(#arr)"/>
+            <path d="M 808 415 C 760 428, 715 450, 654 472"
+                  stroke="rgba(255,255,255,0.7)" stroke-width="2.2" fill="none" marker-end="url(#arr)"/>
+            <path d="M 752 628 C 718 628, 685 628, 648 628"
+                  stroke="rgba(255,255,255,0.7)" stroke-width="2.2" fill="none" marker-end="url(#arr)"/>
+            <path d="M 775 808 C 738 800, 708 780, 665 762"
+                  stroke="rgba(255,255,255,0.7)" stroke-width="2.2" fill="none" marker-end="url(#arr)"/>
+            <!-- Left labels → toward center -->
+            <path d="M 352 466 C 385 466, 410 478, 428 492"
+                  stroke="rgba(255,255,255,0.7)" stroke-width="2.2" fill="none" marker-end="url(#arr)"/>
+            <path d="M 278 658 C 322 655, 370 650, 428 648"
+                  stroke="rgba(255,255,255,0.7)" stroke-width="2.2" fill="none" marker-end="url(#arr)"/>
+            <path d="M 298 842 C 345 835, 390 820, 432 808"
+                  stroke="rgba(255,255,255,0.7)" stroke-width="2.2" fill="none" marker-end="url(#arr)"/>
+            <path d="M 368 1018 C 410 1005, 445 985, 462 968"
+                  stroke="rgba(255,255,255,0.7)" stroke-width="2.2" fill="none" marker-end="url(#arr)"/>
+        </svg>
+
+        <!-- Right labels -->
+        <div class="fact-tag" style="top: 148px; right: 58px; text-align: right;">
+            <div class="ft-main">I'm Eva</div>
+        </div>
+        <div class="fact-tag" style="top: 388px; right: 50px; text-align: right;">
+            <div class="ft-main">17 years old</div>
+        </div>
+        <div class="fact-tag" style="top: 608px; right: 66px; text-align: right;">
+            <div class="ft-main">Swiss &amp; Canadian</div>
+        </div>
+        <div class="fact-tag" style="top: 778px; right: 52px; text-align: right;">
+            <div class="ft-main">European Champion '25</div>
+            <div class="ft-sub">Jesolo, Italy</div>
+        </div>
+
+        <!-- Left labels -->
+        <div class="fact-tag" style="top: 438px; left: 62px;">
+            <div class="ft-main">2× Swiss Champion</div>
+            <div class="ft-sub">WAKO &amp; SCOS</div>
+        </div>
+        <div class="fact-tag" style="top: 628px; left: 62px;">
+            <div class="ft-main">K1 Kickboxer</div>
+        </div>
+        <div class="fact-tag" style="top: 812px; left: 62px;">
+            <div class="ft-main">Bern, Switzerland</div>
+        </div>
+        <div class="fact-tag" style="top: 988px; left: 62px;">
+            <div class="ft-main">Fusion Sports Academy</div>
+            <div class="ft-sub">competing since 2024</div>
+        </div>
+
+        <!-- Name block -->
+        <div class="name-block">
+            <div class="main-name">Eva Tschanz-Eichar</div>
+            <div class="tagline">Tough Cookie</div>
+        </div>
+    </div>
+
+    <!-- ============================
+         SLIDE 2 — ACHIEVEMENTS
+    ============================= -->
+    <div class="slide slide-achievements">
+        <img class="bg" src="images/web/new.photos/010d84eb-4c36-4540-a928-06b5fd2009a6.jpg" alt="Eva Tschanz - European Champion">
+        <div class="red-accent"></div>
+        <div class="content">
+            <div class="eyebrow">Swiss Kickboxing · K1</div>
+            <div class="athlete-name">Eva<br>Tschanz-<br>Eichar</div>
+
+            <div class="achiev-row">
+                <div class="achiev-year">2025</div>
+                <div>
+                    <div class="achiev-title">European Champion</div>
+                    <div class="achiev-sub">Jesolo, Italy — 3 Fights, 3 Wins · Gold Medal</div>
+                </div>
+            </div>
+
+            <div class="achiev-row">
+                <div class="achiev-year">2025</div>
+                <div>
+                    <div class="achiev-title">Swiss National Team</div>
+                    <div class="achiev-sub">Representing Switzerland internationally</div>
+                </div>
+            </div>
+
+            <div class="achiev-row">
+                <div class="achiev-year">2024</div>
+                <div>
+                    <div class="achiev-title">2× Swiss Champion</div>
+                    <div class="achiev-sub">WAKO &amp; SCOS National Champion</div>
+                </div>
+            </div>
+
+            <div class="achiev-row">
+                <div class="achiev-year">2025–</div>
+                <div>
+                    <div class="achiev-title">International Cups</div>
+                    <div class="achiev-sub">Gold medals in Sarajevo, Budapest, Zagreb &amp; more</div>
+                </div>
+            </div>
+
+            <div class="site-bar">
+                <img src="images/web/tough_cookie_bicep_no_bg.png" alt="Tough Cookie">
+                <div>
+                    <div class="site-url">toughcookie.ch</div>
+                    <div class="site-handle">@evalinatschanz</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================
+         SLIDE 3 — SPONSORSHIP
+    ============================= -->
+    <div class="slide slide-sponsorship">
+        <img class="photo-top" src="images/web/eva814.jpg" alt="Eva Tschanz">
+        <div class="photo-fade"></div>
+
+        <div class="spon-banner">
+            <div class="spon-banner-text">Sponsorship Opportunity</div>
+        </div>
+
+        <div class="spon-body">
+            <div>
+                <p class="spon-pitch">
+                    Eva Tschanz-Eichar is one of Switzerland's most exciting young combat sports
+                    talents — European Champion, double Swiss Champion, and National Team
+                    athlete at just 17 years old.
+                </p>
+
+                <ul class="spon-bullets">
+                    <li>European Champion 2025 — 3 fights, 3 wins, Gold Medal</li>
+                    <li>Swiss National Team — international competition presence</li>
+                    <li>2× Swiss Champion (WAKO &amp; SCOS, 2024)</li>
+                    <li>Growing audience across Instagram &amp; TikTok</li>
+                    <li>Authentic brand built on sport, discipline &amp; ambition</li>
+                </ul>
+            </div>
+
+            <div class="spon-cta">
+                <div class="spon-cta-left">
+                    <div class="cta-url">toughcookie.ch</div>
+                    <div class="cta-contact">Contact: etschanzeichar@gmail.com</div>
+                </div>
+                <img src="images/web/tough_cookie_bicep_no_bg.png" alt="Tough Cookie Logo">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
