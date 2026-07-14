@@ -25,7 +25,8 @@
       "Bash(find images/thumbnails -name 'thumb_*' -type f -delete -print)",
       "mcp__Claude_Preview__preview_start",
       "Bash(git status:*)",
-      "Bash(npm start:*)"
+      "Bash(npm start:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" \"https://img.youtube.com/vi/OfUTPJiWAzA/maxresdefault.jpg\")"
     ]
   }
 }
