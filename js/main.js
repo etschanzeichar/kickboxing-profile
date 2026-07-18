@@ -733,7 +733,7 @@
                 'achievements.pro.category': 'Profikämpfe',
                 'achievements.pro.location': 'Darmstadt & Essen, Deutschland',
                 'achievements.pro.result': '2 Kämpfe, 2 Siege',
-                'achievements.pro.preview': 'Erste Profikämpfe im Rahmen einer internationalen Fight Promotion - einer in Darmstadt, einer in Essen. Beide gewonnen.',
+                'achievements.pro.preview': 'Hatte meine ersten Profikämpfe bei International Fight Promotion (IFP) - einer in Darmstadt, einer in Essen. Beide gewonnen.',
                 'achievements.expand': 'Klicken für mehr →',
 
                 // Achievement modal content
@@ -750,7 +750,7 @@
                 'achievements.swiss.description': 'WAKO Meisterschaften: Die Konkurrenz bei den Schweizer WAKO Meisterschaften dominiert, gute Technik und Kondition gezeigt.\n\nSCOS Meisterschaften: Nach einem ganzen Jahr Qualifikationen, die meisten davon gewonnen, qualifizierte ich mich fürs Finale. Erziehlte einen klaren Sieg in den Meisterschaftsfinals.',
 
                 'achievements.pro.title': 'Profikämpfe 2026',
-                'achievements.pro.description': 'Übergang vom Amateur- zum Profi-Kickboxen mit zwei Kämpfen in Deutschland im Rahmen einer internationalen Fight Promotion - der erste in Darmstadt, der zweite in Essen. Beide Kämpfe gewonnen.',
+                'achievements.pro.description': 'Hatte meine ersten Profikämpfe bei International Fight Promotion (IFP) - der erste in Darmstadt, der zweite in Essen. Beide Kämpfe gewonnen.',
 
                 // Timeline
                 'timeline.title': 'Der Weg nach vorne',
