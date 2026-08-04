@@ -771,6 +771,7 @@
                 'timeline.seniorec': 'Senioren Europameisterschaft',
                 'timeline.one': 'ONE Championships',
                 'timeline.olympics': 'Olympische Spiele',
+                'timeline.nearFuture': 'Nahe Zukunft',
 
                 // Budget
                 'budget.title': 'Investitionsübersicht',
