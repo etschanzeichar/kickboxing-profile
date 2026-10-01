@@ -832,8 +832,8 @@
 
                 // Partners
                 'partners.title': 'Aktuelle Partner',
-                'partners.edubily.desc': 'Erstellung von ansprechendem Content zur Unterstützung ihrer Marke durch authentische, hochwertige Inhalte aus meiner sportlichen Reise.',
-                'partners.edubily.role': 'Content Creator',
+                'partners.fightershop.desc': 'Fightershop.ch stattet mich mit Trainings- und Wettkampfausrüstung aus. Im Gegenzug erstelle ich Social-Media-Content, der ihre Produkte im Training und im Ring zeigt.',
+                'partners.fightershop.role': 'Ausrüstungspartner & Content Creator',
                 'partners.mcdonalds.desc': 'Stolze, durch Sprothilfe erzeugte, Partnerschaft. Sie unterstützen meine sportliche Reise und ich halte während der Saison engen Kontakt mit meiner Patin.',
                 'partners.mcdonalds.role': 'Athletenpartnerschaft via Sporthilfe',
 
