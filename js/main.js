@@ -290,11 +290,11 @@
                 'timeline.point.national.title': 'Nationalmannschaft',
                 'timeline.point.national.description': 'Ausgewählt, um die Schweiz in der nationalen Kickbox-Mannschaft zu vertreten.',
                 'timeline.point.euro.title': 'Europameisterin',
-                'timeline.point.euro.description': 'Gewann die Europameisterschaften in Jesolo, Italien. 3 Kämpfe, 3 Siege - jeden Kampf dominiert und die Goldmedaille geholt.',
+                'timeline.point.euro.description': 'Gewann die U18-Europameisterschaft in Jesolo, Italien. 3 Kämpfe, 3 Siege - jeden Kampf dominiert und die Goldmedaille geholt.',
                 'timeline.point.pro.title': 'Erster Profikampf',
                 'timeline.point.pro.description': 'Ziel: Übergang zum Profi-Kampfsport und erster Profikampf.',
-                'timeline.point.juniorwc.title': 'Junioren Weltmeisterschaft',
-                'timeline.point.juniorwc.description': 'Ziel: Bei der Junioren Weltmeisterschaft antreten und eine Medaille anstreben.',
+                'timeline.point.juniorwc.title': 'U18-WM-Silbermedaille',
+                'timeline.point.juniorwc.description': 'Silbermedaille an der U18-Weltmeisterschaft in Jesolo, Italien. Als Rang 2 der Weltrangliste gesetzt, die ersten beiden Kämpfe klar gewonnen und das Finale gegen eine ungeschlagene Gegnerin sehr knapp verloren.',
                 'timeline.point.seniorec.title': 'Senioren Europameisterschaft',
                 'timeline.point.seniorec.description': 'Ziel: Den Schritt auf die Seniorenebene bei der Europameisterschaft wagen.',
                 'timeline.point.one.title': 'ONE Championship',
@@ -431,7 +431,14 @@
                     document.getElementById('modalTitle').textContent = content.title;
                     document.getElementById('modalLocation').textContent = content.location;
                     document.getElementById('modalResult').textContent = content.result;
-                    document.getElementById('modalDescription').textContent = content.description;
+                    // Paragraphs starting with a quotation mark are styled as quotes
+                    const descEl = document.getElementById('modalDescription');
+                    descEl.replaceChildren(...content.description.split('\n\n').map(text => {
+                        const para = document.createElement('p');
+                        if (/^["„]/.test(text)) para.className = 'modal-quote';
+                        para.textContent = text;
+                        return para;
+                    }));
 
                     const quoteEl = document.getElementById('modalQuote');
                     if (content.quote) {
@@ -720,9 +727,9 @@
 
                 // Achievements
                 'achievements.title': 'Erfolge',
-                'achievements.euro.category': 'Europameisterschaft',
-                'achievements.euro.result': '3 Kämpfe, 3 Siege --> Goldmedaille',
-                'achievements.euro.preview': '9 Teilnehmerinnen in der Kategorie. Jeden Kampf dominiert und den Europatitel nach intensiver Vorbereitung geholt.',
+                'achievements.euro.category': 'Europa- & Weltmeisterschaft',
+                'achievements.euro.result': 'U18-EM-Gold & U18-WM-Silber',
+                'achievements.euro.preview': '<strong>U18-EM 2025:</strong> 3 Kämpfe, 3 Siege – Goldmedaille nach intensiver Sommervorbereitung<br><strong>U18-WM 2026:</strong> Als Rang 2 der Weltrangliste gesetzt – Silbermedaille nach einem sehr knappen Finale',
                 'achievements.cups.category': 'Internationale Wettkämpfe',
                 'achievements.cups.result': 'Mehrere Goldmedaillen & Wachstum',
                 'achievements.cups.preview': '<strong>Jesolo:</strong> Lernerfahrung – Motivation zur Verbesserung<br><strong>Sarajevo:</strong> Erste internationale Goldmedaille<br><strong>Antalya:</strong> TKO-Sieg, Kampf gegen Weltmeisterin<br><strong>Budapest:</strong> Dominanter Sieg<br><strong>Zagreb:</strong> 2 Siege – wertvolle Erfahrung und Wachstum',
@@ -737,10 +744,10 @@
                 'achievements.expand': 'Klicken für mehr →',
 
                 // Achievement modal content
-                'achievements.euro.title': 'Europameisterschaft 2025',
+
+                'achievements.euro.title': 'U18-Europa- & Weltmeisterschaft 2025–2026',
                 'achievements.euro.location': 'Jesolo, Italien',
-                'achievements.euro.description': '9 Teilnehmerinnen in der Kategorie. Jeden Kampf dominiert und den Titel geholt.',
-                'achievements.euro.quote': 'Ich habe den ganzen Sommer für diesen Wettkampf trainiert. Ich bin nicht in die Ferien gefahren, sondern zu Hause geblieben und habe mehrmals am Tag trainiert. Ich habe mich stark auf meine Ernährung und Gesundheit konzentriert, alles gegeben und am Ende gewonnen.',
+                'achievements.euro.description': 'U18-Europameisterschaft 2025 – Goldmedaille: 9 Athletinnen in meiner Kategorie. Ich musste drei Kämpfe gewinnen, um den Titel zu holen, und konnte jeden einzelnen davon klar dominieren.\n\n"Ich habe den ganzen Sommer für diesen Wettkampf trainiert. Ich bin nicht in die Ferien gefahren, sondern zu Hause geblieben und habe mehrmals am Tag trainiert. Ich habe mich stark auf meine Ernährung und Gesundheit konzentriert, alles gegeben und am Ende gewonnen."\n\nU18-Weltmeisterschaft 2026 – Silbermedaille: 11 Athletinnen in meiner Kategorie. Als Rang 2 der Weltrangliste gesetzt, konnte ich die ersten beiden Kämpfe ganz klar dominieren. Das Finale gegen eine ungeschlagene Gegnerin war sehr knapp, hat am Ende aber nicht für den Sieg gereicht.\n\n"Ich bin enttäuscht über das Resultat, aber ich bin trotzdem auch sehr stolz auf meine Leistung, da ich in der schwersten Disziplin eine Silbermedaille gewonnen habe."',
 
                 'achievements.cups.title': 'Internationale Wettkämpfe 2025–2026',
                 'achievements.cups.location': 'Italien, Sarajevo, Türkei, Ungarn, Kroatien',
@@ -767,7 +774,7 @@
                 'timeline.national': 'Nationalmannschaft',
                 'timeline.euro': 'Europameisterin',
                 'timeline.pro': 'Erster Profikampf',
-                'timeline.juniorwc': 'Junioren Weltmeisterschaft',
+                'timeline.juniorwc': 'U18-WM-Silbermedaille',
                 'timeline.seniorec': 'Senioren Europameisterschaft',
                 'timeline.one': 'ONE Championships',
                 'timeline.olympics': 'Olympische Spiele',
@@ -892,7 +899,7 @@
             document.querySelector('.lang-de').classList.toggle('active', lang === 'de');
 
             // Keys that contain HTML (like <br> tags)
-            const htmlKeys = ['hero.badge.swiss', 'achievements.cups.preview', 'achievements.swiss.preview'];
+            const htmlKeys = ['hero.badge.swiss', 'achievements.euro.preview', 'achievements.cups.preview', 'achievements.swiss.preview'];
 
             // Update all translatable elements
             document.querySelectorAll('[data-i18n]').forEach(el => {

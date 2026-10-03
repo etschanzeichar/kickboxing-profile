@@ -1464,6 +1464,18 @@ nav.scrolled {
     white-space: pre-line;
 }
 
+.modal-description p {
+    margin: 0 0 1.2em;
+}
+
+.modal-description p:last-child {
+    margin-bottom: 0;
+}
+
+.modal-description p.modal-quote {
+    margin-top: 0;
+}
+
 .modal-quote {
     font-style: italic;
     border-left: 3px solid var(--accent);
