@@ -574,8 +574,8 @@ nav.scrolled {
     stroke: var(--accent);
     stroke-width: 2;
     vector-effect: non-scaling-stroke;
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
+    stroke-dasharray: 3000;
+    stroke-dashoffset: 3000;
     animation: drawPath 3s ease forwards;
 }
 
