@@ -431,12 +431,24 @@
                     document.getElementById('modalTitle').textContent = content.title;
                     document.getElementById('modalLocation').textContent = content.location;
                     document.getElementById('modalResult').textContent = content.result;
-                    // Paragraphs starting with a quotation mark are styled as quotes
+                    // Paragraphs starting with a quotation mark are styled as quotes;
+                    // a short "Event name:" prefix is rendered bold as a section heading
                     const descEl = document.getElementById('modalDescription');
                     descEl.replaceChildren(...content.description.split('\n\n').map(text => {
                         const para = document.createElement('p');
-                        if (/^["„]/.test(text)) para.className = 'modal-quote';
-                        para.textContent = text;
+                        if (/^["„]/.test(text)) {
+                            para.className = 'modal-quote';
+                            para.textContent = text;
+                            return para;
+                        }
+                        const colon = text.indexOf(':');
+                        if (colon > 0 && colon <= 70) {
+                            const heading = document.createElement('strong');
+                            heading.textContent = text.slice(0, colon + 1);
+                            para.append(heading, text.slice(colon + 1));
+                        } else {
+                            para.textContent = text;
+                        }
                         return para;
                     }));
 
