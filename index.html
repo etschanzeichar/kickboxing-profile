@@ -437,8 +437,8 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
 
                     <!-- Section clickable areas -->
                     <rect class="timeline-section-area" data-section="1" x="0" y="0" width="300" height="300"/>
-                    <rect class="timeline-section-area" data-section="2" x="300" y="0" width="350" height="300"/>
-                    <rect class="timeline-section-area" data-section="3" x="650" y="0" width="350" height="300"/>
+                    <rect class="timeline-section-area" data-section="2" x="300" y="0" width="440" height="300"/>
+                    <rect class="timeline-section-area" data-section="3" x="740" y="0" width="260" height="300"/>
 
                     <!-- Section titles -->
                     <text class="timeline-section-title" x="20" y="35" data-i18n="timeline.section1">The Journey So Far</text>
@@ -447,8 +447,8 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
                     <text class="timeline-section-title" x="320" y="35" data-i18n="timeline.section2">2026 Goals</text>
                     <text class="timeline-section-subtitle" x="320" y="52" data-i18n="timeline.section2.sub">Next Chapter</text>
 
-                    <text class="timeline-section-title" x="670" y="35" data-i18n="timeline.section3">Long-Term Vision</text>
-                    <text class="timeline-section-subtitle" x="670" y="52" data-i18n="timeline.section3.sub">The Dream</text>
+                    <text class="timeline-section-title" x="760" y="35" data-i18n="timeline.section3">Long-Term Vision</text>
+                    <text class="timeline-section-subtitle" x="760" y="52" data-i18n="timeline.section3.sub">The Dream</text>
 
                     <!-- Background wave path -->
                     <path class="timeline-path" d="
@@ -466,6 +466,7 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
                         Q 62,80 125,180
                         Q 188,280 250,180
                         Q 375,80 500,180
+                        Q 562.5,230 625,230
                     " />
 
                     <!-- Past Achievements Points -->
@@ -525,11 +526,19 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
                         <text class="timeline-point-year" x="500" y="223" text-anchor="middle">2026</text>
                     </g>
 
-                    <!-- Seniors European Championships -->
-                    <g class="timeline-point-group" data-point="seniorec">
-                        <circle class="timeline-point-dot future" cx="625" cy="230" r="6"/>
-                        <text class="timeline-point-label" x="625" y="260" text-anchor="middle" data-i18n="timeline.seniorec">Seniors European Champs</text>
+                    <!-- Elite European Championships 2026 -->
+                    <g class="timeline-point-group timeline-point-clickable" data-point="seniorec" data-title="Elite European Championships" data-year="2026" data-image="images/web/new.photos/fight-arena-ring-intro.jpg" data-description="Stepped up to the elite level at the Elite European Championships, competing against the best adult fighters in Europe.">
+                        <rect class="timeline-point-hitarea" x="-10" y="220" width="100" height="60" transform="translate(625,0)"/>
+                        <circle class="timeline-point-dot" cx="625" cy="230" r="6"/>
+                        <text class="timeline-point-label" x="625" y="260" text-anchor="middle" data-i18n="timeline.seniorec">Elite European Championships</text>
                         <text class="timeline-point-year" x="625" y="273" text-anchor="middle">2026</text>
+                    </g>
+
+                    <!-- Elite World Ranking (goal) -->
+                    <g class="timeline-point-group" data-point="ranking">
+                        <circle class="timeline-point-dot future" cx="700" cy="212" r="6"/>
+                        <text class="timeline-point-label" x="700" y="182" text-anchor="middle" data-i18n="timeline.ranking">Top Elite World Ranking</text>
+                        <text class="timeline-point-year" x="700" y="195" text-anchor="middle" data-i18n="timeline.nextStep">Next Step</text>
                     </g>
 
                     <!-- Long-term Goals -->
@@ -605,6 +614,13 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
                         <div class="timeline-vertical-year">2026</div>
                     </div>
                 </div>
+                <div class="timeline-vertical-item achieved" data-point="seniorec" data-title="Elite European Championships" data-year="2026" data-image="images/web/new.photos/fight-arena-ring-intro.jpg" data-description="Stepped up to the elite level at the Elite European Championships, competing against the best adult fighters in Europe.">
+                    <div class="timeline-vertical-dot"></div>
+                    <div class="timeline-vertical-content">
+                        <div class="timeline-vertical-label" data-i18n="timeline.seniorec">Elite European Championships</div>
+                        <div class="timeline-vertical-year">2026</div>
+                    </div>
+                </div>
                 <div class="timeline-vertical-section">
                     <div class="timeline-vertical-section-title" data-i18n="timeline.section2">2026 Goals</div>
                     <div class="timeline-vertical-section-subtitle" data-i18n="timeline.section2.sub">Next Chapter</div>
@@ -612,8 +628,8 @@ SCOS Championships: After a full year of qualifications, won most of them to qua
                 <div class="timeline-vertical-item future">
                     <div class="timeline-vertical-dot"></div>
                     <div class="timeline-vertical-content">
-                        <div class="timeline-vertical-label" data-i18n="timeline.seniorec">Seniors European Champs</div>
-                        <div class="timeline-vertical-year">2026</div>
+                        <div class="timeline-vertical-label" data-i18n="timeline.ranking">Top Elite World Ranking</div>
+                        <div class="timeline-vertical-year" data-i18n="timeline.nextStep">Next Step</div>
                     </div>
                 </div>
                 <div class="timeline-vertical-section">
